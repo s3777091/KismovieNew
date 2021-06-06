@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/menu.ejs') %>
+
+<!-- sections -->
+<!-- page title -->
+<section class="section section--first section--bg py-4" data-bg="/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section__wrap">
+                    <!-- section title -->
+                    <h2 class="section__title">Tìm kiếm: <span class="text-capitalize"><%-search %> </span></h2>
+                    <!-- end section title -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page title -->
+
+<%- include('./movies.ejs')  %> 
+<!-- end sections -->
+<%- include('../partials/footer.ejs'); %>

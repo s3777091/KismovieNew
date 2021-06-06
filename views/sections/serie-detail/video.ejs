@@ -1,0 +1,42 @@
+<!-- details -->
+<section class="section details py-4" id="section-video">
+    <!-- details background -->
+    <div class="details__bg" data-bg="/img/home/home__bg.jpg"></div>
+    <!-- end details background -->
+    <!-- details content -->
+    <div class="container">
+        <div class="row">
+            <!-- content -->
+            <div class="col-12">
+                <!-- player -->
+                <div id="player"></div>
+                <!-- end player -->
+                <iframe id="iframePlayer" sandbox="allow-forms allow-scripts allow-same-origin" allowfullscreen="allowfullscreen" width="100%" height="100%" frameborder="0" scrolling="no" allow="autoplay; encrypted-media"></iframe>
+            </div>
+            <div class="col-12">
+                <ul class="parts-movie">
+                    <% parts.forEach((part, index) => { %>
+                    <li class="part-movie-item <%- (currentPart == part.slug) ? 'active' : '' %> ">
+                        <a href="/phim-bo/phim/<%-part.slug%>/xem-phim"><%- index+1 %> </a>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="col-12">
+                <!-- title -->
+                <h3 class="text-white py-2 card__title text-capitalize"><%-movie.title.replace('-','')%></h3>
+                <!-- end title -->
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end details content -->
+    <div id="loading" :class="{active : loading}">
+        <div class="content-loading">
+            <img src="/img/loading.svg" alt="loading-video">
+            <p class="text-white text-uppercase">Đang tải phim ...</p>
+        </div>
+    </div>
+</section>
+<!-- end details -->

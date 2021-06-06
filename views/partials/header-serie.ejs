@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/bootstrap-reboot.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/select2.min.css">
+	<!-- <link rel="stylesheet" href="/css/bootstrap-grid.min.css"> -->
+	<link rel="stylesheet" href="/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
+	<link rel="stylesheet" href="/css/nouislider.min.css" />
+	<link rel="stylesheet" href="/css/ionicons.min.css" />
+	<link rel="stylesheet" href="/css/plyr.css" />
+	<link rel="stylesheet" href="/css/photoswipe.css" />
+	<link rel="stylesheet" href="/css/default-skin.css" />
+	<link rel="stylesheet" href="/css/bemovie.css?v=1.0.1" />
+	
+	<script src="https://unpkg.com/feather-icons"></script>
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="/icon/favicon.ico" type="image/x-icon" />
+
+	<meta name="author" content="BeMovies.top" />
+	<meta expr:content="data:blog.pageTitle" property="og:title" />
+	<meta expr:content="data:blog.url" property="og:url" />
+	<meta content="BeMovies" property="og:site_name" />
+	<meta content="629688671039918" property="fb:app_id" />
+	<meta content="article" property="og:type" />
+	<% if (movie) { 
+		serie = movie.movie_series[0]
+	%>
+		<title><%- serie.title %>  | Bemovies| Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất </title>
+		<meta name="keywords" content="<%- serie.slug %>" />
+		<meta name="description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%> " />
+		<meta property="og:url" content="/phim/<%- serie.slug %>/xem-phim" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="BeMovies - <%- serie.title %> " />
+		<meta property="og:description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
+		<meta property="og:image" content="<%- serie.movieThumb.full %> " />
+		<meta property="og:image:alt" content="<%- serie.title %>" />
+	<% } else { %>
+		<title><%-title%> | Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất </title>
+		<meta name="keywords" content="PhimHD, BeMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
+		<meta property="og:url" content="https://bemovies.top" />
+		<meta property="og:image" content="https://bemovies.top/img/banner.jpg" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image:alt" content="BeMovies-Banner" />
+		<meta property="og:title" content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất">
+		<meta property="og:description" content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao" />
+	<% } %>
+</head>
+
+<body class="body" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+</html>

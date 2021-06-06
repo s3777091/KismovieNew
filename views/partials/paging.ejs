@@ -1,0 +1,46 @@
+<div class="col-12 ">
+    <div class="paginator-wrap">
+        <span>Trang: <%- currentPage+"/"+totalPage  %> </span>
+        <ul class="paginator">
+            <% 
+                     isFirst = (currentPage == 1) ? "disabled" : "";
+                     pagePrevious = (currentPage > 1) ? currentPage - 1 : 1;
+                     isLast = (currentPage == totalPage) ? "disabled" : "";
+                     start = (currentPage >= 4) ? currentPage - 2 : 1;
+                     steps = 1;
+                     pageNext = +currentPage + 1;
+                %>
+            <li class="<%= isFirst %> paginator__item paginator__item--prev">
+                <a href="<%- parentLink +"/page/1"%>">
+                    <i data-feather="chevrons-left" class=""></i>
+                </a>
+            </li>
+            <li class="<%= isFirst %> paginator__item paginator__item--prev">
+                <a href="<%- parentLink +"/page/"+pagePrevious %>">
+                    <i data-feather="chevron-left" class=""></i>
+                </a>
+            </li>
+            <% for( let i = start; i <= totalPage; i++ ) { %>
+                    <% 
+                         active=(i==currentPage) ? "paginator__item--active" : "" ;
+                         pageValue=(steps==5) ? "..." : i;
+                    %>
+            <li class="paginator__item <%= active  %> "><a class=""
+                    href="<%- parentLink +"/page/"+i %>"><%- pageValue %> </a>
+            </li>
+            <% if (steps == 5) {   break; } %>
+                <% steps++; %>
+            <% } %>
+            <li class=" <%= isLast %> paginator__item paginator__item--next">
+                <a class="" href="<%- parentLink +"/page/"+pageNext %>">
+                    <i data-feather="chevron-right" class=""></i>
+                </a>
+            </li>
+            <li class="<%= isLast %> paginator__item paginator__item--next">
+                <a class="" href="<%- parentLink +"/page/"+totalPage %>">
+                    <i data-feather="chevrons-right" class=""></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

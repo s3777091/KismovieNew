@@ -1,0 +1,43 @@
+<!-- page title -->
+<section class="section section--first section--bg py-4" data-bg="/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section__wrap">
+                    <!-- section title -->
+                    <h2 class="section__title">Kết quả tìm kiếm: <span class="text-capitalize"><%-search %> </span></h2>
+                    <!-- end section title -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page title -->
+
+<!-- catalog -->
+<div class="catalog mt-4">
+    <div class="container">
+        <div class="row">
+            <!-- end section title -->
+            <% listMovies.forEach(function(mv){ %>
+            <!-- card -->
+            <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                <div class="card">
+                    <div class="card__cover">
+                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded">
+                        <a href="/phim/<%= mv.slug %>" class="card__play">
+                            <i class="icon ion-ios-play"></i>
+                        </a>
+                    </div>
+                    <div class="card__content">
+                        <h4 class="card__title"><a href="/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <% }); %>
+            <%- include('../../partials/paging-default.ejs') %> 
+        </div>
+    </div>
+</div>
+<!-- end catalog -->

@@ -1,0 +1,32 @@
+<!-- home -->
+<section class="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="home__title mb-2">Phim mới cập nhật</h2>
+
+            </div>
+
+            <% topMovies.forEach(function(mv){ %>
+                <% if (mv.movieThumb) { %>
+                <!-- card -->
+                <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <div class="card__cover">
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="rounded" loading="lazy">
+                            <a href="/phim/<%= mv.slug %>" class="card__play">
+                                <i class="icon ion-ios-play"></i>
+                            </a>
+                        </div>
+                        <div class="card__content">
+                            <h4 class="card__title"><a href="/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            <% } %>
+            <% }); %>
+        </div>
+    </div>
+</section>
+<!-- end home -->

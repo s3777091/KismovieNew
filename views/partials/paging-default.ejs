@@ -1,0 +1,38 @@
+<% 
+    isFirst = (currentPage == 1) ? "disabled" : "";
+    pagePrevious = (currentPage > 1) ? currentPage - 1 : 1;
+    isLast = (currentPage == totalPage) ? "disabled" : "";
+    start = (currentPage >= 4) ? currentPage - 2 : 1;
+    steps = 1;
+    pageNext = +currentPage + 1;
+%>
+<% if (isShowPaging) { %>
+    <div class="col-12">
+        <ul class="paginator">
+            <li class="paginator__item paginator__item--prev <%- isFirst %>">
+                <a href="<%- parentLink +"/page/1"%>"><i class="icon ion-ios-arrow-back"></i><i class="icon ion-ios-arrow-back"></i></a>
+            </li>
+            <li class="paginator__item paginator__item--prev <%- isFirst %>">
+                <a href="<%- parentLink +"/page/"+pagePrevious %>"><i class="icon ion-ios-arrow-back"></i></a>
+            </li>
+            <% for( let i = start; i <= totalPage; i++ ) { %>
+            <% 
+                    active=(i==currentPage) ? "paginator__item--active" : "" ;
+                    pageValue=(steps==5) ? "..." : i;
+                %>
+            <li class="paginator__item <%= active  %> "><a class="" href="<%- parentLink +"/page/"+i %>"><%- pageValue %>
+                </a>
+            </li>
+            <% if (steps == 5) {   break; } %>
+            <% steps++; %>
+            <% } %>
+            <li class="paginator__item paginator__item--next <%- isLast %> ">
+                <a href="<%- parentLink +"/page/"+pageNext %>"><i class="icon ion-ios-arrow-forward"></i></a>
+            </li>
+            <li class="paginator__item paginator__item--next <%- isLast %>">
+                <a href="<%- parentLink +"/page/"+totalPage %>"><i class="icon ion-ios-arrow-forward"></i><i class="icon ion-ios-arrow-forward"></i></a>
+            </li>
+        </ul>
+    </div>
+    <!-- end paginator -->
+<% } %>

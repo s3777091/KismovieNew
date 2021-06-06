@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/menu.ejs') %>
+<!-- sections -->
+<%- include('./sections/serie-detail/detail.ejs'); %>
+
+<!-- end sections -->
+<%- include('./partials/footer.ejs'); %>
+<script src="/js/jquery.morelines.min.js"></script>
+<script>
+  let trialLink = "<%-movie.trial%>";
+  if (!trialLink) {
+    return;
+  }
+  if (trialLink.includes('embed')) {
+    $("#player").attr("src", trialLink);
+  } else {
+    let videoId = trialLink.split("v=")[1];
+    let link = "//www.youtube.com/embed/" + videoId;
+    $("#player").attr("src", link);
+  }
+
+
+</script>

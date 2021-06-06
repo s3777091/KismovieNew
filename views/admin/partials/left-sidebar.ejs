@@ -1,0 +1,50 @@
+<!-- sidebar -->
+<div class="sidebar">
+    <!-- sidebar logo -->
+    <a href="/be-admin" class="sidebar__logo">
+        <img src="/img/logo.png" alt="">
+    </a>
+    <!-- end sidebar logo -->
+    
+    <!-- sidebar user -->
+    <div class="sidebar__user">
+        <div class="sidebar__user-img">
+            <img src="/img/user.svg" alt="">
+        </div>
+
+        <div class="sidebar__user-title">
+            <span>Admin</span>
+            <p>Be-Admin</p>
+        </div>
+
+        <a href="/be-admin/logout" class="sidebar__user-btn" type="button">
+            <i class="icon ion-ios-log-out"></i>
+        </a>
+    </div>
+    <!-- end sidebar user -->
+
+    <!-- sidebar nav -->
+    <ul class="sidebar__nav">
+        <li class="sidebar__nav-item">
+            <a href="/be-admin" class="sidebar__nav-link <%- (active == 'dashboard') ? 'sidebar__nav-link--active' : ''  %> "><i class="icon ion-ios-keypad"></i> Dashboard</a>
+        </li>
+
+        <li class="sidebar__nav-item">
+            <a href="/be-admin/list-movie/page/1" class="sidebar__nav-link <%- (active == 'listMovie') ? 'sidebar__nav-link--active' : ''  %> "><i class="icon ion-ios-film"></i> Danh sách phim</a>
+        </li>
+        <li class="sidebar__nav-item">
+            <a href="/be-admin/series/page/1" class="sidebar__nav-link <%- (active == 'series') ? 'sidebar__nav-link--active' : ''  %> "><i class="icon ion-ios-film"></i> Danh sách phim bộ</a>
+        </li>
+
+        <li class="sidebar__nav-item">
+            <a href="/be-admin/clone" class="sidebar__nav-link <%- (active == 'clone') ? 'sidebar__nav-link--active' : ''  %> "><i data-feather="copy" class="pr-2"></i> Clone Phim</a>
+        </li>
+        
+    </ul>
+    <!-- end sidebar nav -->
+    
+    <!-- sidebar copyright -->
+    <div class="sidebar__copyright">© 2020 BeMovies.</div>
+    <!-- end sidebar copyright -->
+</div>
+<!-- end sidebar -->

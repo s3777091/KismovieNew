@@ -1,0 +1,35 @@
+<!-- catalog -->
+<div class="catalog mt-4">
+    <div class="container">
+        <div class="row">
+            <!-- end section title -->
+            <% listMovies.forEach(function(mv){ %>
+            <% if (mv.movie_part_series.length > 0) { %>
+                <% 
+                    parts = mv.parts.toLowerCase().replace('tập','').replace('</strong>','')
+                    parts = (parts == 0) ?  mv.movie_part_series.length :  parts;
+                 %>
+                <!-- card -->
+                <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <div class="card__cover">
+                            <span
+                                class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
+                            <img src="<%=mv.movieThumb.medium%>" alt="<%-mv.title%> " class="rounded">
+                            <a href="/phim-bo/phim/<%= mv.slug %>" class="card__play">
+                                <i class="icon ion-ios-play"></i>
+                            </a>
+                        </div>
+                        <div class="card__content">
+                            <h4 class="card__title"><a href="/phim-bo/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            <% } %>
+            <% }); %>
+            <%- include('../partials/paging-default.ejs') %>
+        </div>
+    </div>
+</div>
+<!-- end catalog -->

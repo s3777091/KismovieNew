@@ -1,0 +1,35 @@
+ <!-- Phim hot -->
+<section class="section section--bg" data-bg="img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <div class="col-12">
+                <h2 class="home__title mb-2">Phim Hot</h2>
+            </div>
+            <!-- end section title -->
+            <% hotMovies.forEach(function(mv){ %>
+                <!-- card -->
+                <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <div class="card__cover">
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded" loading="lazy">
+                            <a href="/phim/<%= mv.slug %>" class="card__play">
+                                <i class="icon ion-ios-play"></i>
+                            </a>
+                        </div>
+                        <div class="card__content">
+                            <h4 class="card__title"><a href="/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+              <% }); %>
+            <!-- section btn -->
+            <div class="col-12">
+                <a href="/the-loai/phim-hanh-dong/page/1" class="section__btn">Xem thêm</a>
+            </div>
+            <!-- end section btn -->
+        </div>
+    </div>
+</section>
+<!-- end phim hot -->

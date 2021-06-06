@@ -1,0 +1,80 @@
+<!-- details -->
+<section class="section details">
+    <!-- details background -->
+    <div class="details__bg" data-bg="/img/home/home__bg.jpg"></div>
+    <!-- end details background -->
+
+    <!-- details content -->
+    <div class="container">
+        <div class="row">
+            <!-- title -->
+            <div class="col-12">
+                <h1 class="details__title"><%-movie.title%></h1>
+            </div>
+            <!-- end title -->
+
+            <!-- content -->
+            <div class="col-12 col-xl-6">
+                <img class="rounded mx-auto d-block img-fluid  <%- movie.cloneFrom == 'phim4400' ? 'landscape' : 'portal' %> " src="<%-movie.movieThumb.medium%>" alt="<%- movie.title %>">
+                <div class="card card--details">
+                    <div class="row">
+                        <!-- card content -->
+                        <div class="col-12">
+                            <div class="card__content">
+                                <ul class="card__meta">
+                                    <li><span>Thể loại:</span> 
+                                        <% 
+                                        listCatSlug =  movie.categorySlug.split(',');
+                                        listCat = movie.category.split(',')
+                                        %> 
+                                        <% listCatSlug.forEach((cat, index) => { %>
+                                            <% if (cat) { %>
+                                                <a
+                                                href="/phim-bo/the-loai/<%- cat %>/page/1"
+                                                class="text-uppercase"><%- listCat[index] %></a></li>
+                                            <% } %>
+                                        <% }) %>
+                                    <li><span>Năm phát hành:</span> <a
+                                            href="/phim-bo/nam/<%- movie.year%>/page/1"><%- movie.year%></a></li>
+                                    <li><span>Thời lượng:</span> <%- movie.times%></li>
+                                    <li><span>Số tập:</span> <%- movie.parts%></li>
+                                    <li><span>Quốc gia:</span> <a class="text-uppercase"
+                                            href="/phim-bo/quoc-gia/<%-movie.regionSlug%>/page/1"><%-movie.region.replace('</strong>','')%></a>
+                                    </li>
+                                </ul>
+                                <div class="card__description  card__description--details">
+                                    <%- movie.description %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card content -->
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-12 text-center">
+                            <div class="d-flex justify-content-around align-items-center">
+                                <% if (movie.movie_part_series[0]) { %>
+                                    <a class="btn btn-outline-info px-3 px-sm-5 text-uppercase mr-sm-3"
+                                        href="/phim-bo/phim/<%-movie.movie_part_series[0].slug%>/xem-phim"> <i
+                                            data-feather="eye" class="pr-1"></i> Xem Phim</a>
+                                    <a class="btn btn-outline-success px-3 px-sm-5 text-uppercase"
+                                        href="https://bemovies.top/phim-bo/phim/<%-movie.movie_part_series[0].slug%>/xem-phim"> <i
+                                            data-feather="download-cloud" class="pr-1"></i> Tải Phim</a>
+                                <% } %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end content -->
+
+            <!-- player -->
+            <div class="col-12 col-xl-6">
+                <iframe id="player" type="text/html" class="trial-video" src="" frameborder="0"></iframe>
+            </div>
+            <!-- end player -->
+        </div>
+    </div>
+    <!-- end details content -->
+</section>
+<!-- end details -->

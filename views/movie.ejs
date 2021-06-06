@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %> 
+<%- include('./partials/menu.ejs') %>
+<!-- sections -->
+<%- include('./sections/movie/detail.ejs'); %> 
+<%# include('./sections/movie/content.ejs'); %>
+
+<!-- end sections -->
+<%- include('./partials/footer.ejs'); %>
+<script src="/js/jquery.morelines.min.js"></script> 
+<script>
+  let trialLink = "<%-movie.trial%>";
+  let clf =  "<%-movie.cloneFrom%>"
+  let videoId = trialLink.split("v=")[1];
+  let link = "//www.youtube.com/embed/" + videoId;
+  if(clf == 'topphimhd' || clf == 'xuongphim') {
+    link = trialLink;
+  }
+  $("#player").attr("src", link);
+  if(trialLink == '') {
+    $('#player').remove();
+  }
+</script>

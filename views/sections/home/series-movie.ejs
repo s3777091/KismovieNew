@@ -1,0 +1,43 @@
+ <!-- Phim bộ -->
+ <section class="section section--bg" data-bg="/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <div class="col-12">
+                <h2 class="home__title mb-2">Phim Bộ</h2>
+            </div>
+            <!-- end section title -->
+
+             <!-- end section title -->
+             <% seriaMovies.forEach(function(mv){ %>
+                <% 
+                    parts = mv.parts.toLowerCase().replace('tập','').replace('</strong>','')
+                    parts = (parts == 0) ?  mv.movie_part_series.length :  parts;
+                 %>
+                <!-- card -->
+                <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                    <div class="card">
+                        <div class="card__cover">
+                            <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="rounded" loading="lazy">
+                            <a href="/phim-bo/phim/<%= mv.slug %>" class="card__play">
+                                <i class="icon ion-ios-play"></i>
+                            </a>
+                        </div>
+                        <div class="card__content">
+                            <h4 class="card__title"><a href="/phim-bo/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+              <% }); %>
+
+            <!-- section btn -->
+            <div class="col-12">
+                <a href="/phim-bo/page/1" class="section__btn">Xem thêm</a>
+            </div>
+            <!-- end section btn -->
+        </div>
+    </div>
+</section>
+<!-- end  Phim việt-->
