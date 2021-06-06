@@ -11,6 +11,7 @@ var cloneRouter = require("./routes/clone");
 var app = express();
 
 const requestIp = require('request-ip');
+const compression = require('compression');
 const dbConfig = require('./src/config/db.json')
 var MemoryStore = require('memorystore')(session)
 app.set('trust proxy', 1) // trust first proxy
@@ -38,7 +39,16 @@ app.use("/", indexRouter);
 app.use("/phim-bo", serieRouter);
 app.use("/be-admin", adminRouter);
 app.use("/clone", cloneRouter);
-
+app.use(compression({
+  level: 6,
+  threshold: 10*1000,
+  filter: (req, res) =>{
+    if(req.header['x-no-compression']){
+      return false
+    }
+    return compression.filter(req, res)
+  },
+}))
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
