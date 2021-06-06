@@ -44,9 +44,23 @@ Primary use:	BeMovies Main Template
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Ubuntu:wght@300;400;500;700&amp;display=swap"); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
+
+
 /*==============================
 	Common styles
 ==============================*/
+
+:root {
+  --clr-dark: rgb(13, 17, 19);
+  --clr-light: #fff;
+  --clr-accent: rgb(222, 52, 0);
+  --clr-accent-dark: rgb(163, 38, 0);
+  --clr-secondary: rgb(0, 76, 199);
+
+  --br: 0.5em;
+
+  --transition: transform 200ms cubic-bezier(0.21, 1, 0.81, 1);
+}
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -57,7 +71,7 @@ body {
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #2b2b31;
+  background-color: rgb(0, 0, 0);
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -870,7 +884,7 @@ a.header__logo .text-red {
   margin-top: 70px;
   position: relative;
   display: block;
-  background-color: #2b2b31;
+  background-color:black;
   padding: 40px 0;
   overflow: hidden;
 }
@@ -890,12 +904,12 @@ a.header__logo .text-red {
   opacity: 0.07;
 }
 .home__title {
-  color: #fff;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: bold;
   font-size: 28px;
+  color: #00ffff;
   margin: 0;
-  padding-right: 70px;
+  padding-right: 50px;
 }
 .home__title b {
   font-weight: 500;
@@ -1349,12 +1363,12 @@ a.header__logo .text-red {
   width: 160px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  background-image: -moz-linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-  background-image: -webkit-linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-  background-image: -ms-linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
-  box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
+  background-image: -moz-linear-gradient(90deg, #00ff9d 0%, #001fd1 100%);
+  background-image: -webkit-linear-gradient(90deg, #00ff9d 0%, #001fd1 100%);
+  background-image: -ms-linear-gradient(90deg, #00ff9d 0%, #001fd1 100%);
+  background-image: linear-gradient(90deg, #00ff9d 0%, #001fd1 100%);
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   opacity: 0.85;
   font-size: 13px;
   color: #fff;
@@ -1658,6 +1672,107 @@ a.header__logo .text-red {
 /*==============================
 	Card
 ==============================*/
+.movies {
+  width: 14.5em;
+  position: relative;
+  margin: 10px;
+  padding-top: 70px;
+}
+
+.front {
+  transition: 250ms;
+}
+
+.front img {
+  max-width: 100%;
+  height: 310px;
+}
+
+.front .thumbnail {
+  border-radius: var(--br);
+}
+
+.front h4 {
+  font-size: 20px;
+  color: #0cb457;
+}
+
+.back {
+  opacity: 0;
+  position: absolute;
+  background-color: #424344;
+  top: 70%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  background: var(--clr-secondary);
+  border-radius: 100vw;
+  color: var(--clr-light);
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding: 0.5em 1.5em;
+  background-image: -moz-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
+  background-image: -webkit-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
+  background-image: -ms-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
+  background-image: linear-gradient(90deg, #d10034 0%, #5e0156 100%);
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+.btn__container {
+  padding-left: 50px;
+  padding-top: 4rem;
+  position: absolute;
+}
+
+.display {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
+.movies:hover .front {
+  transform: translateY(-15%) scale(0.8);
+}
+
+.movies:hover h3 {
+  animation: gameName 250ms forwards;
+}
+
+.movies:hover .back {
+  opacity: 1;
+}
+
+@keyframes gameName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+
+  20% {
+    text-align: left;
+    opacity: 0;
+  }
+
+  50% {
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  100% {
+    text-align: center;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 .card {
   margin-bottom: 30px;
 }
@@ -3550,7 +3665,7 @@ ul.parts-movie li.active {
 	Footer
 ==============================*/
 .footer {
-  background-color: #28282d;
+  background-color: black;
   display: block;
   position: relative;
   overflow: hidden;

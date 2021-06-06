@@ -10,19 +10,29 @@
             <% topMovies.forEach(function(mv){ %>
                 <% if (mv.movieThumb) { %>
                 <!-- card -->
-                <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
-                    <div class="card">
-                        <div class="card__cover">
-                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="rounded" loading="lazy">
-                            <a href="/phim/<%= mv.slug %>" class="card__play">
-                                <i class="icon ion-ios-play"></i>
-                            </a>
+                <div class="display">
+                    <div class="movies">
+                      <div class="front">
+                        <img
+                          src="<%=mv.movieThumb.thumb%>"
+                          alt="<%-mv.title%>"
+                          class="thumbnail"
+                          loading="lazy"
+                        />
+                        <h4><%= mv.title %></h4>
+                      </div>
+                      <div class="back">
+                        <div class="btn__container">
+                            <button class="btn"">
+                                <a href="/phim/<%= mv.slug %>">Xem thêm</a>
+                            </button>
                         </div>
-                        <div class="card__content">
-                            <h4 class="card__title"><a href="/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
-                        </div>
+                      </div>
+                      <div className="background"></div>
                     </div>
+            
                 </div>
+                
                 <!-- end card -->
             <% } %>
             <% }); %>

@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="section__wrap">
                     <!-- section title -->
-                    <h2 class="section__title">Kết quả tìm kiếm: <span class="text-capitalize"><%-search %> </span></h2>
+                    <h2 class="home__title mb-2">Kết quả tìm kiếm: <span class="text-capitalize"><%-search %> </span></h2>
                     <!-- end section title -->
                 </div>
             </div>
@@ -21,18 +21,28 @@
             <!-- end section title -->
             <% listMovies.forEach(function(mv){ %>
             <!-- card -->
-            <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
-                <div class="card">
-                    <div class="card__cover">
-                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded">
-                        <a href="/phim/<%= mv.slug %>" class="card__play">
-                            <i class="icon ion-ios-play"></i>
-                        </a>
+            <div class="display">
+                      
+                <div class="movies">
+                    <div class="front">
+                        <img
+                        src="<%=mv.movieThumb.thumb%>"
+                        alt="<%-mv.title%>"
+                        class="thumbnail"
+                        loading="lazy"
+                      />
+                      <h4><%= mv.title %></h4>
                     </div>
-                    <div class="card__content">
-                        <h4 class="card__title"><a href="/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
-                    </div>
+                    <div class="back">
+                        <div class="btn__container">
+                            <button class="btn"">
+                                <a href="/phim/<%= mv.slug %>">Xem thêm</a>
+                            </button>
+                        </div>
+                      </div>
                 </div>
+   
+       
             </div>
             <!-- end card -->
             <% }); %>

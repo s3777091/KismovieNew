@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="section__wrap">
                     <!-- section title -->
-                    <h2 class="section__title">Phim bộ</h2>
+                    <h2 class="home__title">Phim bộ</h2>
                     <!-- end section title -->
                 </div>
             </div>
@@ -25,18 +25,25 @@
                     parts = (parts == 0) ?  mv.movie_part_series.length :  parts;
                  %>
             <!-- card -->
-            <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
-                <div class="card">
-                    <div class="card__cover">
+            <div class="display">
+                <div class="movies">
+                    <div class="front">
                         <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
-                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded">
-                        <a href="/phim-bo/phim/<%= mv.slug %>" class="card__play">
-                            <i class="icon ion-ios-play"></i>
-                        </a>
+                        <img
+                        src="<%=mv.movieThumb.thumb%>"
+                        alt="<%-mv.title%>"
+                        class="thumbnail"
+                        loading="lazy"
+                      />
+                      <h4><%= mv.title %></h4>
                     </div>
-                    <div class="card__content">
-                        <h4 class="card__title"><a href="/phim-bo/phim/<%= mv.slug %>"><%= mv.title %> </a></h4>
-                    </div>
+                    <div class="back">
+                        <div class="btn__container">
+                            <button class="btn"">
+                                <a href="phim-bo/phim/<%= mv.slug %>">Xem thêm</a>
+                            </button>
+                        </div>
+                      </div>
                 </div>
             </div>
             <!-- end card -->
