@@ -1,14 +1,13 @@
 //Loading Firebase Package
 var firebase = require("firebase");
 const firebaseConfig = {
-  apiKey: "AIzaSyDBfizJuzyUXSUQZpZ_SxpNZ8UtWz2Weto",
-  authDomain: "be-movies.firebaseapp.com",
-  databaseURL: "https://be-movies.firebaseio.com",
-  projectId: "be-movies",
-  storageBucket: "be-movies.appspot.com",
-  messagingSenderId: "236232710524",
-  appId: "1:236232710524:web:a5788d9ff69d3faaa0ecf9",
-  measurementId: "G-2SQ019C8QL",
+  apiKey: "AIzaSyB4hzppkuM7n5BBbd2Rsi-Ped5ZXz46wGM",
+  authDomain: "kimovies.firebaseapp.com",
+  projectId: "kimovies",
+  storageBucket: "kimovies.appspot.com",
+  messagingSenderId: "217538332875",
+  appId: "1:217538332875:web:b5c4d88213c3c5d9cb334e",
+  measurementId: "G-3Y5RBYLRHZ",
 };
 /**
  * Update your Firebase Project

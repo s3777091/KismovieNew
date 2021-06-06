@@ -30,7 +30,7 @@ const activeCloneTrangPhim = async() => {
 
 const cloneTopPhimHD = require('./src/cloneTopPhimHD');
 const activeCloneTopPhim = async() => {
-  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/phim-ma-kinh-di/`);
+  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/country/phim-my/`);
   console.log('=========== CLONE DONE ==========');
 }
 
