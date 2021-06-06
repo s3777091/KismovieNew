@@ -23,32 +23,34 @@
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="/icon/favicon.ico" type="image/x-icon" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Kimovies</title>
 	
 	
-	<meta name="author" content="BeMovies.top" />
-	
+	<meta name="author" content="KiMovies.top" />
 	<meta expr:content="data:blog.pageTitle" property="og:title" />
 	<meta expr:content="data:blog.url" property="og:url" />
-	<meta content="BeMovies" property="og:site_name" />
+	<meta content="KiMovies" property="og:site_name" />
 	<meta content="629688671039918" property="fb:app_id" />
 	<meta content="article" property="og:type" />
 	<% if (movie) { %>
-	<title><%- movie.title %> | Bemovies | Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất </title>
+	<title><%- movie.title %> | Kimovies </title>
 	<meta name="keywords" content="<%- movie.slug %>" />
 	<meta name="description" content="<%- movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
 	<meta property="og:url" content="/phim/<%- movie.slug %>/xem-phim" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="BeMovies - <%- movie.title %>" />
+	<meta property="og:title" content="KiMovies - <%- movie.title %>" />
 	<meta property="og:description" content="<%- movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" /> 
 	<meta property="og:image" content="<%- movie.movieThumb.full%>" />
 	<meta property="og:image:alt" content="<%- movie.title %>" />
 	<% } else { %>
-		<title><%-title%> | Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất </title>
-		<meta name="keywords" content="PhimHD, BeMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
-		<meta property="og:url" content="https://bemovies.top" />
-		<meta property="og:image" content="https://bemovies.top/img/banner.jpg" />
+		<title><%-title%></title>
+		<meta name="keywords" content="PhimHD, KiMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
+		<meta property="og:url" content="https://kimovies2021.herokuapp.com" />
+		<meta property="og:image" content="https://kimovies2021.herokuapp.com/img/banner.jpg" />
 		<meta property="og:type" content="website" />
-		<meta property="og:image:alt" content="BeMovies-Banner" />
+		<meta property="og:image:alt" content="KiMovies-Banner" />
 		<meta property="og:title" content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất">
 		<meta property="og:description" content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao" />
 	<% } %>

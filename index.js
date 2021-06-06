@@ -15,7 +15,7 @@ const dbConfig = require('./src/config/db.json')
 var MemoryStore = require('memorystore')(session)
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  secret: 'BeMovie-Session',
+  secret: 'KiMovie-Session',
   resave: false,
   store: new MemoryStore({
     checkPeriod: 86400000 // prune expired entries every 24h
@@ -50,7 +50,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get("env") === "development" ? err : {};
   // render the error page
   res.status(err.status || 500);
-  res.render("error",{ title:'BeMovies - 404', movie: null});
+  res.render("error",{ title:'KiMovies - 404', movie: null});
 });
 
 //Khoi tao danh sach quoc gia

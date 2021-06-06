@@ -41,7 +41,7 @@ router.get("/phim/:slug", async (req, res) => {
 
   let [menu, infoMovie] = await Promise.all([promMenu, promMovie]);
   res.render("serie-detail", {
-    title: "BeMovies - " + infoMovie.title,
+    title: "KiMovies - " + infoMovie.title,
     movie: infoMovie,
     menu: menu,
     striptags: striptags,
@@ -58,7 +58,7 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
     resMV.movie_series[0].slug
   );
   res.render("serie-play", {
-    title: "BeMovies - " + resMV.title,
+    title: "KiMovies - " + resMV.title,
     movie: resMV,
     menu: resMenu,
     parts: listParts.movie_part_series,
@@ -90,7 +90,7 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
   );
 
   res.render("series-view/list", {
-    title: "BeMovie - Thể loại " + category,
+    title: "KiMovie - Thể loại " + category,
     movie: null,
     listMovies: listMovies,
     menu: menu,
@@ -126,7 +126,7 @@ router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
   );
 
   res.render("series-view/region", {
-    title: "BeMovie - Quốc gia " + resRegion.region,
+    title: "KiMovie - Quốc gia " + resRegion.region,
     movie: null,
     listMovies: listMovies,
     menu: menu,
@@ -155,7 +155,7 @@ router.get("/nam/:year/page/:currentPage", async (req, res) => {
   );
 
   res.render("series-view/year", {
-    title: "BeMovie - Năm phát hành " + year,
+    title: "KiMovie - Năm phát hành " + year,
     movie: null,
     listMovies: listMovies,
     menu: menu,
@@ -186,7 +186,7 @@ router.get("/tim-kiem/:name/page/:currentPage", async (req, res) => {
   );
 
   res.render("series-view/search", {
-    title: "BeMovie - Tìm kiếm " + name,
+    title: "KiMovie - Tìm kiếm " + name,
     movie: null,
     listMovies: listMovies,
     menu: menu,

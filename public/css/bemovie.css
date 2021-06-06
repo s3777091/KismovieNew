@@ -267,7 +267,7 @@ a.header__logo {
   font-size: 30px;
 }
 a.header__logo .text-red {
-  color: #ff55a5;
+  color: rgba(26,132,182,255);
 }
 .header__logo img {
   width: 100%;
