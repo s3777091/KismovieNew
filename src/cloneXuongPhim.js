@@ -134,12 +134,12 @@ const getInfoPhim = async (linkMV) => {
 
   //Tao thumb phim
   let urlImgThumb = $(".movie-image img").attr("src");
-  // const movieThumb = await common.cloneImage(urlImgThumb);
+  const movieThumb = await common.cloneImage(urlImgThumb);
   let infoMovie = {
     slug,
     title,
     description,
-    // movieThumb,
+    movieThumb,
     trial,
     cloneLink: rebaseLink,
     cloneFrom: hostClone.XUONG_PHIM,
@@ -167,24 +167,24 @@ const getDetailMVSingle = async (link, infoMovie, movieOption, urlImgThumb) => {
   const $ = cheerio.load(contentVMDetail);
   const urlDetailMV = $("#watch-block iframe").attr("src");
   console.log({urlDetailMV});
-  // if(urlDetailMV && urlDetailMV.includes(hostClone.API_PLAY_XUONG_PHIM)) {
-  //   //Get file
-  //   let contentFile = await axios.get(urlDetailMV, {
-  //     headers: {
-  //       Referer:hostClone.API_PLAY_XUONG_PHIM
-  //     }
-  //   });
-  //   let contentDetail = contentFile.data;
-  //   const ptFile = /sources: \[\{.+?\}\]/g
-  //   let sources = contentDetail.match(ptFile);
-  //   if(sources) {
-  //     sources = sources[0].replace('sources: ','');
-  //     sources = JSON.parse(sources);
-  //   }
-  //   if(sources) {
-  //     infoMovie.resources = sources;
-  //   }
-  // }else 
+  if(urlDetailMV && urlDetailMV.includes(hostClone.API_PLAY_XUONG_PHIM)) {
+    //Get file
+    let contentFile = await axios.get(urlDetailMV, {
+      headers: {
+        Referer:hostClone.API_PLAY_XUONG_PHIM
+      }
+    });
+    let contentDetail = contentFile.data;
+    const ptFile = /sources: \[\{.+?\}\]/g
+    let sources = contentDetail.match(ptFile);
+    if(sources) {
+      sources = sources[0].replace('sources: ','');
+      sources = JSON.parse(sources);
+    }
+    if(sources) {
+      infoMovie.resources = sources;
+    }
+  }else 
   if(urlDetailMV && urlDetailMV.includes('i3cdn.xyz')) {
     let id = urlDetailMV.split("/").pop();
     infoMovie.resources = [{file:id}];
@@ -193,14 +193,14 @@ const getDetailMVSingle = async (link, infoMovie, movieOption, urlImgThumb) => {
     return;
   }
  
-  // const {hash, key} = common.generateKeyAndHash(id);
+  const {hash, key} = common.generateKeyAndHash(id);
 
-  // const resDetail = await axios.get(`https://i3cdn.xyz/get-info?ios=true`, {
-  //   headers: {
-  //     hash, key
-  //   }
-  // });
-  // const {sources} = resDetail.data.data;
+  const resDetail = await axios.get(`https://i3cdn.xyz/get-info?ios=true`, {
+    headers: {
+      hash, key
+    }
+  });
+  const {sources} = resDetail.data.data;
   if(infoMovie.resources) {
     const movieThumb = await common.cloneImage(urlImgThumb);
     infoMovie.movieThumb = movieThumb

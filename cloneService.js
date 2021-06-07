@@ -30,7 +30,13 @@ const activeCloneTrangPhim = async() => {
 
 const cloneTopPhimHD = require('./src/cloneTopPhimHD');
 const activeCloneTopPhim = async() => {
-  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/phim-hinh-su/`);
+  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/country/phim-my/`);
+  console.log('=========== CLONE DONE ==========');
+}
+
+const clonebilutv = require('./src/cloneBiluTV');
+const activeClonebilutv = async() => {
+  await clonebilutv.getListHomePage("https://bilutvs.net/")
   console.log('=========== CLONE DONE ==========');
 }
 
@@ -41,9 +47,11 @@ const activeCloneXuongPhim = async() => {
   console.log('=========== CLONE DONE ==========');
 }
 const triggerClone = async() => {
-  activeCloneTopPhim();
+  // activeCloneTopPhim();
   // activeCloneXuongPhim();
-  // phim4400();
+  // activeClonebilutv();
+  phim4400();
+  // activeClonePhimHay();
   // fullPhim();
 }
 triggerClone();

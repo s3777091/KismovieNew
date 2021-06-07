@@ -166,12 +166,12 @@ const getDetailMVSingle = async (link, infoMovie, movieOption) => {
       const result = resGetSourceMV.data;
       const filePlay = result.sources[0].file;
       //Kiem tra link con song ko
-      try {
-        await axios.get(filePlay);
-      } catch (error) {
-        console.log("=== LINK DIE ===");
-        return;
-      }
+      // try {
+      //   await axios.get(filePlay);
+      // } catch (error) {
+      //   console.log("=== LINK DIE ===");
+      //   return;
+      // }
       infoMovie.resources = [result];
       let idMovie = await common.insertMovie(infoMovie);
       movieOption.movieId = idMovie;

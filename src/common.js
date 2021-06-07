@@ -221,19 +221,11 @@ const insertMovieOption = async (movieOption) => {
 const initRegion = async () => {
   let listRegion = [
     "Việt Nam",
-    "Trung Quốc",
     "Mỹ",
     "Hàn Quốc",
     "Nhật Bản",
-    "Hồng Kông",
-    "Ấn Độ",
     "Thái Lan",
     "Pháp",
-    "Đài Loan",
-    "Úc",
-    "Anh",
-    "Canada",
-    "Poland",
     "Quốc gia khác",
   ];
   let convertRegions = [];
@@ -264,20 +256,11 @@ const initCategory = async () => {
     "Phim hài hước",
     "Phim võ thuật",
     "Phim kinh dị",
-    "Phim hồi hộp-Gây cấn",
-    "Phim Bí ẩn-Siêu nhiên",
-    "Phim cổ trang",
-    "Phim thần thoại",
     "Phim tâm lý",
     "Phim tài liệu",
-    "Phim tình cảm-Lãng mạn",
-    "Phim chính kịch - Drama",
-    "Phim Thể thao-Âm nhạc",
-    "Phim gia đình",
     "Phim hoạt hình",
     "Phim chiếu rạp",
     "Phim lẻ",
-    "Phim 18+",
   ];
   let convertCat = [];
   listCategory.map((r) => {

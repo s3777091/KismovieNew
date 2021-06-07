@@ -10,39 +10,38 @@ var sessionstorage = require("sessionstorage");
 
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
-  res.render("admin/login", { title: "Đăng nhập BeMovie Admin" });
+  res.render("admin/login", { title: "Đăng nhập KiMovie Admin" });
 });
 router.post("/login", function (req, res, next) {
   const { username, password } = req.body;
-  console.log({username, password});
+  console.log({ username, password });
   if (username == "dathuynh" && password == "123") {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
+  } else if (username == "newadmin" && password == "12345") {
+    sessionstorage.setItem("user", "1");
+    res.redirect("/be-admin");
   } else {
-    res.render("admin/login", { title: "Đăng nhập BeMovie Admin" });
+    res.render("admin/login", { title: "Đăng nhập KiMovie Admin" });
   }
 });
 router.get("/logout", function (req, res, next) {
   sessionstorage.removeItem("user");
   res.redirect("/be-admin/login");
 });
-router.get("/",checkAdminLogin, async (req, res, next) => {
+router.get("/", checkAdminLogin, async (req, res, next) => {
   try {
     let promCountTotalMovies = MovieModel.getTotalMovies();
     let promCountTotalMoviesInMonth = MovieModel.getTotalMoviesInMonth();
     let promTopMostView = MovieModel.getTopMovieViews(10);
     let promLastesMovies = MovieModel.getTopMovieLastest(10);
-    let [
-      totalMovies,
-      totalMoviesInMonth,
-      moviesMostViews,
-      moviesLastest,
-    ] = await Promise.all([
-      promCountTotalMovies,
-      promCountTotalMoviesInMonth,
-      promTopMostView,
-      promLastesMovies,
-    ]);
+    let [totalMovies, totalMoviesInMonth, moviesMostViews, moviesLastest] =
+      await Promise.all([
+        promCountTotalMovies,
+        promCountTotalMoviesInMonth,
+        promTopMostView,
+        promLastesMovies,
+      ]);
     res.render("admin/index", {
       title: "BeMovie Admin",
       totalMovies: totalMovies,
@@ -52,7 +51,7 @@ router.get("/",checkAdminLogin, async (req, res, next) => {
       active: "dashboard",
     });
   } catch (error) {
-    console.log({error});
+    console.log({ error });
     res.render("404", { title: "404", movie: null });
   }
 });
@@ -181,10 +180,10 @@ router.post("/api/edit", checkAdminLogin, async (req, res, next) => {
 router.post("/api/search", async (req, res) => {
   const { searchType, value } = req.body;
   try {
-    if(searchType == 'phim-le') {
+    if (searchType == "phim-le") {
       const list = await MovieModel.findListNameMovie(value);
       res.json({ list });
-    }else {
+    } else {
       const list = await SerielModel.findMovieByName(value);
       res.json({ list });
     }

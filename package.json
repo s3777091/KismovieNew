@@ -10,7 +10,7 @@
     "start": "node ./bin/www",
     "proxy": "nodemon src/proxy.js"
   },
-  "author": "ThienBv",
+  "author": "Dathuynh",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
