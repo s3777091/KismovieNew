@@ -1675,8 +1675,8 @@ a.header__logo .text-red {
 .movies {
   width: 14.5em;
   position: relative;
-  margin: 10px;
-  padding-top: 70px;
+  padding-top: 20px;
+  margin-bottom: 35px;
 }
 
 .front {
@@ -1685,7 +1685,7 @@ a.header__logo .text-red {
 
 .front img {
   max-width: 100%;
-  height: 290px;
+  height: 270px;
 }
 
 .front .thumbnail {
@@ -1700,7 +1700,6 @@ a.header__logo .text-red {
 .back {
   opacity: 0;
   position: absolute;
-  background-color: #424344;
   top: 70%;
   left: 0;
   right: 0;
@@ -1712,9 +1711,7 @@ a.header__logo .text-red {
 .btn {
   cursor: pointer;
   border: 0;
-  background: var(--clr-secondary);
   border-radius: 100vw;
-  color: var(--clr-light);
   font-weight: bold;
   margin-top: 0.5em;
   padding: 0.5em 1.5em;
@@ -1732,6 +1729,7 @@ a.header__logo .text-red {
 }
 
 .display {
+  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -2130,7 +2128,14 @@ a.header__logo .text-red {
     margin-top: 10px;
   }
 }
+/* @media (min-width: 500px) { 
+  .display {
+    flex: auto;
+    justify-content: first baseline;
+  }
+} */
 @media (min-width: 768px) {
+
   .card--list {
     margin-bottom: 50px;
   }

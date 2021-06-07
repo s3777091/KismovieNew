@@ -107,7 +107,7 @@ const download = async (fileName, targetUrl, infoMovie) => {
 var imgbbUploader = require("imgbb-uploader");
 const fetch = require("node-fetch");
 const cloneImage = async (urlImage) => {
-  const API_IMG_BB = "277bf5c2c5bdaa3fed67ab83c8a78af2";
+  const API_IMG_BB = "a73441ccad25132ef5a4f50ac1af5032";
   console.log({ urlImage });
   if (!urlImage) {
     return "";

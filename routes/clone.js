@@ -3,6 +3,7 @@ var router = express.Router();
 const hostClone = require("../src/config/hostClone");
 const clonePhim4400 = require("../src/clonePhim4400");
 const cloneFullFim = require("../src/cloneFullFim");
+const cloneTopphim = require("../src/cloneTopPhimHD");
 const cloneTrangPhim = require("../src/cloneTrangPhim");
 /* GET users listing. */
 router.post("/", async (req, res, next) => {
@@ -14,8 +15,8 @@ router.post("/", async (req, res, next) => {
     if (cloneFrom.toLowerCase() == hostClone.FULFIM) {
       await cloneFullFim.clonePhimBo(link);
     }
-    if (cloneFrom.toLowerCase() == hostClone.TRANG_PHIM) {
-      await cloneTrangPhim.clonePhimBo(link);
+    if (cloneFrom.toLowerCase() == hostClone.cloneTopphim) {
+      await cloneTopphim.getListHomePage(link);
     }
     console.log('===CLONE DONE=====');
     res.json({ isDone: true });

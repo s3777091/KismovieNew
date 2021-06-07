@@ -14,10 +14,10 @@ const getListHomePage = async (url) => {
   let buf = await common.httpGet(url);
   let contentHome = buf.toString("utf-8");
   const $ = cheerio.load(contentHome);
-  let listMV = $(".halim-item");
+  let listMV = $("#phimle.tabb1.tabb-item");
   for (let i = listMV.length - 1; i > 0; i--) {
     let linkClones = await MovieModel.getListLinkByCloneFrom(hostClone.BILU_TV);
-    let linkVM = $(listMV[i]).find("a.halim-thumb").attr("href");
+    let linkVM = $(listMV[i]).find("film-item").attr("href");
     let rebaseLink = rebaseLinkClone(linkVM);
     if (!linkClones.includes(rebaseLink)) {
       await getInfoPhim(linkVM);
@@ -32,7 +32,7 @@ const getInfoPhim = async (linkMV) => {
   let contentHome = buf.toString("utf-8");
   let $ = cheerio.load(contentHome, { decodeEntities: false });
 
-  let linkSource = $(".halim-watch-box a").attr("href");
+  let linkSource = $(".tab-wrapper-info a").attr("href");
   if (!linkSource) {
     return;
   }
@@ -50,14 +50,14 @@ const getInfoPhim = async (linkMV) => {
     return;
   }
 
-  let title = $(".movie-detail .entry-title").text();
+  let title = $(".title .name").text();
   let slug = removeVI(title).replace("&", "-");
 
-  let description = $(".video-item.halim-entry-box article").text();
+  let description = $(".block-film-content p-2.film-content content-h").text();
 
   let year = "2020";
   try {
-    year = $(".released a").text();
+    year = $(".tags-item-info a").text();
     year = +year;
     if (isNaN(year)) {
       year = "2020";
@@ -70,7 +70,7 @@ const getInfoPhim = async (linkMV) => {
 
   let category = "";
   try {
-    let strCat = $(".movie-detail .category a");
+    let strCat = $(".meta-data cl-c .info-y a");
     let tmpCat = [];
     if (strCat) {
       for (let i = 0; i < strCat.length; i++) {
@@ -85,18 +85,18 @@ const getInfoPhim = async (linkMV) => {
     catSplit.map((c) => (categorySlug += removeVI(c) + ","));
   }
 
-  let region = "Quốc gia khác";
-  try {
-    region = $(".movie-detail .actors:first a").text();
-  } catch (error) {}
+  // let region = "Quốc gia khác";
+  // try {
+  //   region = $(".movie-detail .actors:first a").text();
+  // } catch (error) {}
 
-  let regionSlug = removeVI(region);
-  let trial = "";
-  try {
-    trial = $("#show-trailer").attr("data-url");
-  } catch (error) {
-    trial = ""
-  }
+  // let regionSlug = removeVI(region);
+  // let trial = "";
+  // try {
+  //   trial = $("#show-trailer").attr("data-url");
+  // } catch (error) {
+  //   trial = ""
+  // }
 
   //Tao thumb phim
   let urlImgThumb = $('meta[property="og:image"]').attr("content");

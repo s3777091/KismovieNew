@@ -43,7 +43,7 @@ router.get("/", checkAdminLogin, async (req, res, next) => {
         promLastesMovies,
       ]);
     res.render("admin/index", {
-      title: "BeMovie Admin",
+      title: "Kimovies Admin",
       totalMovies: totalMovies,
       totalMoviesInMonth: totalMoviesInMonth,
       moviesMostViews: moviesMostViews,
@@ -69,7 +69,7 @@ router.get(
     let skipItem = (currentPage - 1) * itemPerPage;
     let listMovies = await MovieModel.getTopMoviePaging(itemPerPage, skipItem);
     res.render("admin/list-movies", {
-      title: "BeMovie Admin",
+      title: "Kimovies Admin",
       movies: listMovies,
       currentPage: currentPage,
       totalPage: totalPage,
@@ -113,7 +113,7 @@ router.get(
 
 //Page clone phim
 router.get("/clone", checkAdminLogin, async (req, res, next) => {
-  res.render("admin/clone", { title: "BeMovie Admin", active: "clone" });
+  res.render("admin/clone", { title: "Kimovies Admin", active: "clone" });
 });
 
 //Page cap nhat thong tin phim
@@ -128,7 +128,7 @@ router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {
     promRegions,
   ]);
   res.render("admin/edit", {
-    title: "BeMovie Admin",
+    title: "Kimovies Admin",
     movie: movie,
     genres: genres,
     regions: regions,
@@ -148,7 +148,7 @@ router.get("/series/edit/:slug", checkAdminLogin, async (req, res, next) => {
     promRegions,
   ]);
   res.render("admin/edit-serie", {
-    title: "BeMovie Admin",
+    title: "Kimovies Admin",
     movie: movie,
     genres: genres,
     regions: regions,

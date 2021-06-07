@@ -42,7 +42,6 @@ app.use("/be-admin", adminRouter);
 app.use("/clone", cloneRouter);
 app.use(compression({
   level: 6,
-  threshold: 10*1000,
   filter: (req, res) =>{
     if(req.header['x-no-compression']){
       return false

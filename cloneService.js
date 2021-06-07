@@ -18,6 +18,8 @@ const fullPhim = async () => {
   await cloneFullFim.clonePhimBo(`https://www.fullphim.net/the-loai/phim-bo`);
   console.log('=========== CLONE DONE ==========');
 };
+
+
 // fullPhim();
 
 const cloneTrangPhim = require('./src/cloneTrangPhim');
@@ -30,29 +32,29 @@ const activeCloneTrangPhim = async() => {
 
 const cloneTopPhimHD = require('./src/cloneTopPhimHD');
 const activeCloneTopPhim = async() => {
-  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/country/phim-my/`);
+  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/release/2019/`);
   console.log('=========== CLONE DONE ==========');
 }
 
-const clonebilutv = require('./src/cloneBiluTV');
-const activeClonebilutv = async() => {
-  await clonebilutv.getListHomePage("https://bilutvs.net/")
-  console.log('=========== CLONE DONE ==========');
-}
+// const clonebilutv = require('./src/cloneBiluTV');
+// const activeClonebilutv = async() => {
+//   await clonebilutv.getListHomePage("https://bilutvs.net/")
+//   console.log('=========== CLONE DONE ==========');
+// }
 
 
-const cloneXuongPhim = require('./src/cloneXuongPhim');
-const activeCloneXuongPhim = async() => {
-  await cloneXuongPhim.getListHomePage(`https://xuongphim18.net/`);
-  console.log('=========== CLONE DONE ==========');
-}
+// const cloneXuongPhim = require('./src/cloneXuongPhim');
+// const activeCloneXuongPhim = async() => {
+//   await cloneXuongPhim.getListHomePage(`https://xuongphim18.net/`);
+//   console.log('=========== CLONE DONE ==========');
+// }
 const triggerClone = async() => {
-  // activeCloneTopPhim();
+  activeCloneTopPhim();
   // activeCloneXuongPhim();
   // activeClonebilutv();
-  phim4400();
+  // phim4400();
   // activeClonePhimHay();
-  // fullPhim();
+  fullPhim();
 }
 triggerClone();
 module.exports = {
