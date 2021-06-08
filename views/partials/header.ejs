@@ -1,77 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="propeller" content="fdf82b1b59e850daaf655cc6f82d3686">
-	
-	<!-- CSS -->
-	<link rel="stylesheet" href="/css/bootstrap-reboot.min.css" />
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="/css/select2.min.css">
-	<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
-	<link rel="stylesheet" href="/css/nouislider.min.css" />
-	<link rel="stylesheet" href="/css/ionicons.min.css" />
-	<link rel="stylesheet" href="/css/plyr.css" />
-	<link rel="stylesheet" href="/css/photoswipe.css" />
-	<link rel="stylesheet" href="/css/default-skin.css" />
-	<link rel="stylesheet" href="/css/bemovie.css?v=1.0.1" />
-	
-	<script src="https://unpkg.com/feather-icons"></script>
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="/icon/favicon.ico" type="image/x-icon" />
+  <head>
+	<script data-ad-client="ca-pub-4621415013380457" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="propeller" content="fdf82b1b59e850daaf655cc6f82d3686" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Kimovies</title>
-	
-	
-	<meta name="author" content="KiMovies.top" />
-	<meta expr:content="data:blog.pageTitle" property="og:title" />
-	<meta expr:content="data:blog.url" property="og:url" />
-	<meta content="KiMovies" property="og:site_name" />
-	<meta content="629688671039918" property="fb:app_id" />
-	<meta content="article" property="og:type" />
-	<% if (movie) { %>
-	<title><%- movie.title %> | Kimovies </title>
-	<meta name="keywords" content="<%- movie.slug %>" />
-	<meta name="description" content="<%- movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
-	<meta property="og:url" content="/phim/<%- movie.slug %>/xem-phim" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="KiMovies - <%- movie.title %>" />
-	<meta property="og:description" content="<%- movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" /> 
-	<meta property="og:image" content="<%- movie.movieThumb.full%>" />
-	<meta property="og:image:alt" content="<%- movie.title %>" />
-	<% } else { %>
-		<title><%-title%></title>
-		<meta name="keywords" content="PhimHD, KiMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
-		<meta property="og:url" content="https://kimovies.me/" />
-		<meta property="og:image" content="https://kimovies.me/img/banner.jpg" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image:alt" content="KiMovies-Banner" />
-		<meta property="og:title" content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất">
-		<meta property="og:description" content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao" />
-	<% } %>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KK8B3NQZ1Z"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/select2.min.css" />
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="/css/nouislider.min.css" />
+    <link rel="stylesheet" href="/css/ionicons.min.css" />
+    <link rel="stylesheet" href="/css/plyr.css" />
+    <link rel="stylesheet" href="/css/photoswipe.css" />
+    <link rel="stylesheet" href="/css/default-skin.css" />
+    <link rel="stylesheet" href="/css/bemovie.css?v=1.0.1" />
 
-	gtag('config', 'G-KK8B3NQZ1Z');
-	</script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/icon/favicon.ico" type="image/x-icon" />
 
-	<script type="text/javascript" data-cfasync="false">
-		/*<![CDATA[/* */
-		(function(){var d71ee20407ed9145bfa86cf0667be639="EZ6Pb2inxxaNNz_1W68blZpWMENjJ_FhbeRTodLEAWLfZ765zl7r8Td6SiX-QAM50yw1Qp-p8V_lPn7-KLHa";var a=['GBLDnHzDgMKHNMK5w5nDpCTCj8K1J8KZw5thFsKOAj9icCgsFsOdw6vDg8K6w78BIh4=','MsK2wo3CpMOqwqdzwovConQaw4hvSBk=','wr7DlT3CrjMlJ8Kr','wowJMTJZw6fDnsOXR27DuRo=','w4LCswzChMOJUMO1wqYKeAxzwrU6w4LCjMKuEcKNf8Ozw78rUcKqWsOjw4s=','w5w7W8KrXsO0woDDqEslw63Cgg==','WylHHMKPN8KwwqZDR2Y=','w5A8P8Ocw7UUXMOUSEVdan4=','MXXCncOE','w4ZdwqI=','JGLCgsOPworCm8OmwpMS','NcONDGPClE5gCMKow45fMlnCs8OBwpnCs8KOwrjCnA==','wqU/wod3wrkCw4A1c8Orw7YHwqrDng==','wrvDtsOmMcKpw7ccW8KlEsOKL3XCryMEw7DCjMOYw6F8PsOF','wobDin5pQyFfEQ==','w5fDo8OsBMK2Eg==','HDY4N2Rz','NMKTw4xfXl0l','w75TwpvCvCwdMVU=','c8Kmfw==','wr7DjF7DtMOdC8KrwrnDt8KRw6Qb','wpHDhm91XjA=','w4zCq0zDkMKew5g=','wrzCs8OcccODT8O4w5cfw5nDnMKJwq4pwrA+wrZrLnXDsm5BSTXDo8KvMXA6YcOGQixIR8ODw4TDjcOaDQJgwp3CosKvw60wwpTDkQ==','NwhZwop3J8OzRxl9w5Rkw4g=','wqjDocODbsOCUMOCw4FCwok=','w6nCiSrDhQg0OQ==','NMO+IMK1wpY=','w7bDu8OXw7M='];(function(b,e){var f=function(g){while(--g){b['push'](b['shift']());}};f(++e);}(a,0x8b));var b=function(c,d){c=c-0x0;var e=a[c];if(b['qJbbRZ']===undefined){(function(){var h;try{var j=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');h=j();}catch(k){h=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';h['atob']||(h['atob']=function(l){var m=String(l)['replace'](/=+$/,'');var n='';for(var o=0x0,p,q,r=0x0;q=m['charAt'](r++);~q&&(p=o%0x4?p*0x40+q:q,o++%0x4)?n+=String['fromCharCode'](0xff&p>>(-0x2*o&0x6)):0x0){q=i['indexOf'](q);}return n;});}());var g=function(h,l){var m=[],n=0x0,o,p='',q='';h=atob(h);for(var t=0x0,u=h['length'];t<u;t++){q+='%'+('00'+h['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}h=decodeURIComponent(q);var r;for(r=0x0;r<0x100;r++){m[r]=r;}for(r=0x0;r<0x100;r++){n=(n+m[r]+l['charCodeAt'](r%l['length']))%0x100;o=m[r];m[r]=m[n];m[n]=o;}r=0x0;n=0x0;for(var v=0x0;v<h['length'];v++){r=(r+0x1)%0x100;n=(n+m[r])%0x100;o=m[r];m[r]=m[n];m[n]=o;p+=String['fromCharCode'](h['charCodeAt'](v)^m[(m[r]+m[n])%0x100]);}return p;};b['gdEQia']=g;b['SGqDZb']={};b['qJbbRZ']=!![];}var f=b['SGqDZb'][c];if(f===undefined){if(b['mcSkqG']===undefined){b['mcSkqG']=!![];}e=b['gdEQia'](e,d);b['SGqDZb'][c]=e;}else{e=f;}return e;};var x=window;x[b('0x5','(S]O')]=[[b('0x16','W4QP'),0x43e857],[b('0x15','&aCc'),0x0],[b('0x12','MNWx'),b('0xf','@np]')],[b('0x9','V)^I'),0x0],[b('0x3',']7]W'),![]],[b('0x1','ZVsn'),0x0],[b('0x1a','@hsu'),!0x0]];var z=[b('0x6','Wu))'),b('0x0','N88m'),b('0xa','[VB&'),b('0x13','jlJ%')],k=0x0,u,e=function(){if(!z[k])return;u=x[b('0x18','KbLa')][b('0xd',')Yn2')](b('0x1c','wo3G'));u[b('0xe','zWP4')]=b('0x7','k9q@');u[b('0x4','3(NU')]=!0x0;var c=x[b('0x14','u4w1')][b('0x11','Hh]8')](b('0x1b','u4w1'))[0x0];u[b('0x19','DiSQ')]=b('0x8','FnnD')+z[k];u[b('0xc','Ti7d')]=b('0x10','zWP4');u[b('0x17','C3d!')]=function(){k++;e();};c[b('0x2','N88m')][b('0xb','bzvH')](u,c);};e();})();
-		/*]]>/* */
-	</script>	
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kimovies</title>
 
-<body class="body" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <meta name="author" content="KiMovies.top" />
+    <meta expr:content="data:blog.pageTitle" property="og:title" />
+    <meta expr:content="data:blog.url" property="og:url" />
+    <meta content="KiMovies" property="og:site_name" />
+    <meta content="629688671039918" property="fb:app_id" />
+    <meta content="article" property="og:type" />
+    <% if (movie) { %>
+    <title><%- movie.title %> | Kimovies</title>
+    <meta name="keywords" content="<%- movie.slug %>" />
+    <meta name="description" content="<%-
+    movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+    160)+'...'%>" />
+    <meta property="og:url" content="/phim/<%- movie.slug %>/xem-phim" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="KiMovies - <%- movie.title %>" />
+    <meta property="og:description" content="<%-
+    movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+    160)+'...'%>" />
+    <meta property="og:image" content="<%- movie.movieThumb.full%>" />
+    <meta property="og:image:alt" content="<%- movie.title %>" />
+    <% } else { %>
+    <title><%-title%></title>
+    <meta
+      name="keywords"
+      content="PhimHD, KiMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot"
+    />
+    <meta property="og:url" content="https://kimovies.me/" />
+    <meta property="og:image" content="https://kimovies.me/img/banner.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content="KiMovies-Banner" />
+    <meta
+      property="og:title"
+      content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất"
+    />
+    <meta
+      property="og:description"
+      content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao"
+    />
+    <% } %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GTM-PGQ2G8X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<!-- <script data-cfasync="false">(function(w,a){w[a]=w[a]||{};w[a].queue=w[a].queue||[];w[a].queue.push(function () { _ASO.PushOptions = { idzone:62110 }; _ASO.loadPushHelper(); })})(window,"_aso");</script><script data-cfasync="false" async="async" type="text/javascript" src="https://media.vivaclix.com/js/code.min.js"></script>
+      gtag("config", "GTM-PGQ2G8X");
+    </script>
+
+  </head>
+
+  <body
+    class="body"
+    oncontextmenu="return false"
+    onselectstart="return false"
+    ondragstart="return false"
+  >
+    <!-- <script data-cfasync="false">(function(w,a){w[a]=w[a]||{};w[a].queue=w[a].queue||[];w[a].queue.push(function () { _ASO.PushOptions = { idzone:62110 }; _ASO.loadPushHelper(); })})(window,"_aso");</script><script data-cfasync="false" async="async" type="text/javascript" src="https://media.vivaclix.com/js/code.min.js"></script>
 <script data-cfasync="false">(function(w,a){w[a]=w[a]||{};w[a].queue=w[a].queue||[];w[a].queue.push(function () { _ASO.PuOptions = { idzone: 62107, cappingInterval:21600 }; _ASO.loadPuHelper(); })})(window,"_aso");</script><script data-cfasync="false" async="async" type="text/javascript" src="https://media.vivaclix.com/js/code.min.js"></script> -->
+  </body>
+</html>

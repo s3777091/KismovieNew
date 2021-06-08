@@ -1,9 +1,9 @@
 /*----------------------------------------
 [Master Stylesheet]
 
-Project:	BeMovies
-Version:	2.0
-Primary use:	BeMovies Main Template
+Project:	KiMovies
+Version:	3.0
+Primary use:	KIMovies Main Template
 ----------------------------------------*/
 /*----------------------------------------
 [Table of contents]
@@ -42,9 +42,7 @@ Primary use:	BeMovies Main Template
 ==============================*/
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"); */
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Ubuntu:wght@300;400;500;700&amp;display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
 
 /*==============================
 	Common styles
@@ -70,7 +68,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: rgb(0, 0, 0);
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -281,7 +279,7 @@ a.header__logo {
   font-size: 30px;
 }
 a.header__logo .text-red {
-  color: rgba(26,132,182,255);
+  color: rgba(26, 132, 182, 255);
 }
 .header__logo img {
   width: 100%;
@@ -704,7 +702,7 @@ a.header__logo .text-red {
   width: 750px;
 }
 .menu-region {
-  display: grid  !important;
+  display: grid !important;
   grid-template-columns: auto auto;
   width: 400px;
   justify-content: space-between;
@@ -728,7 +726,6 @@ a.header__logo .text-red {
   width: 100% !important;
 }
 @media (min-width: 768px) {
-
   .header__content {
     height: 90px;
   }
@@ -866,16 +863,22 @@ a.header__logo .text-red {
   }
 }
 @media (min-width: 2000px) {
-	
-	.container, .container-lg, .container-md, .container-sm, .container-xl {
-		max-width: 1920px;
-	}
-	.header__nav-link, .select2-container--default .select2-selection--single, .header__search-content input {
-		font-size: 25px;
-	}
-	.header__search-content, .header__search-content input {
-		height: 100px;
-	}
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1920px;
+  }
+  .header__nav-link,
+  .select2-container--default .select2-selection--single,
+  .header__search-content input {
+    font-size: 25px;
+  }
+  .header__search-content,
+  .header__search-content input {
+    height: 100px;
+  }
 }
 /*==============================
 	Home
@@ -884,7 +887,7 @@ a.header__logo .text-red {
   margin-top: 70px;
   position: relative;
   display: block;
-  background-color:black;
+  background-color: black;
   padding: 40px 0;
   overflow: hidden;
 }
@@ -1746,10 +1749,9 @@ a.header__logo .text-red {
   opacity: 1;
 }
 
-@media (max-width: 418px) {
-
+@media (max-width: 428px) {
   .movies {
-    width: 10.5em;
+    width: 8em;
     position: relative;
     padding-top: 20px;
     margin-bottom: 20px;
@@ -1759,8 +1761,8 @@ a.header__logo .text-red {
     height: 220px;
   }
 
-  .display{
-    padding-left: 25px;
+  .display {
+    padding-left: 50px;
   }
   .front h4 {
     font-weight: bold;
@@ -1773,42 +1775,6 @@ a.header__logo .text-red {
   }
 
   .btn__container {
-    padding-left: 15px;
-    padding-top: 4rem;
-    position: absolute;
-  }
-  
-
-  
-}
-
-@media (max-width: 375px) {
-
-  .movies {
-    width: 8.5em;
-    position: relative;
-    padding-top: 15px;
-    margin-bottom: 20px;
-  }
-  .front img {
-    max-width: 100%;
-    height: 170px;
-  }
-
-  .display{
-    padding-left: 35px;
-  }
-  .front h4 {
-    font-weight: bold;
-    font-size: 12px;
-    color: #0cb457;
-  }
-
-  .movies:hover .front {
-    transform: translateY(-5%) scale(0.8);
-  }
-
-  .btn__container {
     padding-left: 10px;
     padding-top: 4rem;
     position: absolute;
@@ -1817,10 +1783,10 @@ a.header__logo .text-red {
   .btn {
     cursor: pointer;
     border: 0;
-    border-radius: 20vw;
+    border-radius: 100vw;
     font-weight: bold;
     margin-top: 0.05em;
-    padding: 0.05em 1em;
+    padding: 0.05em 0.15em;
     background-image: -moz-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
     background-image: -webkit-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
     background-image: -ms-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
@@ -1828,21 +1794,8 @@ a.header__logo .text-red {
     -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   }
-
-  .back {
-    opacity: 0;
-    position: absolute;
-    top: 60%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-  }
-  
-
-  
 }
+
 
 @keyframes gameName {
   0% {
@@ -2233,7 +2186,6 @@ a.header__logo .text-red {
   }
 } */
 @media (min-width: 768px) {
-
   .card--list {
     margin-bottom: 50px;
   }
@@ -2419,7 +2371,7 @@ a.header__logo .text-red {
 .card__cover .portal {
   width: 60%;
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .wrap-player .container {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -2445,16 +2397,19 @@ a.header__logo .text-red {
     width: 130px;
     height: 40px;
   }
-  .card__cover img, .owl-carousel .owl-item img {
+  .card__cover img,
+  .owl-carousel .owl-item img {
     min-height: unset !important;
     max-width: 100%;
   }
-  #menu-category, .menu-year, .menu-region {
+  #menu-category,
+  .menu-year,
+  .menu-region {
     display: unset !important;
     width: 300px;
   }
 }
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .option-mv {
     flex-direction: column;
     align-items: flex-start !important;
@@ -3742,7 +3697,8 @@ ul.parts-movie li {
 ul.parts-movie li a {
   color: #fff;
 }
-#iframePlayer, #player {
+#iframePlayer,
+#player {
   width: 100%;
   height: 450px;
 }
@@ -3755,7 +3711,6 @@ ul.parts-movie li.active {
   background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
   -webkit-box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
   box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
-  
 }
 @media (min-width: 1200px) {
   .accordion {
@@ -4776,4 +4731,145 @@ ul.parts-movie li.active {
   background-image: -webkit-linear-gradient(180deg, #ff55a5 0%, #ff5860 100%);
   background-image: -ms-linear-gradient(180deg, #ff55a5 0%, #ff5860 100%);
   background-image: linear-gradient(180deg, #ff55a5 0%, #ff5860 100%);
+}
+
+
+
+.slider{
+  width: 100%;
+  padding-top: 70px;
+  padding-left: 100px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.slides{
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img{
+  width: 900px;
+  height: 600px;
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
+  position: absolute;
+  width: 800px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid #40D3DC;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: #40D3DC;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+/*css for automatic navigation*/
+
+.navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.navigation-auto div{
+  border: 2px solid #40D3DC;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: #40D3DC;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: #40D3DC;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: #40D3DC;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+  background: #40D3DC;
+}
+
+@media (max-width: 428px) {
+  .slider{
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 0;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+  }
+  
+  .slides input{
+    display: none;
+  }
+  
+  .slide{
+    width: 20%;
+    transition: 1s;
+  }
+  
+  .slide img{
+    width: 100%;
+    height: 400px;
+  }
 }

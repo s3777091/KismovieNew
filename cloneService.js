@@ -32,7 +32,7 @@ const activeCloneTrangPhim = async() => {
 
 const cloneTopPhimHD = require('./src/cloneTopPhimHD');
 const activeCloneTopPhim = async() => {
-  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/release/2019/`);
+  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/giac-mo-den-su-that/`);
   console.log('=========== CLONE DONE ==========');
 }
 
@@ -54,7 +54,7 @@ const triggerClone = async() => {
   // activeClonebilutv();
   // phim4400();
   // activeClonePhimHay();
-  fullPhim();
+  // fullPhim();
 }
 triggerClone();
 module.exports = {
