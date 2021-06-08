@@ -4,7 +4,7 @@ common.initDb();
 
 const clonePhim4400 = require("./src/clonePhim4400");
 const phim4400 = async () => {
-  await clonePhim4400.getListHomePage("https://xemphimnao.com");
+  await clonePhim4400.getListHomePage("https://xemphimnao.com/phim-boom-tan/");
   console.log("========== CLONE DONE ==========");
 };
 // 
@@ -21,33 +21,13 @@ const fullPhim = async () => {
 
 
 // fullPhim();
-
-const cloneTrangPhim = require('./src/cloneTrangPhim');
-const activeCloneTrangPhim = async() => {
-  //CLONE PHIM BO
-  await cloneTrangPhim.clonePhimBo(`https://trangphim.net`);
-  console.log('=========== CLONE DONE ==========');
-}
-
-
 const cloneTopPhimHD = require('./src/cloneTopPhimHD');
 const activeCloneTopPhim = async() => {
-  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/giac-mo-den-su-that/`);
+  await cloneTopPhimHD.getListHomePage(`http://topphimhdz.net/phim-thuyet-minh`);
   console.log('=========== CLONE DONE ==========');
 }
 
-// const clonebilutv = require('./src/cloneBiluTV');
-// const activeClonebilutv = async() => {
-//   await clonebilutv.getListHomePage("https://bilutvs.net/")
-//   console.log('=========== CLONE DONE ==========');
-// }
 
-
-// const cloneXuongPhim = require('./src/cloneXuongPhim');
-// const activeCloneXuongPhim = async() => {
-//   await cloneXuongPhim.getListHomePage(`https://xuongphim18.net/`);
-//   console.log('=========== CLONE DONE ==========');
-// }
 const triggerClone = async() => {
   activeCloneTopPhim();
   // activeCloneXuongPhim();

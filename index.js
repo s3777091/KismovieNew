@@ -40,8 +40,25 @@ app.use("/", indexRouter);
 app.use("/phim-bo", serieRouter);
 app.use("/be-admin", adminRouter);
 app.use("/clone", cloneRouter);
+
+app.get('/events', function (req, res) {
+  res.setHeader('Content-Type', 'text/event-stream')
+  res.setHeader('Cache-Control', 'no-cache')
+ 
+  // send a ping approx every 2 seconds
+  var timer = setInterval(function () {
+    res.write('data: ping\n\n')
+ 
+    // !!! this is the important part
+    res.flush()
+  }, 2000)
+ 
+  res.on('close', function () {
+    clearInterval(timer)
+  })
+})
 app.use(compression({
-  level: 6,
+  level: 1,
   filter: (req, res) =>{
     if(req.header['x-no-compression']){
       return false
