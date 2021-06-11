@@ -217,6 +217,20 @@
                 }
                 return;
             }
+
+            if(cloneFrom == 'phimdb') {
+                $("#iframePlayer").remove();
+                listResource = data.resources;
+                this.sources = 1;
+                this.loading = false;
+                if (listResource.length > 0) {
+                    let sourceFile = listResource[0].file;
+                    this.fileMV = "" + sourceFile;
+                    $('#player').show();
+                    this.setPlayer(listResource)
+                }
+                return;
+            }
             data.resources.map((r) => {
                 let server = [];
                 r.map((item) => {

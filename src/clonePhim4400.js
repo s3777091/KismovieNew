@@ -8,6 +8,7 @@ const config = require("./config");
 const { removeVI } = require("jsrmvi");
 const { httpGet } = require("./common");
 const fs = require("fs");
+
 const getListHomePage = async (url) => {
   console.log(`START GET LIST LINK HOME ${url}`);
   let buf = await common.httpGet(url);

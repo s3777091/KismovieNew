@@ -71,7 +71,7 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
   );
   console.log(resMV.resources);
   res.render("play", {
-    title: "BeMovies - " + resMV.title,
+    title: "KIMovies - " + resMV.title,
     movie: resMV,
     menu: resMenu,
     //truyen method get source phim
@@ -279,5 +279,6 @@ router.post("/api/movie/update", async (req, res) => {
     res.json({ resUpdate });
   }
 });
+
 
 module.exports = router;
