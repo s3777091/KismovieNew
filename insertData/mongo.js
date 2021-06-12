@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const mongoPath = 
-'mongodb+srv://dathuynh1909:Dathuynh1909@cluster0.92c3m.mongodb.net/<dbname>?retryWrites=true&w=majority'
+'mongodb+srv://dathuynh1909:Dathuynh1909@realmcluster.92c3m.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 
 module.exports = async() => {

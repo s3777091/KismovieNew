@@ -7,24 +7,21 @@ const connectToMongoDB = async () => {
       console.log("you are connected to mogodb!");
 
       const movie = {
-        resources: ["https://dood.la/e/cg05jbc288m5"],
-        slug: "hoa-moc-lan",
-        title: "Hoa mộc lan 2021",
+        resources: ["https://dood.la/e/u38j4d0j9p1a"],
+        slug: "dai ha long",
+        title: "ĐẠI MẠC THẦN LONG",
         description:
-          "Hoa Mộc Lan thay cha tòng quân. Cô đã phải vượt qua sự mọi sự bất tiện cùng cơ thể yếu đuối của mình, cố gắng gấp bội và rồi nhận được sự đánh giá cao của tướng quân Lý Nhung. Việc các huynh đệ lần lượt hy sinh trên chiến trường khiến Mộc Lan không thể chấp nhận. Cô mong sớm kết thúc chiến tranh. Khi cuộc chiến đi vào bế tắc, Mộc Lan đã táo bạo, thận trọng và mạnh dạn đưa ra những chiến lược mới giúp đội quân liên tiếp giành chiến thắng. Cuối cùng, Mộc Lan và Lý Nhung đã cùng phối hợp với nhau đánh tan quân thù. Phim được Disney chuyển thể từ tác phẩm hoạt hình ăn khách năm 1998. Nữ diễn viên nổi tiếng Lưu Diệc Phi đảm nhận vai diễn Mộc Lan",
-        trial: "https://www.youtube.com/watch?v=x0Ib2pqwmEQ",
-        cloneLink: "phim4400/hoa-moc-lan/",
+          "Đại Mạc Thần Long kể vào cuối thời nhà Đường, Lý Nguyên Cơ – một người bình thường và các bạn đồng hành của mình đã gặp gỡ đệ tử của Côn Ngô Các núi Côn Luân là Sở Linh Nhi và Tầm Đồ, cùng họ tham gia vào cuộc đọ sức với thụ yêu cũng như ma đạo. Trong quá trình đối đầu với thụ yêu, Lý Nguyên Cơ đã dần trưởng thành và thay đổi suy nghĩ về những việc lớn thì không liên quan đến những người dân thường nhỏ bé, đảm nhận sứ mệnh bảo vệ chính nghĩa, cuối cùng xả thân mình cứu lấy bách tính, đánh bại ma đạo, trở thành anh hùng của đại mạc.",
+        trial: "https://www.youtube.com/watch?v=bqlU9-uaB-U",
+        cloneLink: "phim4400/dai-ha-long/",
         cloneFrom: "phim4400",
         movieThumb: [
-          {
-            "full": "https://i3.wp.com/bilugo.com/upload/images/2020/06/hoa-moc-lan-2020_1593126884.jpg",
-            "thumb":
-              "https://i3.wp.com/bilugo.com/upload/images/2020/06/hoa-moc-lan-2020_1593126884.jpg",
-            "medium":
-              "https://i3.wp.com/bilugo.com/upload/images/2020/06/hoa-moc-lan-2020_1593126884.jpg",
-          },
+          "https://image.tmdb.org/t/p/original///5r8IKmy4I4gswqZqHSCal1adHi.jpg",
+          "https://image.tmdb.org/t/p/w220_and_h330_face//5r8IKmy4I4gswqZqHSCal1adHi.jpg",
+          "https://image.tmdb.org/t/p/original///5r8IKmy4I4gswqZqHSCal1adHi.jpg",
+          ,
         ],
-        createdAt: Date("2021-06-06T03:14:25.627+00:00"),
+        createdAt: Date("2021-12-07T03:14:25.627+00:00"),
       };
 
       await new movieSchema(movie).save();

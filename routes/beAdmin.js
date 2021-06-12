@@ -1,5 +1,13 @@
 var express = require("express");
 var router = express.Router();
+
+
+var assert = require('assert');
+var mongo = require('mongodb');
+
+const MovieSchema = require("../src/db/schema/MovieSchema");
+
+
 const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
 const SerielModel = require("../src/db/model/MovieSerie");
@@ -218,4 +226,5 @@ router.post("/series/api/delete", async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 });
+
 module.exports = router;
