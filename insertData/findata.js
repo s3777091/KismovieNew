@@ -7,7 +7,7 @@ const connectToMongoDB = async () => {
       console.log("you are connected to mogodb!");
 
       const results = await movieSchema.findOne({
-        trial: "https://www.youtube.com/watch?v=x0Ib2pqwmEQ",
+        trial: "https://www.youtube.com/watch?v=FJfuVkgcDJQ",
       })
       console.log('Result:', results)
 

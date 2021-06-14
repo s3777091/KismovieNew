@@ -198,7 +198,7 @@
       },
     },
     mounted: async function () {
-      if (cloneFrom == "topphimhd") {
+      if (cloneFrom == "fulfim") {
         this.sources = resources;
         this.loading = false;
         this.updateOption("views");
@@ -251,7 +251,7 @@
 
         $("#player").hide();
         let dooFile = this.resources.find(
-          (r) => r.includes("dood") || r.includes("hxfile")
+          (r) => r.includes("dood") || r.includes("hxfile") || r.includes("ok.ru")
         );
         if (dooFile) {
           $("#iframePlayer").attr("src", dooFile);

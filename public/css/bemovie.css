@@ -3509,7 +3509,6 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 40px;
   position: relative;
 }
 .form__slider:before {
@@ -4738,14 +4737,12 @@ ul.parts-movie li.active {
 .slider{
   width: 100%;
   padding-top: 70px;
-  padding-left: 100px;
-  height: 500px;
-  border-radius: 20px;
+  align-items: center;
   overflow: hidden;
 }
 
 .slides{
-  width: 500%;
+  width: 800%;
   height: 500px;
   display: flex;
 }
@@ -4873,3 +4870,31 @@ ul.parts-movie li.active {
     height: 400px;
   }
 }
+
+.banner__movied {
+  height: 500px;
+  width: auto;
+  position: relative;
+  object-fit: fixed;
+}
+
+.display__img{
+  display: flex;
+  margin-top: 5rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.display__img::-webkit-scrollbar {
+  display: none;
+}
+
+.img-poster{
+  max-height: 350px;
+  border-radius: 20px;
+  object-fit: contain;
+  margin-right: 10px;
+  width: 450px;
+  transition: transform 450ms;
+}
+
