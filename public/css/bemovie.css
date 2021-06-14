@@ -5531,17 +5531,19 @@ ul.parts-movie li.active {
 }
 
 .name__img {
-    padding-top: 35px;
+    top: 0;
+    padding-top: 100px;
 }
 
 .container__banner {
     background-color: #151515;
+    position: relative;
+    object-fit: fixed;
     color: white;
 }
 
 .featured-content {
-    height: 100vh;
-    width: 200vh;
+    position: relative;
     object-fit: fixed;
 }
 
