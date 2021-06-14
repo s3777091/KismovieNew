@@ -1,6 +1,6 @@
- <!-- Phim hot -->
- <!-- data-bg="img/section/section.jpg" -->
-<section>
+<!-- Phim hot -->
+<!-- data-bg="img/section/section.jpg" -->
+<section class="home">
     <div>
         <div class="row">
             <!-- section title -->
@@ -10,36 +10,36 @@
             <!-- end section title -->
             <% hotMovies.forEach(function(mv){ %>
                 <!-- card -->
-                    <div class="display">
-                      
-                        <div class="movies">
-                            <div class="front">
-                                <img
-                                src="<%=mv.movieThumb.thumb%>"
-                                alt="<%-mv.title%>"
-                                class="thumbnail"
-                                loading="lazy"
-                              />
-                              <h4><%= mv.title %></h4>
-                            </div>
-                            <div class="back">
-                                <div class="btn__container">
-                                    <button class="btn"">
-                                        <a href="/phim/<%= mv.slug %>">Xem thêm</a>
-                                    </button>
-                                </div>
-                              </div>
+                <div class="display">
+
+                    <div class="movies">
+                        <div class="front">
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                            <h4>
+                                <%= mv.title %>
+                            </h4>
                         </div>
-           
-               
+                        <div class="back">
+                            <div class="btn__container">
+
+                                <button class="btn" ">
+                                        <a href="/phim/<%=mv.slug %>">Xem thêm</a>
+                                    </button>
+
+                            </div>
+
+                        </div>
                     </div>
+
+
+                </div>
                 <!-- end card -->
-              <% }); %>
-            <!-- section btn -->
-            <div class="col-12">
-                <a href="/the-loai/phim-hanh-dong/page/1" class="section__btn">More</a>
-            </div>
-            <!-- end section btn -->
+                <% }); %>
+                    <!-- section btn -->
+                    <div class="col-12">
+                        <a href="/the-loai/phim-hanh-dong/page/1" class="section__btn">More</a>
+                    </div>
+                    <!-- end section btn -->
         </div>
     </div>
 </section>

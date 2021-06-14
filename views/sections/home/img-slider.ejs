@@ -1,20 +1,22 @@
 <!-- Phim hot -->
 <!-- data-bg="img/section/section.jpg" -->
-<section>
-  <div class="row">
-    <!-- section title -->
-    <div class="col-12">
-      <h2 class="home__title mb-2">New Release</h2>
+
+<div class="row">
+    <div class="name__img">
+        <div class="col-12">
+            <h2 class="home__title mb-2">New Release</h2>
+        </div>
     </div>
     <!-- end section title -->
     <div class="display__img">
-    <% hotMovies.forEach(function(mv){ %>
+        <% hotMovies.forEach(function(mv){ %>
 
-    <img src="<%=mv.movieThumb.full%>" alt="" class="img-poster"/>
-
-    <% }); %>
-</div>
+            <a href="/phim/<%= mv.slug %>">
+      <img src="<%=mv.movieThumb.full%>" alt="" class="img-poster" />
+    </a>
+            <% }); %>
+    </div>
     <!-- section btn -->
-  </div>
-</section>
+</div>
+
 <!-- end phim hot -->

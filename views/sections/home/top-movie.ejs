@@ -1,42 +1,41 @@
 <!-- home -->
-<section class="home">
-    <div>
-        <div class="row">
-            <div class="col-12">
-                <h2 class="home__title mb-2">Phim mới cập nhật</h2>
 
-            </div>
+<div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="home__title mb-2">Phim mới cập nhật</h2>
 
-            <% topMovies.forEach(function(mv){ %>
-                <% if (mv.movieThumb) { %>
+        </div>
+
+        <% topMovies.forEach(function(mv){ %>
+            <% if (mv.movieThumb) { %>
                 <!-- card -->
                 <div class="display">
                     <div class="movies">
-                      <div class="front">
-                        <img
-                          src="<%=mv.movieThumb.thumb%>"
-                          alt="<%-mv.title%>"
-                          class="thumbnail"
-                          loading="lazy"
-                        />
-                        <h4><%= mv.title %></h4>
-                      </div>
-                      <div class="back">
-                        <div class="btn__container">
-                            <button class="btn"">
-                                <a href="/phim/<%= mv.slug %>">Xem thêm</a>
-                            </button>
+                        <div class="front">
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                            <h4>
+                                <%= mv.title %>
+                            </h4>
                         </div>
-                      </div>
-                      <div className="background"></div>
+                        <div class="back">
+
+
+                            <div class="btn__container">
+                                <button class="btn" ">
+                                <a href="/phim/<%=mv.slug %>">Xem thêm</a>
+                            </button>
+                            </div>
+
+                        </div>
+                        <div className="background"></div>
                     </div>
-            
+
                 </div>
-                
+
                 <!-- end card -->
-            <% } %>
-            <% }); %>
-        </div>
+                <% } %>
+                    <% }); %>
     </div>
-</section>
+</div>
 <!-- end home -->
