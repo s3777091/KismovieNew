@@ -606,7 +606,14 @@ a.header__logo .text-red {
 
 .header__search-btn {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 24px;
+    font-size: 30px;
+    margin: 20px
+}
+
+.header__moon-btn {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 30px;
+    margin: 20px
 }
 
 .header__search-btn:hover,
@@ -996,7 +1003,7 @@ a.header__logo .text-red {
     margin-top: 70px;
     position: relative;
     display: block;
-    background-color: black;
+    background-color: white;
     padding: 40px 0;
     overflow: hidden;
 }
@@ -1939,8 +1946,9 @@ a.header__logo .text-red {
 
 .display {
     display: flex;
+    padding-left: 50px;
+    padding-top: 50px;
     flex-wrap: wrap;
-    padding-left: 2rem;
 }
 
 .movies:hover .front {
@@ -5537,14 +5545,14 @@ ul.parts-movie li.active {
 
 .container__banner {
     background-color: #151515;
-    position: relative;
-    object-fit: fixed;
-    color: white;
 }
 
 .featured-content {
+    height: 90vh;
+    width: auto;
     position: relative;
     object-fit: fixed;
+    color: white;
 }
 
 .featured-desc {

@@ -1,6 +1,6 @@
 <!-- Phim hot -->
 <!-- data-bg="img/section/section.jpg" -->
-<section class="home">
+<section>
     <div>
         <div class="row">
             <!-- section title -->
@@ -8,7 +8,7 @@
                 <h2 class="home__title mb-2">Phim Hot</h2>
             </div>
             <!-- end section title -->
-            <% hotMovies.forEach(function(mv){ %>
+            <% hotMovies.slice(0,6).map(function(mv){ %>
                 <!-- card -->
                 <div class="display">
 

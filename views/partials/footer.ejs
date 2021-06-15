@@ -1,7 +1,7 @@
 <!-- footer -->
 <footer class="footer">
     <div class="container">
-        <div class="row">
+        <div>
 
             <!-- footer list -->
             <div class="col-12 col-sm-4 col-md-3">
@@ -16,7 +16,7 @@
             <!-- footer copyright -->
             <div class="col-12">
                 <div class="footer__copyright">
-                    <small>© <span id="currentYear"></span> KiMovies.</small> 
+                    <small>© <span id="currentYear"></span> KiMovies.</small>
                     <ul>
                         <li><a href="privacy.html">Terms of Use</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
@@ -31,24 +31,25 @@
 <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
 <script>
-    window.fbAsyncInit = function () {
+    window.fbAsyncInit = function() {
         FB.init({
             xfbml: true,
             version: 'v8.0'
         });
     };
 
-    (function (d, s, id) {
+    (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- Your Chat Plugin code -->
-<div class="fb-customerchat" attribution=setup_tool page_id="109477367628674" theme_color="#ff55a5"
-    logged_in_greeting="BeMovies, Xin chào!" logged_out_greeting="BeMovies, Xin chào!">
+<div class="fb-customerchat" attribution=setup_tool page_id="109477367628674" theme_color="#ff55a5" logged_in_greeting="BeMovies, Xin chào!" logged_out_greeting="BeMovies, Xin chào!">
 </div>
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -61,7 +62,10 @@
 <script src="/js/select2.min.js"></script>
 <script src="/js/plyr.min.js"></script>
 <script src="/js/jquery.morelines.min.js"></script>
-<script> let year = (new Date()).getFullYear(); $('#currentYear').text(year)</script>
+<script>
+    let year = (new Date()).getFullYear();
+    $('#currentYear').text(year)
+</script>
 <script>
     feather.replace();
     $('[data-toggle="tooltip"]').tooltip()
@@ -72,12 +76,15 @@
     //Redirect https
     let protocol = document.location.protocol;
     let hostname = document.location.hostname;
-    if(protocol != 'https:' && !hostname.includes('localhost')) {
+    if (protocol != 'https:' && !hostname.includes('localhost')) {
         let href = document.location.href;
-        href = href.replace('http://','https://');
-       window.location.href = href
+        href = href.replace('http://', 'https://');
+        window.location.href = href
     }
-    const PHIM = {PHIM_BO:'phim-bo', PHIM_LE: 'phim-le'}
+    const PHIM = {
+        PHIM_BO: 'phim-bo',
+        PHIM_LE: 'phim-le'
+    }
     var appSearch = new Vue({
         el: "#app-search",
         data: {
@@ -108,13 +115,13 @@
                     return;
                 }
                 let urlRedirect = `/tim-kiem/${this.txtSearch}/page/1`
-                if(this.searchType == PHIM.PHIM_BO) {
-                    urlRedirect =  `/phim-bo/tim-kiem/${this.txtSearch}/page/1`
+                if (this.searchType == PHIM.PHIM_BO) {
+                    urlRedirect = `/phim-bo/tim-kiem/${this.txtSearch}/page/1`
                 }
                 window.location.href = urlRedirect
             },
             async autoSearch() {
-                if(this.txtSearch.length == 0) {
+                if (this.txtSearch.length == 0) {
                     this.resultSearch = [];
                     this.hasResultSearch = false;
                     return;
@@ -144,8 +151,7 @@
 
             },
         },
-        created: async function () {
-        },
+        created: async function() {},
         mounted() {
             $('#searchType').select2({
                 placeholder: "Chọn thể loại",
