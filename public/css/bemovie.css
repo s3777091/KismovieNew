@@ -5548,7 +5548,7 @@ ul.parts-movie li.active {
 }
 
 .featured-content {
-    height: 90vh;
+    height: auto;
     width: auto;
     position: relative;
     object-fit: fixed;
