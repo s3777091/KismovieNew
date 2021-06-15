@@ -7,35 +7,34 @@
 
         </div>
 
-        <% topMovies.forEach(function(mv){ %>
-            <% if (mv.movieThumb) { %>
-                <!-- card -->
-                <div class="display">
-                    <div class="movies">
-                        <div class="front">
-                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
-                            <h4>
-                                <%= mv.title %>
-                            </h4>
-                        </div>
-                        <div class="back">
+        <% topMovies.slice(0,14).map(function(mv){ %>
+
+            <!-- card -->
+            <div class="display">
+                <div class="movies">
+                    <div class="front">
+                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                        <h4>
+                            <%= mv.title %>
+                        </h4>
+                    </div>
+                    <div class="back">
 
 
-                            <div class="btn__container">
-                                <button class="btn" ">
+                        <div class="btn__container">
+                            <button class="btn" ">
                                 <a href="/phim/<%=mv.slug %>">Xem thêm</a>
                             </button>
-                            </div>
-
                         </div>
-                        <div className="background"></div>
-                    </div>
 
+                    </div>
+                    <div className="background"></div>
                 </div>
 
-                <!-- end card -->
-                <% } %>
-                    <% }); %>
+            </div>
+
+            <!-- end card -->
+            <% }); %>
     </div>
 </div>
 <!-- end home -->
