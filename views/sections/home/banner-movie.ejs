@@ -1,19 +1,23 @@
 <div class="container__banner">
     <% topMovies.slice(0,1).map(function(mv){ %>
         <header class="featured-content" style="
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
-          url('<%=mv.movieThumb.full%>');
-        background-size: cover;
-        background-position: center center;
-      ">
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
+        url('<%=mv.movieThumb.full%>');
+      background-size: cover;
+      background-position: center center;
+    ">
             <div class="banner__contents">
                 <div class="banner__showsdetail">
                     <h1 className="banner__title">
                         <%-mv.title%>
                     </h1>
                     <button class="featured-button">
-            <a href="/phim/<%= mv.slug %>"> WATCH </a>
-          </button>
+          <a href="/phim/<%= mv.slug %>"> WATCH </a>
+        </button>
+
+                    <!-- end section title -->
+
+                    <!-- section btn -->
                 </div>
             </div>
         </header>

@@ -8,11 +8,11 @@ const connectToMongoDB = async() => {
 
             const movie = {
                 resources: ["https://hlsgdrive.xyz/player/index.php?data=8f14e45fceea167a5a36dedd4bea2543"],
-                slug: "The-nun-2019",
-                title: "The nun 2019",
-                description: "Ác quỷ ma sơ là phim điện ảnh kinh dị siêu nhiên của Mỹ năm 2018 do Corin Hardy đạo diễn và Gary Dauberman biên kịch, thực hiện từ cốt truyện gốc của Dauberman và James Wan. Đây là tác phẩm spin-off của phim điện ảnh Ám ảnh kinh hoàng 2 năm 2016 và đồng thời cũng là bộ phim thứ năm của thương hiệu The Conjuring Universe.",
-                trial: "https://www.youtube.com/watch?v=pzD9zGcUNrw",
-                cloneLink: "phim4400/thenun-2019/",
+                slug: "SAS-red-notice-2021",
+                title: "SAS: red notice 2021",
+                description: "An off-duty SAS soldier, Tom Buckingham, must thwart a terror attack on a train running through the Channel Tunnel. As the action escalates on the train, events transpire in the corridors of power that may make the difference as to whether Buckingham and the civilian passengers make it out of the tunnel alive.",
+                trial: "https://www.youtube.com/watch?v=hRuUB6RKExQ",
+                cloneLink: "phim4400/sas-red-notice-2021/",
                 cloneFrom: "phim4400",
                 movieThumb: [
                     "https://www.themoviedb.org/t/p/original/vZWYzuoK6A56joeZRf20YvxrIlf.jpg",
