@@ -1,5 +1,6 @@
 <!-- Phim hot -->
 <!-- data-bg="img/section/section.jpg" -->
+
 <section>
     <div>
         <div class="row">
@@ -11,8 +12,9 @@
             <% hotMovies.slice(0,6).map(function(mv){ %>
                 <!-- card -->
                 <div class="display">
-
                     <div class="movies">
+
+                        <span class="rank"> <%- mv.score %> </span>
                         <div class="front">
                             <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
                             <h4>
@@ -22,16 +24,18 @@
                         <div class="back">
                             <div class="btn__container">
 
-                                <button class="btn" ">
-                                        <a href="/phim/<%=mv.slug %>">Xem thêm</a>
-                                    </button>
+
+
+                                <button class="btn">
+                <a href="/phim/<%=mv.slug %>">Xem Thêm</a>
+              </button>
+
 
                             </div>
-
                         </div>
+
+                        <div class="background"></div>
                     </div>
-
-
                 </div>
                 <!-- end card -->
                 <% }); %>
@@ -43,4 +47,6 @@
         </div>
     </div>
 </section>
+
+
 <!-- end phim hot -->

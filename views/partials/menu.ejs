@@ -19,73 +19,87 @@
                             </li>
                             <!-- dropdown -->
                             <li class="header__nav-item">
-                                <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thể loại</a>
+                                <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thể loại</a
+                >
 
-                                <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuCatalog" id="menu-category">
-                                    <% menu.genres.forEach(g => { %>
-                                        <li>
-                                            <a class="text-capitalize" href="/the-loai/<%-  JSON.parse(JSON.stringify(g))['categorySlug'] %>/page/1">
-                                                <%-  JSON.parse(JSON.stringify(g))['category'] %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
-                                </ul>
+                <ul
+                  class="dropdown-menu header__dropdown-menu"
+                  aria-labelledby="dropdownMenuCatalog"
+                  id="menu-category"
+                >
+                  <% menu.genres.forEach(g => { %>
+                  <li>
+                    <a
+                      class="text-capitalize"
+                      href="/the-loai/<%-  JSON.parse(JSON.stringify(g))['categorySlug'] %>/page/1"
+                    >
+                      <%- JSON.parse(JSON.stringify(g))['category'] %>
+                    </a>
                             </li>
-                            <!-- end dropdown -->
+                            <% }) %>
+                        </ul>
+                        </li>
+                        <!-- end dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Năm</a
+                >
+                <ul
+                  class="dropdown-menu header__dropdown-menu menu-year"
+                  aria-labelledby="dropdownMenuMore"
+                >
+                  <% menu.years.forEach(year => { %>
+                  <li>
+                    <a class="text-capitalize" href="/nam/<%-year %>/page/1">
+                      <%- year %>
+                    </a>
+                        </li>
+                        <% }) %>
+                            </ul>
+                            </li>
                             <li class="header__nav-item">
-                                <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Năm</a>
-                                <ul class="dropdown-menu header__dropdown-menu menu-year" aria-labelledby="dropdownMenuMore">
-                                    <%  menu.years.forEach(year => { %>
-                                        <li>
-                                            <a class="text-capitalize" href="/nam/<%-year %>/page/1">
-                                                <%- year %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
-                                </ul>
+                                <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quốc gia</a
+                >
+                <ul
+                  class="dropdown-menu header__dropdown-menu menu-region"
+                  aria-labelledby="dropdownMenuMore"
+                >
+                  <% menu.regions.forEach(region => { %>
+                  <li>
+                    <a
+                      class="text-capitalize"
+                      href="/quoc-gia/<%-region.regionSlug %>/page/1"
+                    >
+                      <%- region.region %>
+                    </a>
                             </li>
-                            <li class="header__nav-item">
-                                <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quốc gia</a>
-                                <ul class="dropdown-menu header__dropdown-menu menu-region" aria-labelledby="dropdownMenuMore">
-                                    <%  menu.regions.forEach(region => { %>
-                                        <li>
-                                            <a class="text-capitalize" href="/quoc-gia/<%-region.regionSlug %>/page/1">
-                                                <%- region.region %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
+                            <% }) %>
                                 </ul>
-                            </li>
-                            <!-- <li class="header__nav-item">
+                                </li>
+                                <!-- <li class="header__nav-item">
                                 <a class="header__nav-link" href="/phim-bo/page/1">Phim bộ</a>
                             </li> -->
-                            <!-- <li class="header__nav-item">
+                                <!-- <li class="header__nav-item">
                                 <a class="header__nav-link" href="/the-loai/pr/page/1">Phim việt</a>
                             </li> -->
+                                </ul>
+                                <!-- end header nav -->
 
-                        </ul>
-                        <!-- end header nav -->
+                                <!-- header auth -->
+                                <div class="header__auth">
+                                    <button class="header__search-btn" type="button" @click="toggleSearch">
+                <i class="icon ion-ios-search"></i>
+              </button>
 
-                        <!-- header auth -->
-                        <div class="header__auth">
-                            <button class="header__search-btn" type="button" @click="toggleSearch">
-                                <i class="icon ion-ios-search"></i>
-                            </button>
+                                </div>
+                                <!-- end header auth -->
 
-                            <button class="header__moon-btn">
-                                <i class="icon ion-ios-moon"></i>
-
-                            </button>
-                        </div>
-                        <!-- end header auth -->
-
-                        <!-- header menu btn -->
-                        <button class="header__btn" type="button">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                        <!-- end header menu btn -->
+                                <!-- header menu btn -->
+                                <button class="header__btn" type="button">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+                                <!-- end header menu btn -->
                     </div>
                 </div>
             </div>
@@ -100,30 +114,25 @@
                     <div class="header__search-content">
                         <div class="col-sm-3">
                             <select class="js-example-basic-single" id="searchType">
-                                <option value="phim-le">Phim Lẻ</option>
-                                <option value="phim-bo">Phim Bộ</option>
-                            </select>
+                <option value="phim-le">Phim Lẻ</option>
+                <option value="phim-bo">Phim Bộ</option>
+              </select>
                         </div>
-                        <input type="text" v-model="txtSearch" v-on:keyup="autoSearch" v-on:keyup.enter="gotoSearchPage" placeholder="Tìm kiếm phim ...">
+                        <input type="text" v-model="txtSearch" v-on:keyup="autoSearch" v-on:keyup.enter="gotoSearchPage" placeholder="Tìm kiếm phim ..." />
                         <button type="button" @click="gotoSearchPage">Tìm kiếm</button>
                     </div>
                     <div id="result-search" class="px-3 py-2" :class="{active: hasResultSearch}">
                         <ul>
                             <li @click="redirectSearch(movie)" v-for="(movie, index) in resultSearch" key="index">
-                                <img :src="movie.movieThumb.thumb" class="rounded-circle w-1" :alt="movie.title">
-                                <p class="text-white m-0">{{movie.title}}</p>
+                                <img :src="movie.movieThumb.thumb" class="rounded-circle w-1" :alt="movie.title" />
+                                <p class="text-white m-0">{{ movie.title }}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </form>
     <!-- end header search -->
 </header>
 <!-- end header -->
-
-
-</script>

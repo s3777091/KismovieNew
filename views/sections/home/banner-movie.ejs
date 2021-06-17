@@ -11,13 +11,20 @@
                     <h1 className="banner__title">
                         <%-mv.title%>
                     </h1>
-                    <button class="featured-button">
-          <a href="/phim/<%= mv.slug %>"> WATCH </a>
-        </button>
 
-                    <!-- end section title -->
+                    <div class="display__button">
 
-                    <!-- section btn -->
+                        <button class="featured-button">
+                        <a href="/phim/<%= mv.slug %>"> DETAIL</a>
+                      </button>
+
+                        <button class="featured-button">
+                        <a href="/phim/<%= mv.slug %>/xem-phim"> WATCH </a>
+                      </button>
+
+                    </div>
+
+
                 </div>
             </div>
         </header>

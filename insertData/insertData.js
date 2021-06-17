@@ -20,6 +20,7 @@ const connectToMongoDB = async() => {
                     "https://image.tmdb.org/t/p/original///sFC1ElvoKGdHJIWRpNB3xWJ9lJA.jpg"
                 ],
                 createdAt: Date("2021-06-07T03:14:25.627+00:00"),
+                score: 6,
             };
 
             await new movieSchema(movie).save();

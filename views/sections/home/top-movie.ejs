@@ -4,7 +4,6 @@
     <div class="row">
         <div class="col-12">
             <h2 class="home__title mb-2">Phim mới cập nhật</h2>
-
         </div>
 
         <% topMovies.slice(0,14).map(function(mv){ %>
@@ -12,23 +11,26 @@
             <!-- card -->
             <div class="display">
                 <div class="movies">
+
+                    <span class="rank"> <%- mv.score %> </span>
                     <div class="front">
                         <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
                         <h4>
                             <%= mv.title %>
                         </h4>
+
+
                     </div>
                     <div class="back">
-
-
                         <div class="btn__container">
+
                             <button class="btn" ">
                                 <a href="/phim/<%=mv.slug %>">Xem thêm</a>
-                            </button>
+                                    </button>
                         </div>
 
                     </div>
-                    <div className="background__card"></div>
+                    <div class="background"></div>
                 </div>
 
             </div>
