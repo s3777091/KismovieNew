@@ -32,6 +32,7 @@
     "imgbb-uploader": "1.1.0",
     "jsdom": "^16.4.0",
     "jsrmvi": "^1.0.0",
+    "ldbutton": "^1.0.2",
     "memorystore": "^1.6.4",
     "moment": "^2.29.1",
     "mongodb": "3.6.2",

@@ -21,7 +21,7 @@
                 </a>
             </li>
             <% for( let i = start; i <= totalPage; i++ ) { %>
-                    <% 
+            <% 
                          active=(i==currentPage) ? "paginator__item--active" : "" ;
                          pageValue=(steps==5) ? "..." : i;
                     %>
@@ -29,7 +29,7 @@
                     href="<%- parentLink +"/page/"+i %>"><%- pageValue %> </a>
             </li>
             <% if (steps == 5) {   break; } %>
-                <% steps++; %>
+            <% steps++; %>
             <% } %>
             <li class=" <%= isLast %> paginator__item paginator__item--next">
                 <a class="" href="<%- parentLink +"/page/"+pageNext %>">

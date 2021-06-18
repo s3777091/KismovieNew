@@ -1,10 +1,4 @@
 <!-- details -->
-<section class="section details">
-    <!-- details background -->
-    <div class="details__bg" data-bg="/img/home/home__bg.jpg"></div>
-    <!-- end details background -->
-
-    <!-- details content -->
     <div class="container">
         <div class="row">
             <!-- title -->
@@ -28,7 +22,7 @@
                                      listCatSlug =  movie.movie_options[0].categorySlug.split(',');
                                      listCat = movie.movie_options[0].category.split(',')
                                      %>
-                                        <li><span>Thể loại:</span>
+                                        <li><span class="span__darkmode">Thể loại:</span>
                                             <% listCatSlug.forEach((cat, index) => { %>
                                                 <% if (cat) { %>
                                                     <a href="/the-loai/<%-cat%>/page/1" class="text-uppercase">
@@ -37,15 +31,15 @@
                                                     <% } %>
                                                         <% }) %>
                                         </li>
-                                        <li><span>Năm phát hành:</span>
+                                        <li><span class="span__darkmode">Năm phát hành:</span>
                                             <a href="/nam/<%- movie.movie_options[0].year%>/page/1">
                                                 <%- movie.movie_options[0].year%>
                                             </a>
                                         </li>
-                                        <li><span>Thời lượng:</span>
+                                        <li><span class="span__darkmode">Thời lượng:</span>
                                             <%- movie.movie_options[0].times%>
                                         </li>
-                                        <li><span>Quốc gia:</span>
+                                        <li><span class="span__darkmode">Quốc gia:</span>
                                             <a class="text-uppercase" href="/quoc-gia/<%-movie.movie_options[0].regionSlug%>/page/1">
                                                 <%-movie.movie_options[0].region%>
                                             </a>
@@ -81,5 +75,4 @@
         </div>
     </div>
     <!-- end details content -->
-</section>
 <!-- end details -->

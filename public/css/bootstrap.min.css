@@ -35,15 +35,10 @@
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
-[data-theme="dark"] {
-    --primary-color: #9A97F3;
-    --secondary-color: #818cab;
-    --font-color: #e1e1ff;
-    --bg-color: #161625;
-    --heading-color: #818cab;
+.dark-theme {
+    --primary-color: #1b1b1b;
+    --secondry-color: #fff;
 }
-
 *,
 ::after,
 ::before {
@@ -628,8 +623,7 @@ pre code {
 
 .row {
     display: flex;
-    background-color: var(--bg-color);
-    color: var(--font-color);
+        color: var(--font-color);
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -10619,3 +10613,75 @@ a.text-dark:hover {
 
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+body {
+	background-color: white;
+	transition: background 0.2s linear;
+}
+
+body.dark {
+	background: white;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+}
+
+.label {
+	background-color: white;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 22px;
+	width: 46px;
+	transform: scale(1.5);
+}
+
+.label .ball {
+	background-color: black;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 18px;
+	width: 18px;
+	transform: translateX(0px);
+	transition: transform 0.3s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+.icon ion-ios-moon {
+	color: #f1c40f;
+}
+
+.icon ion-ios-moon{
+	color: #f39c12;
+}
+
+.display__label{
+   display: flex;
+   flex-wrap: wrap;
+margin-right: 50px
+}
+
+@media screen and (max-width: 480px) {
+
+	.social-panel-container.visible {
+		transform: translateX(0px);
+	}
+	
+	.floating-btn {
+		right: 10px;
+	}
+}

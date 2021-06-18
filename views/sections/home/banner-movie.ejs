@@ -1,33 +1,34 @@
 <div class="container__banner">
-    <% topMovies.slice(0,1).map(function(mv){ %>
-        <header class="featured-content" style="
+  <% topMovies.slice(0,1).map(function(mv){ %>
+  <header class="featured-content" style="
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
         url('<%=mv.movieThumb.full%>');
       background-size: cover;
       background-position: center center;
     ">
-            <div class="banner__contents">
-                <div class="banner__showsdetail">
-                    <h1 className="banner__title">
-                        <%-mv.title%>
-                    </h1>
+    <div class="banner__contents">
+      <div class="banner__showsdetail">
+        <h1 class="banner__title">
+          <%-mv.title%>
+        </h1>
 
-                    <div class="display__button">
+        <div class="content_p">
+        </div>
 
-                        <button class="featured-button">
-                        <a href="/phim/<%= mv.slug %>"> DETAIL</a>
-                      </button>
+        <div class="display__button">
 
-                        <button class="featured-button">
-                        <a href="/phim/<%= mv.slug %>/xem-phim"> WATCH </a>
-                      </button>
+          <button class="featured-button">
+            <a href="/phim/<%= mv.slug %>" class="a__href"> DETAIL</a>
+          </button>
 
-                    </div>
+          <button class="featured-button">
+            <a href="/phim/<%= mv.slug %>/xem-phim" class="a__href"> WATCH </a>
+          </button>
 
+        </div>
+      </div>
+    </div>
+  </header>
 
-                </div>
-            </div>
-        </header>
-
-        <% }); %>
+  <% }); %>
 </div>

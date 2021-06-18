@@ -311,17 +311,21 @@ ul {
     align-items: center;
     height: 70px;
     padding: 0 15px;
-    background-color: #28282d;
     width: 110px;
 }
 
 a.header__logo {
     color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 30px;
 }
 
 a.header__logo .text-red {
-    color: rgba(26, 132, 182, 255);
+    color: rgba(240, 225, 16, 0.651);
+}
+
+.title__color{
+    color: rgb(192, 19, 19);
 }
 
 .header__logo img {
@@ -601,20 +605,14 @@ a.header__logo .text-red {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 44px;
 }
 
 .header__search-btn {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 30px;
+    font-size: 50px;
     margin: 20px;
 }
 
-.header__moon-btn {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 30px;
-    margin: 20px;
-}
 
 .header__search-btn:hover,
 .header__search-btn.active {
@@ -1030,10 +1028,15 @@ a.header__logo .text-red {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 28px;
-    color: #00ffff;
+    color: white;
     margin: 0;
     padding-right: 50px;
 }
+
+body.dark .home__title{
+    color: black
+}
+
 
 .home__title b {
     font-weight: 500;
@@ -1909,7 +1912,11 @@ a.header__logo .text-red {
 
 .front h4 {
     font-size: 20px;
-    color: #0cb457;
+    color: white;
+}
+
+body.dark .front h4 {
+    color: black
 }
 
 .back {
@@ -2322,9 +2329,14 @@ a.header__logo .text-red {
     margin-top: 15px;
     font-size: 15px;
     line-height: 25px;
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
     letter-spacing: 0.2px;
 }
+
+body.dark .card--details .card__description {
+    color: black;
+}
+
 
 .card--details .card__list {
     display: inline-flex;
@@ -2429,6 +2441,23 @@ a.header__logo .text-red {
 
 .owl-carousel .owl-item img {
     min-height: 160px;
+}
+
+.a__darkmode{
+ color: white
+}
+
+body.dark .a__darkmode{
+    color: black
+}
+
+.p__darkmode{
+    color: white
+}
+
+body.dark .p__darkmode{
+    color: black
+    
 }
 
 @media (min-width: 576px) {
@@ -2561,6 +2590,8 @@ a.header__logo .text-red {
 }
 
 .details__bg {
+    background-color: #ffe53b;
+   background-image: linear-gradient(147deg, #ffe53b 0%, #fd3838 74%);
     position: absolute;
     display: block;
     top: 0;
@@ -2601,6 +2632,13 @@ a.header__logo .text-red {
     font-weight: 700;
 }
 
+body.dark .details__title{
+    color: black
+}
+
+body.dark {
+    color: black
+}
 .details__wrap {
     display: flex;
     flex-direction: column;
@@ -4312,8 +4350,26 @@ ul.parts-movie li.active {
     margin-top: 15px;
 }
 
+body.dark .footer__title{
+    color: black
+}
+
 .footer__list {
     margin-bottom: 15px;
+     color: #fff
+}
+
+body.dark .footer__list{
+    color: black
+}
+
+.footer__a{
+    color: white;
+    font-size: 16px;
+}
+
+body.dark .footer__a{
+    color: black
 }
 
 .footer__list li {
@@ -4331,6 +4387,14 @@ ul.parts-movie li.active {
 
 .footer__list a:hover {
     color: #ff55a5;
+}
+
+.spane__year{
+    color: white
+}
+
+body.dark .spane__year{
+    color: black
 }
 
 .footer__app {
@@ -5603,7 +5667,7 @@ ul.parts-movie li.active {
 
 .name__img {
     top: 0;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .container__banner {
@@ -5625,7 +5689,7 @@ ul.parts-movie li.active {
 }
 
 .featured-button {
-    background-color: #4dbf00;
+    background-color: rgb(192, 19, 19);
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
@@ -5635,6 +5699,10 @@ ul.parts-movie li.active {
     font-weight: bold;
 }
 
+.a__href{
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+}
 .banner__contents {
     display: flex;
     flex-wrap: wrap;
@@ -5644,9 +5712,10 @@ ul.parts-movie li.active {
 }
 
 .banner__title {
-    font-size: 1rem;
+    font-size: 3rem;
     font-weight: 200;
-    padding-bottom: 0.1rem;
+    color: white;
+    padding-bottom: 0.5rem;
 }
 
 .banner__showsdetail {
@@ -5667,4 +5736,21 @@ ul.parts-movie li.active {
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 30px;
+}
+
+.span__darkmode{
+    color: white;
+}
+body.dark .span__darkmode{
+
+    color: black
+}
+
+
+.movietitle__darkmode{
+    color: white;
+}
+
+body.dark .movietitle__darkmode{
+    color: black
 }

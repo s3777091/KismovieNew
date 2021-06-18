@@ -1,264 +1,269 @@
 <%- include('./partials/header.ejs') %>
-    <%- include('./partials/menu.ejs') %>
+<%- include('./partials/menu.ejs') %>
 
-        <div class="wrap-player">
-            <div class="col-12">
-                <!-- sections -->
-                <%- include('./sections/movie/video.ejs'); %>
-                    <!-- <ins class="aso-zone" data-zone="62105"></ins><script data-cfasync="false" async="async" type="text/javascript" src="https://media.vivaclix.com/js/code.min.js"></script> -->
-                    <section class="">
-                        <div class="container">
-                            <div class="row">
-                                <div class="fb-comments col-12 commentsdark mt-4" :data-href="https://www.facebook.com/profile.php?id=100016099751844/" data-numposts="10" data-width="100%"></div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="section py-4">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="details__title">Có thể bạn thích</h2>
-                                </div>
-                                <% if (movieRelated.length > 0) { %>
-                                    <% movieRelated.forEach(mv => {
-          %>
-                                        <!-- card -->
-                                        <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
-                                            <div class="card">
-                                                <div class="card__cover">
-                                                    <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded" loading="lazy" />
-                                                    <a href="/phim/<%= mv.slug %>" class="card__play">
-                                                        <i class="icon ion-ios-play"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="card__content">
-                                                    <h4 class="card__title">
-                                                        <a href="/phim/<%= mv.slug %>">
-                                                            <%= mv.title %>
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end card -->
-                                        <% }) %>
-                                            <% } %>
-                            </div>
-                        </div>
-                    </section>
+<div class="wrap-player">
+    <div class="col-12">
+        <!-- sections -->
+        <%- include('./sections/movie/video.ejs'); %>
+        <!-- <ins class="aso-zone" data-zone="62105"></ins><script data-cfasync="false" async="async" type="text/javascript" src="https://media.vivaclix.com/js/code.min.js"></script> -->
+        <section class="">
+            <div class="container">
+                <div class="row">
+                    <div class="fb-comments col-12 commentsdark mt-4"
+                        :data-href="https://www.facebook.com/profile.php?id=100016099751844/" data-numposts="10"
+                        data-width="100%"></div>
+                </div>
             </div>
-        </div>
-        <script>
-            let cloneFrom = `<%- movie.cloneFrom %>`;
-        </script>
-        <!-- end sections -->
-        <%- include('./partials/footer.ejs'); %>
-            <script src="/js/jwplayer.js"></script>
-            <div id="fb-root"></div>
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=629688671039918&autoLogAppEvents=1" nonce="hziHHj50"></script>
-            <!-- Style comment css -->
-            <script>
-                let resources = `<%-JSON.stringify(movie.resources)%>`;
-                resources = JSON.parse(resources);
-                let slug = "<%- movie.slug %>";
-                const movieId = "<%- movie._id %>";
-                var player = jwplayer("player");
-                var app = new Vue({
-                    el: "#section-video",
-                    data: {
-                        sources: [],
-                        resources: resources,
-                        loading: true,
-                        activeServer: 0,
-                        likes: "<%-movie.movie_options[0].likes%>",
-                        views: "<%-movie.movie_options[0].views%>",
-                        downloads: "<%-movie.movie_options[0].downloads%>",
-                        shares: "<%-movie.movie_options[0].shares%>",
-                        fileMV: "",
-                    },
-                    methods: {
-                        changeServer(server) {
-                            let sourceFile = "";
-                            if (cloneFrom == "topphimhd" || cloneFrom == "xuongphim") {
-                                sourceFile = this.sources[server].file;
-                            } else {
-                                sourceFile = this.sources[server][0].file;
-                            }
-                            this.fileMV = "" + sourceFile;
-                            this.activeServer = server;
-                            if (cloneFrom == "topphimhd") {
-                                return this.setPlayerTopPhim(this.sources[server]);
-                            }
-                            if (cloneFrom == "xuongphim") {
-                                return this.setPlayer([this.sources[server]]);
-                            }
-                            if (sourceFile.includes("hxfile")) {
-                                $("#player").show();
-                                $("#iframePlayer").attr("src", "").hide();
-                                this.setPlayer(this.sources[server]);
-                            } else {
-                                // this.setPlayer(this.sources[0])
-                                $("#player").hide();
-                                let dooFile = this.resources.find((r) => r.includes("dood"));
-                                $("#iframePlayer").attr("src", dooFile).show();
-                            }
-                        },
-                        shareFb() {
-                            let hostname = window.location.hostname;
-                            let port = window.location.port;
-                            let url = port ?
-                                "http://" + hostname + ":" + port :
-                                "http://" + hostname;
-                            url = `https://www.facebook.com/sharer/sharer.php?u=${url}/phim/${slug}/xem-phim/`;
-                            newwindow = this.PopupCenter(url, "<%- movie.title %>", 500, 300);
-                            if (window.focus) {
-                                newwindow.focus();
-                            }
-                            this.updateOption("shares");
-                        },
-                        async updateOption(key) {
-                            try {
-                                let res = await axios.post("/api/movie/update", {
-                                    key,
-                                    movieId
-                                });
-                                let result = res.data.resUpdate;
-                                this.views = result.views;
-                                this.shares = result.shares;
-                                this.downloads = result.downloads;
-                                this.likes = result.likes;
-                            } catch (error) {
-                                console.log(error.message);
-                            }
-                        },
-                        PopupCenter(pageURL, title, w, h) {
-                            var left = screen.width / 2 - w / 2;
-                            var top = screen.height / 2 - h / 2;
-                            var targetWin = window.open(
-                                pageURL,
-                                title,
-                                "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" +
-                                w +
-                                ", height=" +
-                                h +
-                                ", top=" +
-                                top +
-                                ", left=" +
-                                left
-                            );
-                            return targetWin;
-                        },
-                        setPlayer(sources) {
-                            player.setup({
-                                sources: sources,
-                                width: "100%",
-                                height: "100%",
-                                image: "<%-movie.movieThumb.full%>",
-                                aspectratio: "16:9",
-                                playbackRateControls: "true",
-                            });
-                            this.updateOption("views");
-                        },
-                        setPlayerTopPhim(sources) {
-                            let options = {
-                                sources: sources,
-                                width: "100%",
-                                height: "100%",
-                                image: "<%-movie.movieThumb.full%>",
-                                aspectratio: "16:9",
-                                playbackRateControls: "true",
-                                captions: {
-                                    color: "#eeee22",
-                                    fontSize: 14,
-                                    backgroundOpacity: 0,
-                                    edgeStyle: "raised",
-                                },
-                            };
-                            if (sources.caption) {
-                                options.tracks = [{
-                                    file: "/captions/" + sources.caption,
-                                    label: "Tiếng Việt",
-                                    kind: "captions",
-                                    default: true,
-                                }, ];
-                            }
-                            player.setup(options);
-                            this.updateOption("views");
-                        },
-                    },
-                    mounted: async function() {
-                        if (cloneFrom == "fulfim") {
-                            this.sources = resources;
-                            this.loading = false;
-                            this.updateOption("views");
-                            if (!resources[0].type) {
-                                $("#player").remove();
-                                return $("#iframePlayer").attr("src", resources[0].file);
-                            }
-                            $("#iframePlayer").remove();
-                            return this.setPlayerTopPhim(resources[0]);
-                        }
+        </section>
 
-                        let res = await axios.post("/api/resource/", {
-                            slug
-                        });
-                        let {
-                            data
-                        } = res;
-                        let listResource = [];
-                        if (cloneFrom == "xuongphim") {
-                            $("#iframePlayer").remove();
-                            listResource = data.resources;
-                            this.sources = 1;
-                            this.loading = false;
-                            if (listResource.length > 0) {
-                                let sourceFile = listResource[0].file;
-                                this.fileMV = "" + sourceFile;
-                                $("#player").show();
-                                this.setPlayer(listResource);
-                            }
-                            return;
-                        }
-                        data.resources.map((r) => {
-                            let server = [];
-                            r.map((item) => {
-                                let itemResource = {};
-                                let label = "";
-                                if (item.label) {
-                                    label = item.label;
-                                } else {
-                                    label = "720p";
-                                }
-                                itemResource.file = item.file;
-                                itemResource.label = label;
-                                itemResource.type = "video/mp4";
-                                server.push(itemResource);
-                            });
-                            listResource.push(server);
-                        });
-                        this.sources = listResource;
-                        this.loading = false;
-                        if (listResource.length > 0) {
-                            let sourceFile = listResource[0][0]["file"];
-                            this.fileMV = "" + sourceFile;
-
-                            $("#player").hide();
-                            let dooFile = this.resources.find(
-                                (r) => r.includes("dood") || r.includes("hxfile") || r.includes("ok.ru") || r.includes("kimovies.xyz")
-                            );
-                            if (dooFile) {
-                                $("#iframePlayer").attr("src", dooFile);
-                            } else if (sourceFile.includes("hxfile")) {
-                                $("#iframePlayer").hide();
-                                $("#player").show();
-                                this.setPlayer(listResource[0]);
-                            }
-
-                            this.updateOption("views");
-                        } else {
-                            alert("Lối không tải được phim!");
-                        }
-                    },
+        <section class="section py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="details__title">Có thể bạn thích</h2>
+                    </div>
+                    <% if (movieRelated.length > 0) { %>
+                    <% movieRelated.forEach(mv => {
+          %>
+                    <!-- card -->
+                    <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                        <div class="card">
+                            <div class="card__cover">
+                                <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded"
+                                    loading="lazy" />
+                                <a href="/phim/<%= mv.slug %>" class="card__play">
+                                    <i class="icon ion-ios-play"></i>
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title">
+                                    <a href="/phim/<%= mv.slug %>" class="a__darkmode">
+                                        <%= mv.title %>
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <% }) %>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    let cloneFrom = `<%- movie.cloneFrom %>`;
+</script>
+<!-- end sections -->
+<%- include('./partials/footer.ejs'); %>
+<script src="/js/jwplayer.js"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=629688671039918&autoLogAppEvents=1"
+    nonce="hziHHj50"></script>
+<!-- Style comment css -->
+<script>
+    let resources = `<%-JSON.stringify(movie.resources)%>`;
+    resources = JSON.parse(resources);
+    let slug = "<%- movie.slug %>";
+    const movieId = "<%- movie._id %>";
+    var player = jwplayer("player");
+    var app = new Vue({
+        el: "#section-video",
+        data: {
+            sources: [],
+            resources: resources,
+            loading: true,
+            activeServer: 0,
+            likes: "<%-movie.movie_options[0].likes%>",
+            views: "<%-movie.movie_options[0].views%>",
+            downloads: "<%-movie.movie_options[0].downloads%>",
+            shares: "<%-movie.movie_options[0].shares%>",
+            fileMV: "",
+        },
+        methods: {
+            changeServer(server) {
+                let sourceFile = "";
+                if (cloneFrom == "topphimhd" || cloneFrom == "xuongphim") {
+                    sourceFile = this.sources[server].file;
+                } else {
+                    sourceFile = this.sources[server][0].file;
+                }
+                this.fileMV = "" + sourceFile;
+                this.activeServer = server;
+                if (cloneFrom == "topphimhd") {
+                    return this.setPlayerTopPhim(this.sources[server]);
+                }
+                if (cloneFrom == "xuongphim") {
+                    return this.setPlayer([this.sources[server]]);
+                }
+                if (sourceFile.includes("hxfile")) {
+                    $("#player").show();
+                    $("#iframePlayer").attr("src", "").hide();
+                    this.setPlayer(this.sources[server]);
+                } else {
+                    // this.setPlayer(this.sources[0])
+                    $("#player").hide();
+                    let dooFile = this.resources.find((r) => r.includes("dood"));
+                    $("#iframePlayer").attr("src", dooFile).show();
+                }
+            },
+            shareFb() {
+                let hostname = window.location.hostname;
+                let port = window.location.port;
+                let url = port ?
+                    "http://" + hostname + ":" + port :
+                    "http://" + hostname;
+                url = `https://www.facebook.com/sharer/sharer.php?u=${url}/phim/${slug}/xem-phim/`;
+                newwindow = this.PopupCenter(url, "<%- movie.title %>", 500, 300);
+                if (window.focus) {
+                    newwindow.focus();
+                }
+                this.updateOption("shares");
+            },
+            async updateOption(key) {
+                try {
+                    let res = await axios.post("/api/movie/update", {
+                        key,
+                        movieId
+                    });
+                    let result = res.data.resUpdate;
+                    this.views = result.views;
+                    this.shares = result.shares;
+                    this.downloads = result.downloads;
+                    this.likes = result.likes;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            PopupCenter(pageURL, title, w, h) {
+                var left = screen.width / 2 - w / 2;
+                var top = screen.height / 2 - h / 2;
+                var targetWin = window.open(
+                    pageURL,
+                    title,
+                    "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" +
+                    w +
+                    ", height=" +
+                    h +
+                    ", top=" +
+                    top +
+                    ", left=" +
+                    left
+                );
+                return targetWin;
+            },
+            setPlayer(sources) {
+                player.setup({
+                    sources: sources,
+                    width: "100%",
+                    height: "100%",
+                    image: "<%-movie.movieThumb.full%>",
+                    aspectratio: "16:9",
+                    playbackRateControls: "true",
                 });
-            </script>
+                this.updateOption("views");
+            },
+            setPlayerTopPhim(sources) {
+                let options = {
+                    sources: sources,
+                    width: "100%",
+                    height: "100%",
+                    image: "<%-movie.movieThumb.full%>",
+                    aspectratio: "16:9",
+                    playbackRateControls: "true",
+                    captions: {
+                        color: "#eeee22",
+                        fontSize: 14,
+                        backgroundOpacity: 0,
+                        edgeStyle: "raised",
+                    },
+                };
+                if (sources.caption) {
+                    options.tracks = [{
+                        file: "/captions/" + sources.caption,
+                        label: "Tiếng Việt",
+                        kind: "captions",
+                        default: true,
+                    }, ];
+                }
+                player.setup(options);
+                this.updateOption("views");
+            },
+        },
+        mounted: async function () {
+            if (cloneFrom == "fulfim") {
+                this.sources = resources;
+                this.loading = false;
+                this.updateOption("views");
+                if (!resources[0].type) {
+                    $("#player").remove();
+                    return $("#iframePlayer").attr("src", resources[0].file);
+                }
+                $("#iframePlayer").remove();
+                return this.setPlayerTopPhim(resources[0]);
+            }
+
+            let res = await axios.post("/api/resource/", {
+                slug
+            });
+            let {
+                data
+            } = res;
+            let listResource = [];
+            if (cloneFrom == "xuongphim") {
+                $("#iframePlayer").remove();
+                listResource = data.resources;
+                this.sources = 1;
+                this.loading = false;
+                if (listResource.length > 0) {
+                    let sourceFile = listResource[0].file;
+                    this.fileMV = "" + sourceFile;
+                    $("#player").show();
+                    this.setPlayer(listResource);
+                }
+                return;
+            }
+            data.resources.map((r) => {
+                let server = [];
+                r.map((item) => {
+                    let itemResource = {};
+                    let label = "";
+                    if (item.label) {
+                        label = item.label;
+                    } else {
+                        label = "720p";
+                    }
+                    itemResource.file = item.file;
+                    itemResource.label = label;
+                    itemResource.type = "video/mp4";
+                    server.push(itemResource);
+                });
+                listResource.push(server);
+            });
+            this.sources = listResource;
+            this.loading = false;
+            if (listResource.length > 0) {
+                let sourceFile = listResource[0][0]["file"];
+                this.fileMV = "" + sourceFile;
+
+                $("#player").hide();
+                let dooFile = this.resources.find(
+                    (r) => r.includes("dood") || r.includes("ok.ru") || r.includes("kimovies.xyz")
+                );
+                if (dooFile) {
+                    $("#iframePlayer").attr("src", dooFile);
+                } else if (sourceFile.includes("hxfile")) {
+                    $("#iframePlayer").hide();
+                    $("#player").show();
+                    this.setPlayer(listResource[0]);
+                }
+
+                this.updateOption("views");
+            } else {
+                alert("Lối không tải được phim!");
+            }
+        },
+    });
+</script>
