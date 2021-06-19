@@ -95,9 +95,6 @@
                 if (cloneFrom == "topphimhd") {
                     return this.setPlayerTopPhim(this.sources[server]);
                 }
-                if (cloneFrom == "xuongphim") {
-                    return this.setPlayer([this.sources[server]]);
-                }
                 if (sourceFile.includes("hxfile")) {
                     $("#player").show();
                     $("#iframePlayer").attr("src", "").hide();
