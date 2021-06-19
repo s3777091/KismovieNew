@@ -1,6 +1,5 @@
 var createError = require("http-errors");
 var express = require("express");
-var debugMiddleware = require("my-debug-middleware");
 var path = require("path");
 const fs = require("fs");
 var cookieParser = require("cookie-parser");
