@@ -14,7 +14,7 @@ const config = require("../src/config");
 const common = require("../src/common");
 
 //Page trang chu
-router.get("/", async(req, res, next) => {
+router.get("/", async (req, res, next) => {
     //Phim moi
     const topMovies = MovieModel.getTopMovie(config.itemPerPage);
     //Phim hanh dong
@@ -47,12 +47,16 @@ router.get("/", async(req, res, next) => {
 });
 
 //Page thong tin phim
-router.get("/phim/:slug", async(req, res, next) => {
-    const { slug } = req.params;
+router.get("/phim/:slug", async (req, res, next) => {
+    const {
+        slug
+    } = req.params;
     const movie = MovieModel.findMovieBySlug(slug);
     const menu = MovieModel.getMenu();
     let [resMV, resMenu] = await Promise.all([movie, menu]);
-    console.log({ resMV });
+    console.log({
+        resMV
+    });
     res.render("movie", {
         title: "KiMovies - " + resMV.title,
         movie: resMV,
@@ -61,8 +65,10 @@ router.get("/phim/:slug", async(req, res, next) => {
 });
 
 //Page Xem phim
-router.get("/phim/:slug/xem-phim", async(req, res, next) => {
-    const { slug } = req.params;
+router.get("/phim/:slug/xem-phim", async (req, res, next) => {
+    const {
+        slug
+    } = req.params;
     const movie = MovieModel.findMovieBySlug(slug);
     const menu = MovieModel.getMenu();
     let [resMV, resMenu] = await Promise.all([movie, menu]);
@@ -82,8 +88,11 @@ router.get("/phim/:slug/xem-phim", async(req, res, next) => {
 });
 
 //Page the loai
-router.get("/the-loai/:category/page/:currentPage", async(req, res) => {
-    const { category, currentPage } = req.params;
+router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
+    const {
+        category,
+        currentPage
+    } = req.params;
 
     let itemPerPage = config.itemPerPage;
     const promMenu = MovieModel.getMenu();
@@ -117,13 +126,18 @@ router.get("/the-loai/:category/page/:currentPage", async(req, res) => {
 });
 
 //Page quoc gia
-router.get("/quoc-gia/:region/page/:currentPage", async(req, res) => {
-    const { region, currentPage } = req.params;
+router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
+    const {
+        region,
+        currentPage
+    } = req.params;
 
     let itemPerPage = config.itemPerPage;
     const promMenu = MovieModel.getMenu();
     const promTotalMovies = MovieModel.countMovieByRegion(region);
-    const promRegionName = RegionModel.findOne({ regionSlug: region });
+    const promRegionName = RegionModel.findOne({
+        regionSlug: region
+    });
 
     let [menu, totalMovies, resRegion] = await Promise.all([
         promMenu,
@@ -152,8 +166,11 @@ router.get("/quoc-gia/:region/page/:currentPage", async(req, res) => {
 });
 
 //Page tim kiem theo nam
-router.get("/nam/:year/page/:currentPage", async(req, res) => {
-    const { year, currentPage } = req.params;
+router.get("/nam/:year/page/:currentPage", async (req, res) => {
+    const {
+        year,
+        currentPage
+    } = req.params;
     let itemPerPage = config.itemPerPage;
     const promMenu = MovieModel.getMenu();
     const promTotalMovies = MovieModel.countMovieByYear(year);
@@ -181,8 +198,11 @@ router.get("/nam/:year/page/:currentPage", async(req, res) => {
 });
 
 //Page tim kiem
-router.get("/tim-kiem/:name/page/:currentPage", async(req, res) => {
-    const { name, currentPage } = req.params;
+router.get("/tim-kiem/:name/page/:currentPage", async (req, res) => {
+    const {
+        name,
+        currentPage
+    } = req.params;
     let itemPerPage = config.itemPerPage;
 
     const promMenu = MovieModel.getMenu();
@@ -212,28 +232,40 @@ router.get("/tim-kiem/:name/page/:currentPage", async(req, res) => {
 });
 
 //API tim kiem phim
-router.get("/api/search/:name", async(req, res) => {
-    const { name } = req.params;
+router.get("/api/search/:name", async (req, res) => {
+    const {
+        name
+    } = req.params;
     const list = await MovieModel.findListNameMovie(name);
-    res.json({ list });
+    res.json({
+        list
+    });
 });
 
 //API tim kiem phim bo
-router.get("/api/search/phim-bo/:name", async(req, res) => {
-    const { name } = req.params;
+router.get("/api/search/phim-bo/:name", async (req, res) => {
+    const {
+        name
+    } = req.params;
     const list = await MovieSerieModel.findMovieByName(name);
-    res.json({ list });
+    res.json({
+        list
+    });
 });
 
 //API Lay source play video cua phim
-router.post("/api/resource/", async(req, res) => {
-    const { slug } = req.body;
+router.post("/api/resource/", async (req, res) => {
+    const {
+        slug
+    } = req.body;
     let movie = await MovieModel.findMovieBySlug(slug);
     let listResource = [];
     if (movie.cloneFrom == hostClone.PHIM4400) {
         //get link
         let resources = movie.resources;
-        console.log({ resources });
+        console.log({
+            resources
+        });
         //Get resource from fembed
         let hxfileLink = resources.find((s) => s.includes("hxfile"));
         let hxfile = null;
@@ -242,7 +274,9 @@ router.post("/api/resource/", async(req, res) => {
             hxfile = await clonePhim4400.getResourceHxFile(hxfileLink);
         }
         let results = [
-            [{ file: '1' }], hxfile
+            [{
+                file: '1'
+            }], hxfile
         ];
         try {
             results.map((res) => {
@@ -262,7 +296,9 @@ router.post("/api/resource/", async(req, res) => {
     } else if (movie.cloneFrom == hostClone.XUONG_PHIM) {
         let resources = movie.resources;
         let id = resources[0].file;
-        console.log({ id });
+        console.log({
+            id
+        });
         try {
             listResource = await common.getSourcesXuongPhim(id);
         } catch (error) {
@@ -270,16 +306,23 @@ router.post("/api/resource/", async(req, res) => {
         }
 
     }
-    return res.json({ resources: listResource });
+    return res.json({
+        resources: listResource
+    });
 });
 
 //API Cap nhat thong tin phim
-router.post("/api/movie/update", async(req, res) => {
+router.post("/api/movie/update", async (req, res) => {
     const KEYS = ["likes", "views", "downloads", "shares"];
-    const { key, movieId } = req.body;
+    const {
+        key,
+        movieId
+    } = req.body;
     if (KEYS.includes(key)) {
         const resUpdate = await MovieOptionModel.updateOption(movieId, key);
-        res.json({ resUpdate });
+        res.json({
+            resUpdate
+        });
     }
 });
 

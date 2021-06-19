@@ -5,7 +5,8 @@
             <div class="col-12">
                 <div class="section__wrap">
                     <!-- section title -->
-                    <h2 class="home__title mb-2">Kết quả tìm kiếm: <span class="text-capitalize"><%-search %> </span></h2>
+                    <h2 class="home__title mb-2">Kết quả tìm kiếm: <span class="text-capitalize"><%-search %> </span>
+                    </h2>
                     <!-- end section title -->
                 </div>
             </div>
@@ -15,36 +16,31 @@
 <!-- end page title -->
 
 <!-- catalog -->
-        <div class="row">
-            <!-- end section title -->
-            <% listMovies.forEach(function(mv){ %>
-            <!-- card -->
-            <div class="display">
-                      
-                <div class="movies">
-                    <div class="front">
-                        <img
-                        src="<%=mv.movieThumb.thumb%>"
-                        alt="<%-mv.title%>"
-                        class="thumbnail"
-                        loading="lazy"
-                      />
-                      <h4><%= mv.title %></h4>
-                    </div>
-                    <div class="back">
-                        <div class="btn__container">
-                            <button class="btn"">
-                                <a href="/phim/<%= mv.slug %>">Xem thêm</a>
-                            </button>
-                        </div>
-                      </div>
-                </div>
-   
-       
+<div class="row">
+    <!-- end section title -->
+    <% listMovies.forEach(function(mv){ %>
+    <!-- card -->
+    <div class="display">
+
+        <div class="movies">
+            <span class="rank"> <%- mv.score %> </span>
+            <div class="front">
+                <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                <h4><%= mv.title %></h4>
             </div>
-            <!-- end card -->
-            <% }); %>
-            <%- include('../../partials/paging-default.ejs') %> 
+            <div class="back">
+                <div class="btn__container">
+                    <button class="btn__img">
+                        <a href="/phim/<%= mv.slug %>">Xem thêm</a> </button> </div>
+            </div>
+            <div class="background"></div>
         </div>
+
+
+    </div>
+    <!-- end card -->
+    <% }); %>
+    <%- include('../../partials/paging-default.ejs') %>
+</div>
 
 <!-- end catalog -->

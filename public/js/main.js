@@ -52,6 +52,18 @@ $(document).ready(function () {
 		social_panel_container.classList.remove('visible')
 	});
 
+	/*==============================
+	Ratting
+	==============================*/
+	const setVoteClass = (vote) => {
+		if (vote >= 8) {
+			return "green";
+		} else if (vote >= 6) {
+			return "orange";
+		} else {
+			return "red";
+		}
+	};
 
 	/*==============================
 	Home
@@ -162,7 +174,6 @@ $(document).ready(function () {
 			animationspeed: 400
 		});
 	}
-
 
 	/*==============================
 	Gallery

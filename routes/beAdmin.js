@@ -18,11 +18,19 @@ var sessionstorage = require("sessionstorage");
 
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
-  res.render("admin/login", { title: "Đăng nhập KiMovie Admin" });
+  res.render("admin/login", {
+    title: "Đăng nhập KiMovie Admin"
+  });
 });
 router.post("/login", function (req, res, next) {
-  const { username, password } = req.body;
-  console.log({ username, password });
+  const {
+    username,
+    password
+  } = req.body;
+  console.log({
+    username,
+    password
+  });
   if (username == "dathuynh" && password == "123") {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
@@ -30,7 +38,9 @@ router.post("/login", function (req, res, next) {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
   } else {
-    res.render("admin/login", { title: "Đăng nhập KiMovie Admin" });
+    res.render("admin/login", {
+      title: "Đăng nhập KiMovie Admin"
+    });
   }
 });
 router.get("/logout", function (req, res, next) {
@@ -44,12 +54,12 @@ router.get("/", checkAdminLogin, async (req, res, next) => {
     let promTopMostView = MovieModel.getTopMovieViews(10);
     let promLastesMovies = MovieModel.getTopMovieLastest(10);
     let [totalMovies, totalMoviesInMonth, moviesMostViews, moviesLastest] =
-      await Promise.all([
-        promCountTotalMovies,
-        promCountTotalMoviesInMonth,
-        promTopMostView,
-        promLastesMovies,
-      ]);
+    await Promise.all([
+      promCountTotalMovies,
+      promCountTotalMoviesInMonth,
+      promTopMostView,
+      promLastesMovies,
+    ]);
     res.render("admin/index", {
       title: "Kimovies Admin",
       totalMovies: totalMovies,
@@ -59,8 +69,13 @@ router.get("/", checkAdminLogin, async (req, res, next) => {
       active: "dashboard",
     });
   } catch (error) {
-    console.log({ error });
-    res.render("404", { title: "404", movie: null });
+    console.log({
+      error
+    });
+    res.render("404", {
+      title: "404",
+      movie: null
+    });
   }
 });
 
@@ -69,7 +84,9 @@ router.get(
   "/list-movie/page/:currentPage",
   checkAdminLogin,
   async (req, res, next) => {
-    const { currentPage } = req.params;
+    const {
+      currentPage
+    } = req.params;
     const itemPerPage = 10;
     let totalMovies = await MovieModel.getTotalMovies();
     let totalPage =
@@ -95,7 +112,9 @@ router.get(
   "/series/page/:currentPage",
   checkAdminLogin,
   async (req, res, next) => {
-    const { currentPage } = req.params;
+    const {
+      currentPage
+    } = req.params;
     const itemPerPage = 10;
     let totalMovies = await SerielModel.countListSerieMovie();
     let totalPage =
@@ -121,12 +140,17 @@ router.get(
 
 //Page clone phim
 router.get("/clone", checkAdminLogin, async (req, res, next) => {
-  res.render("admin/clone", { title: "Kimovies Admin", active: "clone" });
+  res.render("admin/clone", {
+    title: "Kimovies Admin",
+    active: "clone"
+  });
 });
 
 //Page cap nhat thong tin phim
 router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {
-  const { slug } = req.params;
+  const {
+    slug
+  } = req.params;
   let promMovie = MovieModel.findMovieBySlug(slug);
   let promListGenre = MovieModel.listGenre();
   let promRegions = RegionModel.find();
@@ -146,7 +170,9 @@ router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {
 
 //Page cap nhat thong tin phim bo
 router.get("/series/edit/:slug", checkAdminLogin, async (req, res, next) => {
-  const { slug } = req.params;
+  const {
+    slug
+  } = req.params;
   let promMovie = SerielModel.getDetailSerieMovie(slug);
   let promListGenre = MovieModel.listGenre();
   let promRegions = RegionModel.find();
@@ -166,10 +192,16 @@ router.get("/series/edit/:slug", checkAdminLogin, async (req, res, next) => {
 //API cap nhat thong tin phim
 router.post("/api/edit", checkAdminLogin, async (req, res, next) => {
   try {
-    const { movie, movieOption } = req.body;
-    const promUpdateMovie = MovieModel.updateOne({ _id: movie._id }, movie);
-    const promUpdateMovieOption = MovieOptionModel.updateOne(
-      { movieId: movieOption.movieId },
+    const {
+      movie,
+      movieOption
+    } = req.body;
+    const promUpdateMovie = MovieModel.updateOne({
+      _id: movie._id
+    }, movie);
+    const promUpdateMovieOption = MovieOptionModel.updateOne({
+        movieId: movieOption.movieId
+      },
       movieOption
     );
     let [updateMovie, updateMovieOption] = await Promise.all([
@@ -177,53 +209,78 @@ router.post("/api/edit", checkAdminLogin, async (req, res, next) => {
       promUpdateMovieOption,
     ]);
 
-    res.json({ success: true });
+    res.json({
+      success: true
+    });
   } catch (error) {
     console.log("/api/edit ERROR UPDATE MOVIE: ", error.message);
-    res.json({ success: false });
+    res.json({
+      success: false
+    });
   }
 });
 
 //API tim kiem phim
 router.post("/api/search", async (req, res) => {
-  const { searchType, value } = req.body;
+  const {
+    searchType,
+    value
+  } = req.body;
   try {
     if (searchType == "phim-le") {
       const list = await MovieModel.findListNameMovie(value);
-      res.json({ list });
+      res.json({
+        list
+      });
     } else {
       const list = await SerielModel.findMovieByName(value);
-      res.json({ list });
+      res.json({
+        list
+      });
     }
   } catch (error) {
     console.log("ERROR delete movie: ", error.message);
-    res.status(404).json({ message: error.message });
+    res.status(404).json({
+      message: error.message
+    });
   }
 });
 
 //API xoa phim
 router.post("/api/delete", async (req, res) => {
-  const { movieId } = req.body;
+  const {
+    movieId
+  } = req.body;
   try {
     let resDelete = await MovieModel.deleteMovie(movieId);
-    console.log({ resDelete });
+    console.log({
+      resDelete
+    });
     res.json(resDelete);
   } catch (error) {
     console.log("ERROR delete movie: ", error.message);
-    res.status(404).json({ message: error.message });
+    res.status(404).json({
+      message: error.message
+    });
   }
 });
 
 //API xoa phim bo
 router.post("/series/api/delete", async (req, res) => {
-  const { movieId } = req.body;
+  const {
+    movieId
+  } = req.body;
   try {
     let resDelete = await SerielModel.deleteMovieSerie(movieId);
-    console.log({ resDelete });
+    console.log({
+      resDelete
+    });
     res.json(resDelete);
   } catch (error) {
     console.log("ERROR delete movie: ", error.message);
-    res.status(404).json({ message: error.message });
+    res.status(404).json({
+      message: error.message
+    });
   }
 });
 

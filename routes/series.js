@@ -8,7 +8,9 @@ const RegionModel = require("../src/db/schema/RegionSchema");
 const striptags = require("striptags");
 //Phan trang phim bo
 router.get("/page/:currentPage", async (req, res, next) => {
-  const { currentPage } = req.params;
+  const {
+    currentPage
+  } = req.params;
   let itemPerPage = config.itemPerPage;
   const promMenu = MovieModel.getMenu();
   const promTotalMovies = MovieSerieModel.countListSerieMovie();
@@ -22,7 +24,7 @@ router.get("/page/:currentPage", async (req, res, next) => {
     skipItem
   );
 
-  
+
   res.render("series", {
     title: "Phim bộ",
     currentPage: currentPage,
@@ -35,7 +37,9 @@ router.get("/page/:currentPage", async (req, res, next) => {
   });
 });
 router.get("/phim/:slug", async (req, res) => {
-  const { slug } = req.params;
+  const {
+    slug
+  } = req.params;
   const promMovie = MovieSerieModel.getDetailSerieMovie(slug);
   const promMenu = MovieModel.getMenu();
 
@@ -50,7 +54,9 @@ router.get("/phim/:slug", async (req, res) => {
 
 //Page Xem phim
 router.get("/phim/:slug/xem-phim", async (req, res, next) => {
-  const { slug } = req.params;
+  const {
+    slug
+  } = req.params;
   const movie = MovieSerieModel.getDetailPartSerieMovie(slug);
   const menu = MovieModel.getMenu();
   let [resMV, resMenu] = await Promise.all([movie, menu]);
@@ -68,7 +74,10 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
 
 //Page the loai
 router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
-  const { category, currentPage } = req.params;
+  const {
+    category,
+    currentPage
+  } = req.params;
 
   let itemPerPage = config.itemPerPage;
   const promMenu = MovieModel.getMenu();
@@ -104,12 +113,17 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
 
 //Page quoc gia
 router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
-  const { region, currentPage } = req.params;
+  const {
+    region,
+    currentPage
+  } = req.params;
 
   let itemPerPage = config.itemPerPage;
   const promMenu = MovieModel.getMenu();
   const promTotalMovies = MovieSerieModel.countMovieByRegion(region);
-  const promRegionName = RegionModel.findOne({ regionSlug: region });
+  const promRegionName = RegionModel.findOne({
+    regionSlug: region
+  });
 
   let [menu, totalMovies, resRegion] = await Promise.all([
     promMenu,
@@ -140,7 +154,10 @@ router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
 
 //Page tim kiem theo nam
 router.get("/nam/:year/page/:currentPage", async (req, res) => {
-  const { year, currentPage } = req.params;
+  const {
+    year,
+    currentPage
+  } = req.params;
   let itemPerPage = config.itemPerPage;
   const promMenu = MovieModel.getMenu();
   const promTotalMovies = MovieSerieModel.countMovieByYear(year);
@@ -169,7 +186,10 @@ router.get("/nam/:year/page/:currentPage", async (req, res) => {
 
 //Page tim kiem
 router.get("/tim-kiem/:name/page/:currentPage", async (req, res) => {
-  const { name, currentPage } = req.params;
+  const {
+    name,
+    currentPage
+  } = req.params;
   let itemPerPage = config.itemPerPage;
 
   const promMenu = MovieModel.getMenu();

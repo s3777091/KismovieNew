@@ -24,6 +24,8 @@
                 <div class="display">
                       
                     <div class="movies">
+
+                        <span class="rank"> <%- mv.score %> </span>
                         <div class="front">
                             <img
                             src="<%=mv.movieThumb.thumb%>"
@@ -35,14 +37,14 @@
                         </div>
                         <div class="back">
                             <div class="btn__container">
-                                <button class="btn"">
+                                <button class="btn__img">
                                     <a href="/phim/<%= mv.slug %>">Xem thêm</a>
                                 </button>
                             </div>
                           </div>
-                    </div>
-       
-           
+
+                          <div class="background"></div>     
+                    </div>  
                 </div>
             </div>
             <!-- end card -->

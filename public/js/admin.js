@@ -4,7 +4,7 @@ $(document).ready(function () {
 	/*==============================
 	Menu
 	==============================*/
-	$('.header__btn').on('click', function() {
+	$('.header__btn').on('click', function () {
 		$(this).toggleClass('header__btn--active');
 		$('.header').toggleClass('header--active');
 		$('.sidebar').toggleClass('sidebar--active');
@@ -13,29 +13,29 @@ $(document).ready(function () {
 	/*==============================
 	Filter
 	==============================*/
-	$('.filter__item-menu li').each( function() {
+	$('.filter__item-menu li').each(function () {
 		$(this).attr('data-value', $(this).text().toLowerCase());
 	});
 
-	$('.filter__item-menu li').on('click', function() {
+	$('.filter__item-menu li').on('click', function () {
 		var text = $(this).text();
 		var item = $(this);
 		var id = item.closest('.filter').attr('id');
-		$('#'+id).find('.filter__item-btn input').val(text);
+		$('#' + id).find('.filter__item-btn input').val(text);
 	});
 
 	/*==============================
 	Tabs
 	==============================*/
-	$('.profile__mobile-tabs-menu li').each( function() {
+	$('.profile__mobile-tabs-menu li').each(function () {
 		$(this).attr('data-value', $(this).text().toLowerCase());
 	});
 
-	$('.profile__mobile-tabs-menu li').on('click', function() {
+	$('.profile__mobile-tabs-menu li').on('click', function () {
 		var text = $(this).text();
 		var item = $(this);
 		var id = item.closest('.profile__mobile-tabs').attr('id');
-		$('#'+id).find('.profile__mobile-tabs-btn input').val(text);
+		$('#' + id).find('.profile__mobile-tabs-btn input').val(text);
 	});
 
 	/*==============================
@@ -85,23 +85,23 @@ $(document).ready(function () {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 
-			reader.onload = function(e) {
+			reader.onload = function (e) {
 				$('#form__img').attr('src', e.target.result);
 			}
-		
+
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
 
-	$('#form__img-upload').on('change', function() {
+	$('#form__img-upload').on('change', function () {
 		readURL(this);
 	});
 
 	/*==============================
 	Upload video
 	==============================*/
-	$('.form__video-upload').on('change', function() {
-		var videoLabel  = $(this).attr('data-name');
+	$('.form__video-upload').on('change', function () {
+		var videoLabel = $(this).attr('data-name');
 
 		if ($(this).val() != '') {
 			$(videoLabel).text($(this)[0].files[0].name);
@@ -113,11 +113,11 @@ $(document).ready(function () {
 	/*==============================
 	Upload gallery
 	==============================*/
-	$('.form__gallery-upload').on('change', function() {
+	$('.form__gallery-upload').on('change', function () {
 		var length = $(this).get(0).files.length;
-		var galleryLabel  = $(this).attr('data-name');
+		var galleryLabel = $(this).attr('data-name');
 
-		if( length > 1 ){
+		if (length > 1) {
 			$(galleryLabel).text(length + " files selected");
 		} else {
 			$(galleryLabel).text($(this)[0].files[0].name);
@@ -154,8 +154,8 @@ $(document).ready(function () {
 	/*==============================
 	Bg
 	==============================*/
-	$('.section--bg').each( function() {
-		if ($(this).attr("data-bg")){
+	$('.section--bg').each(function () {
+		if ($(this).attr("data-bg")) {
 			$(this).css({
 				'background': 'url(' + $(this).data('bg') + ')',
 				'background-position': 'center center',

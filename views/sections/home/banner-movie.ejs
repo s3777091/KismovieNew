@@ -13,18 +13,14 @@
         </h1>
 
         <div class="content_p">
+          <p> <%-
+    mv.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+    150)+'...'%> </p>
         </div>
 
         <div class="display__button">
-
-          <button class="featured-button">
-            <a href="/phim/<%= mv.slug %>" class="a__href"> DETAIL</a>
-          </button>
-
-          <button class="featured-button">
-            <a href="/phim/<%= mv.slug %>/xem-phim" class="a__href"> WATCH </a>
-          </button>
-
+          <button type="button" class="btn btn-outline-secondary"><a href="/phim/<%= mv.slug %>"> Detail </a></button>        
+          <button type="button" class="btn btn-outline-danger"><a href="/phim/<%= mv.slug %>/xem-phim"> watch </a></button>
         </div>
       </div>
     </div>

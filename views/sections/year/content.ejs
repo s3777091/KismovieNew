@@ -15,39 +15,38 @@
 <!-- end page title -->
 
 <!-- catalog -->
-<div class="catalog mt-4">
-    <div class="container">
         <div class="row">
             <!-- end section title -->
             <% listMovies.forEach(function(mv){ %>
             <!-- card -->
             <div class="display">
-                      
+
                 <div class="movies">
+
+                    <span class="rank"> <%- mv.score %> </span>
                     <div class="front">
-                        <img
-                        src="<%=mv.movieThumb.thumb%>"
-                        alt="<%-mv.title%>"
-                        class="thumbnail"
-                        loading="lazy"
-                      />
-                      <h4><%= mv.title %></h4>
+                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                        <h4><%= mv.title %></h4>
                     </div>
                     <div class="back">
                         <div class="btn__container">
-                            <button class="btn"">
+                            <button class="btn__img">
                                 <a href="/phim/<%= mv.slug %>">Xem thêm</a>
                             </button>
                         </div>
-                      </div>
+                    </div>
+
+                    <div class="background"></div>
+
+
                 </div>
-   
-       
+
+
+
             </div>
             <!-- end card -->
             <% }); %>
-            <%- include('../../partials/paging-default.ejs') %> 
+            <%- include('../../partials/paging-default.ejs') %>
         </div>
-    </div>
-</div>
+
 <!-- end catalog -->

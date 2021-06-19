@@ -7,7 +7,10 @@ const cloneTopphim = require("../src/cloneTopPhimHD");
 const cloneTrangPhim = require("../src/cloneTrangPhim");
 /* GET users listing. */
 router.post("/", async (req, res, next) => {
-  const { cloneFrom, link } = req.body;
+  const {
+    cloneFrom,
+    link
+  } = req.body;
   try {
     if (cloneFrom.toLowerCase() == hostClone.PHIM4400) {
       await clonePhim4400.getListHomePage(link);
@@ -19,11 +22,15 @@ router.post("/", async (req, res, next) => {
       await cloneTopphim.getListHomePage(link);
     }
     console.log('===CLONE DONE=====');
-    res.json({ isDone: true });
+    res.json({
+      isDone: true
+    });
   } catch (error) {
-    res.status(404).json({ isDone: false });
+    res.status(404).json({
+      isDone: false
+    });
   }
- 
+
 });
 
 module.exports = router;

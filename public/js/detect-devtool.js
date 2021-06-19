@@ -19,7 +19,9 @@
     );
   };
 
-  const main = ({ emitEvents = true } = {}) => {
+  const main = ({
+    emitEvents = true
+  } = {}) => {
     const widthThreshold = window.outerWidth - window.innerWidth > threshold;
     const heightThreshold = window.outerHeight - window.innerHeight > threshold;
     const orientation = widthThreshold ? "vertical" : "horizontal";
@@ -27,8 +29,8 @@
     if (
       !(heightThreshold && widthThreshold) &&
       ((window.Firebug &&
-        window.Firebug.chrome &&
-        window.Firebug.chrome.isInitialized) ||
+          window.Firebug.chrome &&
+          window.Firebug.chrome.isInitialized) ||
         widthThreshold ||
         heightThreshold)
     ) {
@@ -51,7 +53,9 @@
     }
   };
 
-  main({ emitEvents: false });
+  main({
+    emitEvents: false
+  });
   setInterval(main, 500);
 
   if (typeof module !== "undefined" && module.exports) {
@@ -83,8 +87,8 @@ function detect() {
   return mobile;
 }
 if (!detect()) {
-// Check if it's open
-if (window.devtools.isOpen) {
+  // Check if it's open
+  if (window.devtools.isOpen) {
     window.location.href = "/";
   }
   // Get notified when it's opened/closed or orientation changes

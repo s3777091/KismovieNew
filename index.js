@@ -1,5 +1,6 @@
 var createError = require("http-errors");
 var express = require("express");
+var debugMiddleware = require("my-debug-middleware");
 var path = require("path");
 const fs = require("fs");
 var cookieParser = require("cookie-parser");
@@ -9,7 +10,13 @@ var indexRouter = require("./routes/index");
 var adminRouter = require("./routes/beAdmin");
 var serieRouter = require("./routes/series");
 var cloneRouter = require("./routes/clone");
+var http = reqire('http');
+var https = reqire('https');
 var app = express();
+
+if(process.env.NODE_ENV !== 'production'){
+    app.use(debugMiddleware());
+}
 
 const requestIp = require('request-ip');
 const compression = require('compression');
@@ -80,6 +87,10 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render("error", { title: 'KiMovies - 404', movie: null });
 });
+
+http.globalAgent.maxScokets = Infinity;
+https.globalAgent.maxScokets = Infinity;
+
 
 //Khoi tao danh sach quoc gia
 const common = require("./src/common");

@@ -16,38 +16,36 @@
 
 <!-- catalog -->
 
-        <div class="row">
-            <!-- end section title -->
-            <% listMovies.forEach(function(mv){ %>
-                <% 
+<div class="row">
+    <!-- end section title -->
+    <% listMovies.forEach(function(mv){ %>
+    <% 
                     parts = mv.parts.toLowerCase().replace('tập','')
                     parts = (parts == 0) ?  mv.movie_part_series.length :  parts;
                  %>
-            <!-- card -->
-            <div class="display">
-                <div class="movies">
-                    <div class="front">
-                        <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
-                        <img
-                        src="<%=mv.movieThumb.thumb%>"
-                        alt="<%-mv.title%>"
-                        class="thumbnail"
-                        loading="lazy"
-                      />
-                      <h4><%= mv.title %></h4>
-                    </div>
-                    <div class="back">
-                        <div class="btn__container">
-                            <button class="btn"">
-                                <a href="phim-bo/phim/<%= mv.slug %>">Xem thêm</a>
-                            </button>
-                        </div>
-                      </div>
+    <!-- card -->
+    <div class="display">
+        <div class="movies">
+            <span class="rank"> <%- mv.score %> </span>
+            <div class="front">
+                <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
+                <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                <h4><%= mv.title %></h4>
+            </div>
+            <div class="back">
+                <div class="btn__container">
+                    <button class="btn__img">
+                        <a href="phim-bo/phim/<%= mv.slug %>">Xem thêm</a>
+                    </button>
                 </div>
             </div>
-            <!-- end card -->
-            <% }); %>
-            <%- include('../../partials/paging-default.ejs') %> 
+
+            <div class="background"></div>
         </div>
+    </div>
+    <!-- end card -->
+    <% }); %>
+    <%- include('../../partials/paging-default.ejs') %>
+</div>
 
 <!-- end catalog -->
