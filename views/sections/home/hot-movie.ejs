@@ -9,40 +9,44 @@
                 <h2 class="home__title mb-2">Phim Hot</h2>
             </div>
             <!-- end section title -->
-            <% hotMovies.slice(0,6).map(function(mv){ %>
-                <!-- card -->
-                <div class="display">
-                    <div class="movies">
-                        <span class="rank"> <%- mv.score %> </span>
-                        <div class="front">
-                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
-                            <h4>
-                                <%= mv.title %>
-                            </h4>
-                        </div>
-                        <div class="back">
-                            <div class="btn__container">
+            <% hotMovies.slice(0,5).map(function(mv){ %>
+            <!-- card -->
+            <div class="display">
+                <div class="movies">
+                    <span class="rank"> <%- mv.score %> </span>
+                    <div class="front">
+                        <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                        <h4>
+                            <%= mv.title %>
+                        </h4>
+                    </div>
+                    <div class="back">
+                        <div class="btn__container">
 
-
+                            <div class="content__card">
+                                <h4>OverView:</h4>
+                                <p> <%-
+                              mv.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+                              150)+'...'%> </p>
+                            </div>
+                            <div class="btn__imgcontainer">
 
                                 <button class="btn__img">
-                <a href="/phim/<%=mv.slug %>">Xem Thêm</a>
-              </button>
-
+                                    <a href="/phim/<%=mv.slug %>">Xem Thêm</a>
+                                </button>
 
                             </div>
-                        </div>
 
-                        <div class="background"></div>
+                        </div>
                     </div>
+                    <div class="background"></div>
                 </div>
-                <!-- end card -->
-                <% }); %>
-                    <!-- section btn -->
-                    <div class="col-12">
-                        <a href="/the-loai/phim-hanh-dong/page/1" class="section__btn">More</a>
-                    </div>
-                    <!-- end section btn -->
+            </div>
+            <!-- end card -->
+            <% }); %>
+            <!-- section btn -->
+        
+            <!-- end section btn -->
         </div>
     </div>
 </section>

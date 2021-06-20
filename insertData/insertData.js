@@ -7,20 +7,20 @@ const connectToMongoDB = async() => {
             console.log("you are connected to mogodb!");
 
             const movie = {
-                resources: ["https://kimovies.xyz/player/index.php?data=aab3238922bcc25a6f606eb525ffdc56"],
-                slug: "infinite-2021",
-                title: "Infinite 2021",
-                description: "Evan McCauley has skills he never learned and memories of places he has never visited. Self-medicated and on the brink of a mental breakdown, a secret group that call themselves “Infinites” come to his rescue, revealing that his memories are real.",
-                trial: "https://www.youtube.com/watch?v=_WWEOCQGxSw",
-                cloneLink: "phim4400/infinite-2021/",
+                resources: ["https://kimovies.xyz/player/index.php?data=1f0e3dad99908345f7439f8ffabdffc4"],
+                slug: "in-the-heights",
+                title: "In The Heights(nonSub)",
+                description: "Lấy bối cảnh khu phố Washington Heights của New York, nội dung phim xoay quanh hành trình thực hiện giấc mơ trở thành ca sĩ nổi tiếng của anh chủ quán bar Usnavi. Vốn là nơi có không khí luôn dâng đầy nguồn cảm hứng bất tận cho âm nhạc, từ hương cà phê thoang thoảng khắp không gian, cho đến trạm dừng tàu điện ngầm trên con đường 181, nên rất nhiều người tại đây luôn biết cách ngân nga những bài hát mình yêu thích. Còn với Usnavi, anh luôn nỗ lực tiết kiệm từng đồng mỗi ngày, ôm giấc mơ về một cuộc sống tràn ngập âm nhạc cùng với những người bạn của mình.",
+                trial: "https://www.youtube.com/watch?v=u5pTICZ2oeg",
+                cloneLink: "phim4400/in-the-heights/",
                 cloneFrom: "phim4400",
                 movieThumb: [
-                    "https://www.themoviedb.org/t/p/original/hjypZf7Juayon8emI6HNSyjbqWF.jpg",
-                    "https://image.tmdb.org/t/p/w220_and_h330_face//wFl2rumfzQJzTf50WqmK7zDg6Aa.jpg",
-                    "https://www.themoviedb.org/t/p/original/wFl2rumfzQJzTf50WqmK7zDg6Aa.jpg"
+                    "https://www.themoviedb.org/t/p/original/uEJuqp08dH6IQwZJGASlPZOXqKu.jpg",
+                    "https://image.tmdb.org/t/p/w220_and_h330_face//4puYT4R4nqSeqvaQnkMzRQe6aWc.jpg",
+                    "https://www.themoviedb.org/t/p/original/9Lcj7rZC9t7TBAUIKUkAgvjNvsq.jpg"
                 ],
-                createdAt: Date("2021-06-18T03:14:25.627+00:00"),
-                score: 4.2,
+                createdAt: Date("2021-06-20T03:14:25.627+00:00"),
+                score: 7.4,
             };
 
             await new movieSchema(movie).save();
