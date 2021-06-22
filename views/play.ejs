@@ -190,18 +190,6 @@
             },
         },
         mounted: async function () {
-            if (cloneFrom == "fulfim") {
-                this.sources = resources;
-                this.loading = false;
-                this.updateOption("views");
-                if (!resources[0].type) {
-                    $("#player").remove();
-                    return $("#iframePlayer").attr("src", resources[0].file);
-                }
-                $("#iframePlayer").remove();
-                return this.setPlayerTopPhim(resources[0]);
-            }
-
             let res = await axios.post("/api/resource/", {
                 slug
             });
@@ -209,19 +197,6 @@
                 data
             } = res;
             let listResource = [];
-            if (cloneFrom == "xuongphim") {
-                $("#iframePlayer").remove();
-                listResource = data.resources;
-                this.sources = 1;
-                this.loading = false;
-                if (listResource.length > 0) {
-                    let sourceFile = listResource[0].file;
-                    this.fileMV = "" + sourceFile;
-                    $("#player").show();
-                    this.setPlayer(listResource);
-                }
-                return;
-            }
             data.resources.map((r) => {
                 let server = [];
                 r.map((item) => {
@@ -247,7 +222,7 @@
 
                 $("#player").hide();
                 let dooFile = this.resources.find(
-                    (r) => r.includes("dood") || r.includes("ok.ru") || r.includes("kimovies.xyz")
+                    (r) => r.includes("dood") || r.includes("kimovies.xyz") || r.includes("kimovies.live")
                 );
                 if (dooFile) {
                     $("#iframePlayer").attr("src", dooFile);

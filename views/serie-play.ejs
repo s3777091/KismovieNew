@@ -116,11 +116,7 @@
         },
         created: async function () {
             let thumb = '<%-movie.movie_series[0].movieThumb.full%>'
-            if(cloneFrom == 'trangphim') {
-                $('#iframePlayer').remove();
-                this.setPlayer(this.sources, thumb)
-            }else {
-                this.isDailymotion = this.sources.some(source => source[0].file.includes('dailymotion') || source[0].file.includes('ok.ru')|| source[0].file.includes('youtube'));
+                this.isDailymotion = this.sources.some(source => source[0].file.includes('dood') || source[0].file.includes('ok.ru')|| source[0].file.includes('hxfile'));
                 if (this.isDailymotion) {
                     $('#iframePlayer').attr('src', this.sources[0][0].file);
                     $('#player').remove();
@@ -128,7 +124,7 @@
                     $('#iframePlayer').remove();
                     this.setPlayer(this.sources[0], thumb)
                 }
-            }
+            
 
         },
     });

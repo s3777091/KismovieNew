@@ -15,9 +15,11 @@ const connectToMongoDB = async() => {
                 cloneLink: "phim4400/in-the-heights/",
                 cloneFrom: "phim4400",
                 movieThumb: [
-                    "https://www.themoviedb.org/t/p/original/uEJuqp08dH6IQwZJGASlPZOXqKu.jpg",
-                    "https://image.tmdb.org/t/p/w220_and_h330_face//4puYT4R4nqSeqvaQnkMzRQe6aWc.jpg",
-                    "https://www.themoviedb.org/t/p/original/9Lcj7rZC9t7TBAUIKUkAgvjNvsq.jpg"
+                   {
+                       full: "adasd",
+                       thumb:"dfadasd",
+                       medium:"dasdasd"
+                   }
                 ],
                 createdAt: Date("2021-06-20T03:14:25.627+00:00"),
                 score: 7.4,
