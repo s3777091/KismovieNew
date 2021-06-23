@@ -1,19 +1,18 @@
 const mongo = require("./mongo");
-const movieSchema = require("../src/db/schema/MovieSchema");
+const category = require("../src/db/schema/CategorySchema");
 
 const connectToMongoDB = async() => {
     await mongo().then(async(mongoose) => {
         try {
-            console.log("you are connected to mogodb!");
+            const filter = { categorySlug: 'phim-vo-thuat' };
+            const update = { img: "https://images.unsplash.com/photo-1544243747-b8ca15da2450?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80%20751w" };
 
-
-            const filter = { trial: 'https://www.youtube.com/watch?v=FJfuVkgcDJQ' };
-            const update = { score: 6 };
-
-            await movieSchema.findOneAndUpdate(filter, update, {
+            await category.findOneAndUpdate(filter, update, {
                 new: true,
                 upsert: true
             });
+
+            console.log(`succes update the ${update.img}`);
         } finally {
             mongoose.connection.close();
         }

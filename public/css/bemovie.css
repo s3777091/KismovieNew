@@ -97,12 +97,12 @@ button {
 .part-item {
     position: absolute;
     color: #fefefe;
-    background: #dd505e;
+    background: #f80000;
     padding: 10px;
     font-size: 17px;
-    background-image: -webkit-linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-    background-image: -ms-linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
-    background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+    background-image: -webkit-linear-gradient(90deg, #fa3c1a 0%, #ff5860 100%);
+    background-image: -ms-linear-gradient(90deg, #fa3c1a 0%, #ff5860 100%);
+    background-image: linear-gradient(90deg, #fa3c1a 0%, #ff5860 100%);
     -webkit-box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
     box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
     opacity: 0.85;
@@ -2004,7 +2004,7 @@ body.dark .front h4 {
     position: absolute;
     top: 0;
     right: 1em;
-    background: rgba(248, 161, 0, 0.65);
+    background: rgba(184, 0, 61, 0.65);
     padding: 0.5em 0.5em 0.75em;
     font-size: 1.025rem;
     z-index: 1000;
@@ -5829,17 +5829,6 @@ body.dark .spane__year {
     object-fit: fixed;
 }
 
-.display__img {
-    display: flex;
-    margin-top: 0.5rem;
-    padding-bottom: 2rem;
-    overflow-y: hidden;
-    overflow-x: scroll;
-}
-
-.display__img::-webkit-scrollbar {
-    display: none;
-}
 
 .img-poster {
     max-height: 350px;
@@ -5865,11 +5854,28 @@ body.dark .spane__year {
 }
 
 .featured-content {
-    height: 90vh;
+    height: 120vh;
     width: auto;
     position: relative;
     object-fit: fixed;
-    color: white;
+    color: whitesmoke;
+    overflow-y: hidden;
+}
+
+.featured-content .display__img{
+    overflow: hidden;
+    position: relative;
+}
+
+.control__img{
+    display: flex;
+    margin-top: 0.5rem;
+    padding-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.featured-content::-webkit-scrollbar {
+    display: none;
 }
 
 .featured-desc {

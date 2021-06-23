@@ -23,7 +23,7 @@
                         <h2 class="details__title">Có thể bạn thích</h2>
                     </div>
                     <% if (movieRelated.length > 0) { %>
-                    <% movieRelated.forEach(mv => {
+                    <% movieRelated.slice(0,8).map(mv => {
           %>
                     <!-- card -->
                     <div class="col-6 col-sm-4 col-lg-4 col-xl-3">

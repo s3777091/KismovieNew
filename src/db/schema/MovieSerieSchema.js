@@ -20,6 +20,7 @@ const MovieSerieSchema = new Schema(
     category:String,//The loai
     region:String,//Quoc gia
     regionSlug:String,//Slug quoc gia
+    score: Number,
   },
   {
     toObject: {

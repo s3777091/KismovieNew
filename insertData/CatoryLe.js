@@ -7,20 +7,20 @@ const connectToMongoDB = async() => {
             console.log("you are connected to mogodb!");
 
             const MovieOptionSchema = {
-                times: '2h23',
+                times: '1h38',
                 category: "phim hay",
                 categorySlug: "phim-hay",
                 year: "2021",
                 quanlity: "FHD 1080p",
                 region: "QUỐC GIA KHÁC",
                 regionSlug: "quoc-gia-khac",
-                movieId: "60cf07861bc9bf2270cbbb9e",
+                movieId: "60d33971bbd2321b20c82d36",
                 createdAt: Date("2021-06-19T03:14:25.706+00:00"),
                 updatedAt: Date("2021-06-19T03:14:25.706+00:00"),
-                shares: "2212",
-                views: "9329",
-                downloads: "234",
-                likes: "5321",
+                shares: "1912",
+                views: "12422",
+                downloads: "12245",
+                likes: "9232",
             }
 
             await new movieSchema(MovieOptionSchema).save()

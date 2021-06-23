@@ -8,17 +8,19 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://dood.la/e/re4b7evswrxm",
+                            file: "https://dood.la/e/xsnauv5ewsmz",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Thế Giới Hoàn Mỹ - Perfect World Tập 11",
-                slug: "the-gioi-hoan-my-perfect-world-tap-11",
-                serieSlug: "the-gioi-hoan-my-perfect-world",
-                cloneLink: "fulfim/p/the-gioi-hoan-my-perfect-world-tap-11",
+                title: "Lupin Part 1 tập 5",
+                slug: "lupin-part-1-tap-5",
+                serieSlug: "lupin-part-1",
+                cloneLink: "fulfim/p/lupin-part-1-tap-5",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();
+
+            console.log(`cài thành công ${movie.title}`);
         } finally {
             mongoose.connection.close();
         }

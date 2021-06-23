@@ -6,6 +6,7 @@ const CategorySchema = new Schema(
   {
     category: String,
     categorySlug: String,
+    img: String,
   },
   {
     toObject: {
