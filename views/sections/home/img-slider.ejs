@@ -1,23 +1,13 @@
 <!-- Phim hot -->
 <!-- data-bg="img/section/section.jpg" -->
-
-<div class="name__img">
-    <div class="col-12">
-        <h2 class="home__title mb-2">Phim mới</h2>
-    </div>
-</div>
-
 <div class="row">
 
     <!-- end section title -->
 
     <div class="display__img">
-        <% hotMovies.forEach(function(mv){ %>
-
-            <a href="/phim/<%= mv.slug %>">
-      <img src="<%=mv.movieThumb.full%>" alt="" class="img-poster" />
-    </a>
-            <% }); %>
+        <% menu.genres.slice(0,1).map(g => { %>
+      <img src="<%=g.img%>" alt="" class="img-poster" />
+      <% }) %>
     </div>
 
     <!-- section btn -->

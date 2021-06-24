@@ -458,7 +458,7 @@ a.header__logo .text-red {
 
 .header__wrap {
   position: relative;
-  background-color: #2b2b31;
+  background-color: black;
   z-index: 2;
 }
 

@@ -189,6 +189,7 @@ html {
 .col-xl-auto {
     position: relative;
     width: 100%;
+    background-color: black;
     padding-right: 15px;
     padding-left: 15px
 }
