@@ -26,16 +26,15 @@
     <!-- card -->
     <div class="display">
         <div class="movies">
-            <span class="rank"> <%- mv.score %> </span>
             <div class="front">
                 <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
                 <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
                 <h4><%= mv.title %></h4>
             </div>
             <div class="back">
-                <div class="btn__container">
+                <div class="btn__imgcontainer">
                     <button class="btn__img">
-                        <a href="phim-bo/phim/<%= mv.slug %>">Xem thêm</a>
+                        <a href="/phim-bo/phim/<%= mv.slug %>">Xem thêm</a>
                     </button>
                 </div>
             </div>

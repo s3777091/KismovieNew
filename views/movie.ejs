@@ -12,9 +12,6 @@
   let clf =  "<%-movie.cloneFrom%>"
   let videoId = trialLink.split("v=")[1];
   let link = "//www.youtube.com/embed/" + videoId;
-  if(clf == 'topphimhd' || clf == 'xuongphim') {
-    link = trialLink;
-  }
   $("#player").attr("src", link);
   if(trialLink == '') {
     $('#player').remove();

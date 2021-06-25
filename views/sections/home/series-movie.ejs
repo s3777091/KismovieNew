@@ -7,14 +7,10 @@
                  <h2 class="home__title mb-2">Phim Bộ</h2>
              </div>
              <% seriaMovies.slice(0,6).map(function(mv){ %>
-             <% parts = mv.parts.toLowerCase().replace('tập','').replace('</strong>','')
-                parts = (parts == 0) ?  mv.movie_part_series.length :  parts;
-            %>
              <!-- card -->
              <div class="display">
                  <div class="movies">
                      <div class="front">
-                         <span class="part-item"><%- mv.movie_part_series.length +"/"+parts %></span>
                          <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
                          <h4><%= mv.title %></h4>
                      </div>

@@ -96,6 +96,7 @@ button {
 
 .part-item {
     position: absolute;
+    /* isolation: isolate; */
     color: #fefefe;
     background: #f80000;
     padding: 10px;
@@ -551,7 +552,7 @@ a.header__logo .text-red {
     position: relative;
     height: 60px;
     width: 100%;
-    background-color:black;
+    background-color: black;
     border: none;
     padding: 0 120px 0 15px;
     font-size: 15px;
@@ -585,7 +586,8 @@ a.header__logo .text-red {
     color: #fff;
     opacity: 1;
 }
-.herder__display{
+
+.herder__display {
     display: flex;
 }
 
@@ -663,7 +665,7 @@ a.header__logo .text-red {
     position: absolute;
     height: 2px;
     width: 24px;
-    background:#000;
+    background: #000;
     opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
@@ -1065,14 +1067,18 @@ a.header__logo .text-red {
     font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 28px;
-    color: white;
+    color: black;
     padding-top: 20px;
     margin: 0;
     padding-left: 20px;
 }
 
-body.dark .home__title {
+/* body.dark .home__title {
     color: black
+} */
+
+.darkmode--activated .home__title {
+    color: white;
 }
 
 
@@ -1959,6 +1965,7 @@ body.dark .home__title {
 
 .movies {
     width: 14.5em;
+    isolation: isolate;
     position: relative;
     padding-top: 20px;
     margin-bottom: 35px;
@@ -1966,28 +1973,36 @@ body.dark .home__title {
 
 .front {
     transition: 250ms;
+    isolation: isolate;
 }
 
 .front img {
     max-width: 100%;
     height: 350px;
+    isolation: isolate;
 }
 
 .front .thumbnail {
     border-radius: var(--br);
+    isolation: isolate;
 }
 
 .front h4 {
     font-size: 20px;
-    color: white;
+    color: black;
 }
 
-body.dark .front h4 {
+/* body.dark .front h4 {
     color: black
+} */
+
+.darkmode--activated .front h4 {
+    color: white;
 }
 
 .back {
     opacity: 0;
+    isolation: isolate;
     position: absolute;
     top: 70%;
     left: 0;
@@ -2006,6 +2021,7 @@ body.dark .front h4 {
     font-size: 1.025rem;
     z-index: 1000;
     transition: var(--transition);
+    isolation: isolate;
     font-weight: bold;
     clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
 }
@@ -2015,6 +2031,7 @@ body.dark .front h4 {
     border: 0;
     border-radius: 100vw;
     font-weight: bold;
+    isolation: isolate;
     padding: 0.5em 1.5em;
     background-image: -moz-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
     background-image: -webkit-linear-gradient(90deg, #d10034 0%, #5e0156 100%);
@@ -2027,6 +2044,7 @@ body.dark .front h4 {
 .btn__container {
     left: 0;
     position: absolute;
+    isolation: isolate;
 }
 
 
@@ -2035,6 +2053,7 @@ body.dark .front h4 {
     display: flex;
     padding-left: 70px;
     margin: 10px 10px;
+    isolation: isolate;
     margin-bottom: 50px;
     padding-top: 100px;
     padding-right: 70px;
@@ -2043,13 +2062,14 @@ body.dark .front h4 {
 
 .background {
     background-color: orange;
+    isolation: isolate;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: -1;
-    transform: scale(0.05, 0.2);
+    transform: scale(0.2, 0.9);
     border-radius: var(--br);
     opacity: 0;
 }
@@ -2057,25 +2077,30 @@ body.dark .front h4 {
 
 .btn__imgcontainer {
     padding-left: 50px;
+    isolation: isolate;
 }
 
 .content__card {
     justify-content: center;
+    isolation: isolate;
 }
 
 .content__card h4 {
     font-size: 14px;
     font-weight: bold;
+    isolation: isolate;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .content__card p {
     font-size: 14px;
+    isolation: isolate;
     font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .movies:hover .background {
+    isolation: isolate;
     transform: scale(1.4, 1.2);
     opacity: 1;
     transition: var(--transition), opacity 100ms linear;
@@ -2083,31 +2108,38 @@ body.dark .front h4 {
 
 .movies:hover .front {
     transform: translateY(-30%) scale(0.8);
+    isolation: isolate;
 }
 
 .movies:hover .cast {
     opacity: 0;
+    isolation: isolate;
 }
 
 .movies:hover .stats {
     opacity: 0;
+    isolation: isolate;
 }
 
 .movies:hover .rank {
     transform: translate(120%, -130%);
+    isolation: isolate;
 }
 
 .movies:hover .back {
     opacity: 1;
+    isolation: isolate;
 }
 
 .movies:hover h3 {
     animation: gameName 250ms forwards;
+    isolation: isolate;
 }
 
 @media (max-width: 428px) {
     .movies {
         width: 8em;
+        isolation: isolate;
         position: relative;
         padding-top: 20px;
         margin-bottom: 20px;
@@ -2115,15 +2147,18 @@ body.dark .front h4 {
 
     .front {
         transition: 250ms;
+        isolation: isolate;
     }
 
     .front img {
         max-width: 100%;
+        isolation: isolate;
         height: 200px;
     }
 
     .display {
         display: flex;
+        isolation: isolate;
         padding-left: 20px;
         margin: 5px 5px;
         margin-bottom: 40px;
@@ -2134,45 +2169,53 @@ body.dark .front h4 {
 
     .front h4 {
         font-weight: bold;
+        isolation: isolate;
         font-size: 15px;
         color: #0cb457;
     }
 
     .content__card {
         justify-content: center;
+        isolation: isolate;
     }
 
     .content__card h4 {
         font-size: 14px;
         font-weight: bold;
+        isolation: isolate;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .content__card p {
         font-size: 9px;
+        isolation: isolate;
         font-weight: bold;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .movies:hover .front {
         transform: translateY(-25%) scale(1);
+        isolation: isolate;
     }
 
     .btn__container {
         position: absolute;
+        isolation: isolate;
         margin-top: 12px;
         left: 0;
     }
 
     .btn__imgcontainer {
         padding-left: 19px;
+        isolation: isolate;
     }
 
     .background {
         background-color: orange;
         position: absolute;
+        isolation: isolate;
         top: 0;
-        bottom: -9%;
+        bottom: 0;
         left: 0;
         right: 0;
         z-index: -1;
@@ -2183,6 +2226,7 @@ body.dark .front h4 {
 
     .btn__img {
         cursor: pointer;
+        isolation: isolate;
         border: 0;
         border-radius: 100vw;
         font-weight: bold;
@@ -2451,14 +2495,18 @@ body.dark .front h4 {
     margin-top: 15px;
     font-size: 15px;
     line-height: 25px;
-    color: white;
+    color: black;
     letter-spacing: 0.2px;
 }
 
-body.dark .card--details .card__description {
+/* body.dark .card--details .card__description {
     color: black;
-}
+} */
 
+
+.darkmode--activated .card--details .card__description {
+    color: white;
+}
 
 .card--details .card__list {
     display: inline-flex;
@@ -2566,19 +2614,26 @@ body.dark .card--details .card__description {
 }
 
 .a__darkmode {
-    color: white
+    color: black;
 }
 
-body.dark .a__darkmode {
+/* body.dark .a__darkmode {
     color: black
+} */
+
+.darkmode--activated .a__darkmode {
+    color: white
 }
 
 .p__darkmode {
-    color: white
+    color: black
 }
 
-body.dark .p__darkmode {
+/* body.dark .p__darkmode {
     color: black
+} */
+.darkmode--activated .p__darkmode {
+    color: white
 }
 
 @media (min-width: 576px) {
@@ -2762,7 +2817,7 @@ body.dark .p__darkmode {
 }
 
 .details__title {
-    color: #fff;
+    color: black;
     padding-top: 100px;
     font-weight: 300;
     font-size: 28px;
@@ -2773,8 +2828,12 @@ body.dark .p__darkmode {
     font-weight: 700;
 }
 
-body.dark .details__title {
+/* body.dark .details__title {
     color: black
+} */
+
+.darkmode--activated .details__title {
+    color: white
 }
 
 body.dark {
@@ -4507,7 +4566,7 @@ ul.parts-movie li.active {
 }
 
 .footer__title {
-    color: #fff;
+    color: #151515;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.4px;
@@ -4515,26 +4574,39 @@ ul.parts-movie li.active {
     margin-top: 15px;
 }
 
-body.dark .footer__title {
+/* body.dark .footer__title {
     color: black
+} */
+
+.darkmode--activated .footer__title {
+    color: white
 }
 
 .footer__list {
     margin-bottom: 15px;
-    color: #fff
+    color: black
 }
 
-body.dark .footer__list {
+/* body.dark .footer__list {
     color: black
+} */
+
+.darkmode--activated .footer__list {
+    color: white
 }
 
 .footer__a {
-    color: white;
+    color: black;
     font-size: 16px;
 }
 
-body.dark .footer__a {
+/* body.dark .footer__a {
     color: black
+} */
+
+
+.darkmode--activated .footer__a {
+    color: blanchedalmond;
 }
 
 .footer__list li {
@@ -4555,11 +4627,16 @@ body.dark .footer__a {
 }
 
 .spane__year {
-    color: white
+    color: black
 }
 
-body.dark .spane__year {
+/* body.dark .spane__year {
     color: black
+} */
+
+
+.darkmode--activated .spane__year {
+    color: white
 }
 
 .footer__app {
@@ -5933,21 +6010,30 @@ body.dark .spane__year {
 }
 
 .span__darkmode {
-    color: white;
+    color: black;
 }
 
+/* 
 body.dark .span__darkmode {
 
     color: black
+} */
+
+.darkmode--activated .span__darkmode {
+    color: white
 }
+
 
 
 .movietitle__darkmode {
-    color: white;
+    color: black;
 }
 
-body.dark .movietitle__darkmode {
+/* body.dark .movietitle__darkmode {
     color: black
+} */
+.darkmode--activated .movietitle__darkmode {
+    color: white
 }
 
 
@@ -5956,11 +6042,15 @@ body.dark .movietitle__darkmode {
     flex: 0 0 100%;
     max-width: 100%;
     padding-top: 120px;
-    background-color: black;
+    background-color: white;
 }
 
-body.dark .iframe__display {
+/* body.dark .iframe__display {
     background-color: white;
+} */
+
+.darkmode--activated .iframe__display {
+    background-color: black;
 }
 
 
@@ -5968,4 +6058,13 @@ body.dark .iframe__display {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
     font: 1.2em sans-serif;
+}
+
+
+.nav__avatar {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    margin-right: 20px;
+    width: 30px;
 }

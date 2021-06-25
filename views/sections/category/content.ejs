@@ -1,5 +1,5 @@
 <!-- page title -->
-<section class="section section--first section--bg py-4" data-bg="/img/section/section.jpg">
+<section>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -21,7 +21,6 @@
     <% listMovies.forEach(function(mv){ %>
     <!-- card -->
     <div class="display">
-
         <div class="movies">
             <span class="rank"> <%- mv.score %> </span>
             <div class="front">
@@ -30,9 +29,19 @@
             </div>
             <div class="back">
                 <div class="btn__container">
-                    <button class="btn__img">
-                        <a href="/phim/<%= mv.slug %>">Xem thêm</a>
-                    </button>
+                    <div class="content__card">
+                        <h4>OverView:</h4>
+                        <p> <%-
+                      mv.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+                      150)+'...'%> </p>
+                    </div>
+
+                    <div class="btn__imgcontainer">
+                        <button class="btn__img">
+                            <a href="/phim/<%= mv.slug %>">Xem thêm</a>
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
