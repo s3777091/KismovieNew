@@ -36,7 +36,7 @@ router.get("/", async (req, res, next) => {
         menu,
     ]);
     res.render("index", {
-        title: "KiMovies",
+        title: "KiSMovies",
         topMovies: resTopMV,
         hotMovies: resHotMV,
         seriaMovies: resSeriaMV,
@@ -58,7 +58,7 @@ router.get("/phim/:slug", async (req, res, next) => {
         resMV
     });
     res.render("movie", {
-        title: "KiMovies - " + resMV.title,
+        title: "KiSMovies - " + resMV.title,
         movie: resMV,
         menu: resMenu,
     });
@@ -79,7 +79,7 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
     );
     console.log(resMV.resources);
     res.render("play", {
-        title: "KIMovies - " + resMV.title,
+        title: "kisMovies - " + resMV.title,
         movie: resMV,
         menu: resMenu,
         //truyen method get source phim
@@ -113,7 +113,7 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
         skipItem
     );
     res.render("list", {
-        title: "KiMovie - Thể loại " + category,
+        title: "KiSMovie - Thể loại " + category,
         movie: null,
         listMovies: listMovies,
         menu: menu,
@@ -153,7 +153,7 @@ router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
         skipItem
     );
     res.render("region", {
-        title: "KiMovie - Quốc gia " + resRegion.region,
+        title: "KiSMovie - Quốc gia " + resRegion.region,
         movie: null,
         listMovies: listMovies,
         menu: menu,
@@ -185,7 +185,7 @@ router.get("/nam/:year/page/:currentPage", async (req, res) => {
     );
 
     res.render("year", {
-        title: "KiMovie - Năm phát hành " + year,
+        title: "KiSMovie - Năm phát hành " + year,
         movie: null,
         listMovies: listMovies,
         menu: menu,
@@ -219,7 +219,7 @@ router.get("/tim-kiem/:name/page/:currentPage", async (req, res) => {
     );
 
     res.render("search", {
-        title: "KiMovie - Tìm kiếm " + name,
+        title: "KiSMovie - Tìm kiếm " + name,
         movie: null,
         listMovies: listMovies,
         menu: menu,

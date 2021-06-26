@@ -29,28 +29,28 @@
 	<meta name="author" content="Kimovies.herokuapp.com" />
  <meta expr:content="data:blog.pageTitle" property="og:title" /> 
  <meta expr:content="data:blog.url" property="og:url" />
-<meta content="KiMovies" property="og:site_name" />
+<meta content="KiSMovies" property="og:site_name" />
 	<meta content="629688671039918" property="fb:app_id" />
 	<meta content="article" property="og:type" />
 	<% if (movie) { 
 		serie = movie.movie_series[0]
 	%>
-		<title><%- serie.title %>  | Kimovies</title>
+		<title><%- serie.title %>  | KiSmovies</title>
 		<meta name="keywords" content="<%- serie.slug %>" />
 		<meta name="description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%> " />
 		<meta property="og:url" content="/phim/<%- serie.slug %>/xem-phim" />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="KiMovies - <%- serie.title %> " />
+		<meta property="og:title" content="KiSMovies - <%- serie.title %> " />
 		<meta property="og:description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
 		<meta property="og:image" content="<%- serie.movieThumb.full %> " />
 		<meta property="og:image:alt" content="<%- serie.title %>" />
 	<% } else { %>
 		<title><%-title%></title>
-		<meta name="keywords" content="PhimHD, KiMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
-		<meta property="og:url" content="https://kimovies.me/" />
-		<meta property="og:image" content="https://kimovies.me/img/banner.jpg" />
+		<meta name="keywords" content="PhimHD, KiSMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
+		<meta property="og:url" content="https://kismovie.com/" />
+		<meta property="og:image" content="https://kismovie.com/img/banner.jpg" />
 		<meta property="og:type" content="website" />
-		<meta property="og:image:alt" content="KiMovies-Banner" />
+		<meta property="og:image:alt" content="KisMovie-Banner" />
 		<meta property="og:title" content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất">
 		<meta property="og:description" content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao" />
 	<% } %>

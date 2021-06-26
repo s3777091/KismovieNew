@@ -19,7 +19,7 @@ var sessionstorage = require("sessionstorage");
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
   res.render("admin/login", {
-    title: "Đăng nhập KiMovie Admin"
+    title: "Đăng nhập KisMovie Admin"
   });
 });
 router.post("/login", function (req, res, next) {
@@ -39,7 +39,7 @@ router.post("/login", function (req, res, next) {
     res.redirect("/be-admin");
   } else {
     res.render("admin/login", {
-      title: "Đăng nhập KiMovie Admin"
+      title: "Đăng nhập KiSMovie Admin"
     });
   }
 });
@@ -61,7 +61,7 @@ router.get("/", checkAdminLogin, async (req, res, next) => {
       promLastesMovies,
     ]);
     res.render("admin/index", {
-      title: "Kimovies Admin",
+      title: "KiSmovie Admin",
       totalMovies: totalMovies,
       totalMoviesInMonth: totalMoviesInMonth,
       moviesMostViews: moviesMostViews,

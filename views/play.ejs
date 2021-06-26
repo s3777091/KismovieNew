@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="fb-comments col-12 commentsdark mt-4"
-                        :data-href="https://www.facebook.com/profile.php?id=100016099751844/" data-numposts="10"
+                        :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive" data-numposts="10"
                         data-width="100%"></div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <h2 class="details__title">Có thể bạn thích</h2>
                     </div>
                     <% if (movieRelated.length > 0) { %>
-                    <% movieRelated.slice(0,8).map(mv => {
+                    <% movieRelated.slice(0,4).map(mv => {
           %>
                     <!-- card -->
                     <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
@@ -112,7 +112,7 @@
                 let url = port ?
                     "http://" + hostname + ":" + port :
                     "http://" + hostname;
-                url = `https://www.facebook.com/sharer/sharer.php?u=${url}/phim/${slug}/xem-phim/`;
+                url = `https://www.facebook.com/sharer/sharer.php?href=${url}/phim/${slug}/xem-phim/`;
                 newwindow = this.PopupCenter(url, "<%- movie.title %>", 500, 300);
                 if (window.focus) {
                     newwindow.focus();

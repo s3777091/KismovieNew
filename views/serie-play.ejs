@@ -1,20 +1,22 @@
 <%- include('./partials/header-serie.ejs') %> <%- include('./partials/menu.ejs')
         %>
 <div class="wrap-player">
-<div class="col-12">
-    <!-- sections -->
-    <%- include('./sections/serie-detail/video.ejs'); %>
-    <section class="">
-        <div class="container">
-            <div class="row">
-                <div class="fb-comments col-12 mt-4
-                                    commentsdark" :data-href="https://www.facebook.com/profile.php?id=100016099751844/"
-                    data-numposts="10" data-width="100%"></div>
+    <div class="col-12">
+        <!-- sections -->
+        <%- include('./sections/serie-detail/video.ejs'); %>
+        <section class="section py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="fb-comments col-12 mt-4
+                commentsdark" :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive" data-numposts="5"
+                        data-width="100%"></div>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- end sections -->
-</div>
+        </section>
+
+        
+        <!-- end sections -->
+    </div>
 </div>
 <%- include('./partials/footer.ejs'); %>
 <script src="/js/jwplayer.js"></script>
@@ -62,10 +64,10 @@
             shareFb() {
                 let hostname = window.location.hostname;
                 let port = window.location.port;
-                let url = port
-                    ? "http://" + hostname + ":" + port
-                    : "http://" + hostname;
-                url = `https://www.facebook.com/sharer/sharer.php?u=${url}/phim-bo/phim/${slug}/xem-phim/`;
+                let url = port ?
+                    "http://" + hostname + ":" + port :
+                    "http://" + hostname;
+                url = `https://www.facebook.com/sharer/sharer.php?href=${url}/phim/${slug}/xem-phim/`;
                 newwindow = this.PopupCenter(url, "<%- movie.title %>", 500, 300);
                 if (window.focus) {
                     newwindow.focus();
@@ -74,7 +76,10 @@
             },
             async updateOption(key) {
                 try {
-                    let res = await axios.post("/api/movie/update", { key, movieId });
+                    let res = await axios.post("/api/movie/update", {
+                        key,
+                        movieId
+                    });
                     let result = res.data.resUpdate;
                     this.views = result.views;
                     this.shares = result.shares;
@@ -116,15 +121,16 @@
         },
         created: async function () {
             let thumb = '<%-movie.movie_series[0].movieThumb.full%>'
-                this.isDailymotion = this.sources.some(source => source[0].file.includes('dood') || source[0].file.includes('ok.ru')|| source[0].file.includes('kimovies.me'));
-                if (this.isDailymotion) {
-                    $('#iframePlayer').attr('src', this.sources[0][0].file);
-                    $('#player').remove();
-                }else {
-                    $('#iframePlayer').remove();
-                    this.setPlayer(this.sources[0], thumb)
-                }
-            
+            this.isDailymotion = this.sources.some(source => source[0].file.includes('dood') || source[0]
+                .file.includes('ok.ru') || source[0].file.includes('kimovies.me'));
+            if (this.isDailymotion) {
+                $('#iframePlayer').attr('src', this.sources[0][0].file);
+                $('#player').remove();
+            } else {
+                $('#iframePlayer').remove();
+                this.setPlayer(this.sources[0], thumb)
+            }
+
 
         },
     });

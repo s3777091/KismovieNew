@@ -29,18 +29,18 @@
         <h1>Xem nhiều</h1>
 
         <div class="display__img">
-          
+
 
           <div class="control__img">
-          <% hotMovies.forEach(function(mv){ %>
+            <% hotMovies.forEach(function(mv){ %>
 
             <a href="/phim/<%= mv.slug %>">
               <img src="<%=mv.movieThumb.full%>" alt="" class="img-poster" />
             </a>
 
-          <% }); %>
+            <% }); %>
 
-        </div>
+          </div>
         </div>
 
 
