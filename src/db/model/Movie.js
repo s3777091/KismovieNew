@@ -265,6 +265,9 @@ const findMovieNoThumb = async() => {
   let res = await Movies.find({movieThumb: {$eq: []}});
   return res;
 }
+
+
+
 module.exports = {
   findMovieNoThumb,
   getListLinkClone,

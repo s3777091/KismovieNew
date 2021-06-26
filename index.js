@@ -11,10 +11,25 @@ var serieRouter = require("./routes/series");
 var cloneRouter = require("./routes/clone");
 var app = express();
 
+
+
+
 const requestIp = require('request-ip');
 const compression = require('compression');
 const dbConfig = require('./src/config/db.json')
 var MemoryStore = require('memorystore')(session)
+
+require('dotenv').config()
+const { auth } = require('express-openid-connect');
+app.use(
+  auth({
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
+    baseURL: process.env.BASE_URL,
+    clientID: process.env.CLIENT_ID,
+    secret: process.env.SECRET,
+    idpLogout: true,
+  })
+);
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret: 'KiMovie-Session',

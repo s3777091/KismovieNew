@@ -25,6 +25,7 @@ const updateOne = async (condition, params) => {
     return null;
   }
 };
+
 const findCategoryName = async (categorySlug) => {
   let cat =  await Category.findOne({ categorySlug:  formatCategory(categorySlug)  }).select([
     "category",
@@ -49,5 +50,6 @@ const formatCategory = (categorySlug) => {
 module.exports = {
   updateOption,
   findCategoryName,
-  updateOne
+  updateOne,
+  insertMovie
 };

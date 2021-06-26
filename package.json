@@ -23,6 +23,7 @@
     "ejs": "~2.6.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-openid-connect": "^2.4.0",
     "express-session": "^1.17.1",
     "firebase": "^8.6.8",
     "form-data": "^3.0.0",
