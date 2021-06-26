@@ -218,8 +218,6 @@ router.post("/api/edit", checkAdminLogin, async (req, res, next) => {
   }
 });
 
-z
-
 //API tim kiem phim
 router.post("/api/search", async (req, res) => {
   const {
