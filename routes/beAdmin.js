@@ -1,6 +1,11 @@
 var express = require("express");
 var router = express.Router();
 
+
+var assert = require('assert');
+var mongo = require('mongodb');
+
+const MovieSchema = require("../src/db/schema/MovieSchema");
 const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
 const SerielModel = require("../src/db/model/MovieSerie");
@@ -8,7 +13,7 @@ const MovieOptionModel = require("../src/db/model/MovieOption");
 const RegionModel = require("../src/db/schema/RegionSchema");
 const moment = require("moment");
 var sessionstorage = require("sessionstorage");
-
+const { db } = require("../src/db/schema/MovieSchema");
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
   res.render("admin/login", {
@@ -213,6 +218,7 @@ router.post("/api/edit", checkAdminLogin, async (req, res, next) => {
   }
 });
 
+z
 
 //API tim kiem phim
 router.post("/api/search", async (req, res) => {
