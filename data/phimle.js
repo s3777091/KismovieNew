@@ -6,7 +6,7 @@ const connectToMongoDB = async () => {
         try {
             const movie = {
                 resources: ["https://dood.la/e/su9kwxf4q1g3"],
-                slug: "loki-part-1",
+                slug: "di-san-moc-tin-2021",
                 title: "Loki Part 1",
                 description: "Josee: Khi nàng thơ yêu - Josee: The tiger and the fish là bộ phim anime được chuyển thể từ truyện ngắn cùng tên của tác giả Seiko Tanabe được phát hành từ năm 1984. Bộ phim có sự góp mặt của mỹ nam Taishi Nakagawa lồng tiếng cho vai cho vai Tsuneo và Kaya Kiyohara cho nhân vật Josee",
                 trial: "https://www.youtube.com/watch?v=VwRD9oqXPwg",

@@ -9,9 +9,16 @@ const MovieSchema = new Schema({
     score: Number,
     cloneLink: String,
     description: String,
-    movieThumb: Object,
+    movieThumb: {
+        full: String,
+        medium: String,
+        thumb: String
+    },
     resources: Array,
-    createdAt: Date,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     typeMovie: String,
     group: String, //Phim bo
     cloneFrom: String

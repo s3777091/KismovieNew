@@ -1,10 +1,6 @@
 var express = require("express");
 var router = express.Router();
 
-
-var assert = require('assert');
-var mongo = require('mongodb');
-
 const MovieSchema = require("../src/db/schema/MovieSchema");
 const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
@@ -13,6 +9,7 @@ const MovieOptionModel = require("../src/db/model/MovieOption");
 const RegionModel = require("../src/db/schema/RegionSchema");
 const moment = require("moment");
 var sessionstorage = require("sessionstorage");
+
 const { db } = require("../src/db/schema/MovieSchema");
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
@@ -29,7 +26,7 @@ router.post("/login", function (req, res, next) {
     username,
     password
   });
-  if (username == "dathuynh" && password == "123") {
+  if (username == "dathuynh" && password == "0905479841") {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
   } else if (username == "newadmin" && password == "12345") {
@@ -281,5 +278,6 @@ router.post("/series/api/delete", async (req, res) => {
     });
   }
 });
+
 
 module.exports = router;
