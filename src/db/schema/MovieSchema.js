@@ -12,7 +12,7 @@ const MovieSchema = new Schema({
     movieThumb: {
         full: String,
         medium: String,
-        thumb: String
+        thumb: String,
     },
     resources: Array,
     createdAt: {

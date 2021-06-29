@@ -58,6 +58,18 @@ $(document).ready(function () {
 		$.magnificPopup.close();
 	});
 
+
+
+	$("#add_phim_le").submit(function (event) {
+		alert("Phim lẻ thêm thành công nhưng vẫn thiếu Catory phim lẻ");
+	})
+
+
+	$("#add_catorygphimle").submit(function (event) {
+		alert("Catory phim lẻ thêm thành công");
+	})
+
+
 	/*==============================
 	Select2
 	==============================*/

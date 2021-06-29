@@ -6,11 +6,15 @@ const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
 const SerielModel = require("../src/db/model/MovieSerie");
 const MovieOptionModel = require("../src/db/model/MovieOption");
+
+const controller = require("../src/controller/controller");
 const RegionModel = require("../src/db/schema/RegionSchema");
 const moment = require("moment");
 var sessionstorage = require("sessionstorage");
 
-const { db } = require("../src/db/schema/MovieSchema");
+const {
+  db
+} = require("../src/db/schema/MovieSchema");
 /* GET danh sach phim. */
 router.get("/login", function (req, res, next) {
   res.render("admin/login", {
@@ -29,7 +33,10 @@ router.post("/login", function (req, res, next) {
   if (username == "dathuynh" && password == "0905479841") {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
-  } else if (username == "newadmin" && password == "12345") {
+  } else if (username == "long" && password == "0898570624") {
+    sessionstorage.setItem("user", "1");
+    res.redirect("/be-admin");
+  } else if (username == "trungdoan" && password == "0905860636") {
     sessionstorage.setItem("user", "1");
     res.redirect("/be-admin");
   } else {
@@ -140,6 +147,18 @@ router.get("/clone", checkAdminLogin, async (req, res, next) => {
     active: "clone"
   });
 });
+
+router.get("/create-movies", checkAdminLogin, async (req, res, next) => {
+  res.render("admin/insert-movies", {
+    title: "Kimovies Admin",
+    active: "create-movies"
+  });
+});
+
+router.post('/create-movies/creates-phim-le', controller.createPhimle);
+
+
+router.post("/create-movies/catory-phim-le", controller.createCatoryPhimLe);
 
 //Page cap nhat thong tin phim
 router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {
@@ -278,6 +297,7 @@ router.post("/series/api/delete", async (req, res) => {
     });
   }
 });
+
 
 
 module.exports = router;

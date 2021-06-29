@@ -19,40 +19,45 @@
 	<link rel="stylesheet" href="/css/photoswipe.css" />
 	<link rel="stylesheet" href="/css/default-skin.css" />
 	<link rel="stylesheet" href="/css/bemovie.css?v=1.0.1" />
-	
+
 	<script src="https://unpkg.com/feather-icons"></script>
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="/icon/favicon.ico" type="image/x-icon" />
 
-	<meta name="author" content="Kimovies.herokuapp.com" />
- <meta expr:content="data:blog.pageTitle" property="og:title" /> 
- <meta expr:content="data:blog.url" property="og:url" />
-<meta content="KiSMovies" property="og:site_name" />
-	<meta content="629688671039918" property="fb:app_id" />
+	<meta name="author" content="Kismovie.com" />
+	<meta expr:content="data:blog.pageTitle" property="og:title" />
+	<meta expr:content="data:blog.url" property="og:url" />
+	<meta content="KiSMovies" property="og:site_name" />
+	<meta content="" property="fb:app_id" />
 	<meta content="article" property="og:type" />
 	<% if (movie) { 
 		serie = movie.movie_series[0]
 	%>
-		<title><%- serie.title %>  | KiSmovies</title>
-		<meta name="keywords" content="<%- serie.slug %>" />
-		<meta name="description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%> " />
-		<meta property="og:url" content="/phim/<%- serie.slug %>/xem-phim" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="KiSMovies - <%- serie.title %> " />
-		<meta property="og:description" content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
-		<meta property="og:image" content="<%- serie.movieThumb.full %> " />
-		<meta property="og:image:alt" content="<%- serie.title %>" />
+	<title><%- serie.title %> | KiSmovies</title>
+	<meta name="keywords" content="<%- serie.slug %>" />
+	<meta name="description"
+		content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%> " />
+	<meta property="og:url" content="/phim/<%- serie.slug %>/xem-phim" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="KiSMovies - <%- serie.title %> " />
+	<meta property="og:description"
+		content="<%- serie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0, 160)+'...'%>" />
+	<meta property="og:image" content="<%- serie.movieThumb.full %> " />
+	<meta property="og:image:alt" content="<%- serie.title %>" />
 	<% } else { %>
-		<title><%-title%></title>
-		<meta name="keywords" content="PhimHD, KiSMovies, Vietsub, FHD, FullHD, Phim Bomtan, Phim Hay, PhimMoi, Thuyết minh, lồng tiếng, phim hot" />
-		<meta property="og:url" content="https://kismovie.com/" />
-		<meta property="og:image" content="https://kismovie.com/img/banner.jpg" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image:alt" content="KisMovie-Banner" />
-		<meta property="og:title" content="Phim Mới | Phim hay | Xem phim nhanh | Xem phim online | Phim HD vietsub hay nhất">
-		<meta property="og:description" content="Xem phim mới miễn phí nhanh chất lượng cao. Xem Phim online Việt Sub, Thuyết minh, lồng tiếng chất lượng HD. Xem phim nhanh online chất lượng cao" />
+	<title><%-title%></title>
+	<meta name="keywords"
+		content=": KiSmovie, Xem phim mới Vietsub FullHD, Phim Online FullHD 2K 4K 8K, Phim Mới 2021 Hay Nhất, Thuyết minh tiếng Việt đầy đủ, Phim lẻ phim bộ 2021 FullHD Vietsub" />
+	<meta property="og:url" content="https://kismovie.com/" />
+	<meta property="og:image" content="https://kismovie.com/img/banner.jpg" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image:alt" content="KisMovie-Banner" />
+	<meta property="og:title"
+		content="KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub">
+	<meta property="og:description"
+		content=": Kismovie – Dịch vụ xem phim online miễn phí với chất lương full hd 4k. Xem phim mọi thể loại không giới hạn được Vietsub chuẩn 2021. Hỗ trợ trên tất cả nền tảng thiết bị hiện hành" />
 	<% } %>
 </head>
 

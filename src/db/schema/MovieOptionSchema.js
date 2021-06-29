@@ -17,8 +17,14 @@ const MovieOptionSchema = new Schema(
     downloads: Number,
     shares: Number,
     likes: Number,
-    updatedAt: Date,
-    createdAt: Date,
+    updatedAt: {
+      type: Date,
+      default: Date.now
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
   },
   {
     toObject: {

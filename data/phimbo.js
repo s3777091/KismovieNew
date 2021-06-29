@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://dood.la/e/hxp80ovosgs8",
+                            file: "https://dood.la/e/ihhzoqtp9cij",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Di sản mộc tinh tập 8",
-                slug: "di-san-moc-tin-2021-tap-8",
-                serieSlug: "di-san-moc-tin-2021",
-                cloneLink: "fulfim/p/di-san-moc-tin-2021-tap-8",
+                title: "Thế Giới Hoàn Mỹ tập 12",
+                slug: "the-gioi-hoan-my-perfect-world-tap-12",
+                serieSlug: "the-gioi-hoan-my-perfect-world",
+                cloneLink: "fulfim/p/the-gioi-hoan-my-perfect-world-tap-12",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();

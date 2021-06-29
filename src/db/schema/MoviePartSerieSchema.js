@@ -11,7 +11,6 @@ const MoviePartSerieSchema = new Schema(
     resources: Array,
     createdAt: Date,
     cloneFrom:String,
-    
     times:String,//Thoi luong / tap
   },
   {

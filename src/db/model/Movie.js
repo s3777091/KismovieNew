@@ -352,39 +352,6 @@ const deleteMovie = async (movieId) => {
     resDeleteMovieOption
   };
 };
-
-exports.createMovies = (req,res)=>{
-  // validate request
-  if(!req.body){
-      res.status(400).send({ message : "Content can not be emtpy!"});
-      return;
-  }
-  const movies = new Movies({
-      title : req.body.title,
-      slug : req.body.slug,
-      trial: req.body.trial,
-      description:req.body.description,
-      cloneLink: req.body.cloneLink,
-      cloneFrom: req.body.cloneFrom,
-      resources: req.body.resources,
-      score: req.body.score,
-      moviethumb: req.body
-  })
-
-  // save user in the database
-  movies
-      .save(movies)
-      .then(data => {
-          //res.send(data)
-          res.redirect('/api/list-movie/page/1');
-      })
-      .catch(err =>{
-          res.status(500).send({
-              message : err.message || "Some error occurred while creating a create operation"
-          });
-      });
-
-}
 //Xoa phim theo hostClone
 const deleteMovieByCloneFrom = async (cloneFrom) => {
   let resDeleteMovie = await Movies.deleteMany({
