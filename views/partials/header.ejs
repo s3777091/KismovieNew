@@ -51,12 +51,11 @@
   <meta content="KisMovies" property="og:site_name" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub"/>
   <meta content="629688671039918" property="fb:app_id" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub"/>
   <meta content="article" property="og:type" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub"/>
+  <meta name="title" content="KiSmovie, Xem phim mới Vietsub FullHD, Phim Online FullHD 2K 4K 8K, Phim Mới 2021 Hay Nhất, Thuyết minh tiếng Việt đầy đủ, Phim lẻ phim bộ 2021 FullHD Vietsub"/>
   <% if (movie) { %>
   <title><%- movie.title %> | KiSmovies</title>
   <meta name="keywords" content="<%- movie.slug %>" />
-  <meta name="description" content="<%-
-    movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
-    160)+'...'%>" />
+  <meta name="description" content="<%-movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,160)+'...'%>"/>
   <meta property="og:url" content="/phim/<%- movie.slug %>/xem-phim" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="KiMovies - <%- movie.title %>" />
@@ -68,6 +67,7 @@
   <% } else { %>
   <title><%-title%></title>
   <meta name="keywords" content="KiSmovie, Xem phim mới Vietsub FullHD, Phim Online FullHD 2K 4K 8K, Phim Mới 2021 Hay Nhất, Thuyết minh tiếng Việt đầy đủ, Phim lẻ phim bộ 2021 FullHD Vietsub" />
+  <meta name="title" content="KiSmovie, Xem phim mới Vietsub FullHD, Phim Online FullHD 2K 4K 8K, Phim Mới 2021 Hay Nhất, Thuyết minh tiếng Việt đầy đủ, Phim lẻ phim bộ 2021 FullHD Vietsub"/>
   <meta property="og:url" content="https://kismovie.com/" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub"/>
   <meta property="og:image" content="https://kismovie.com/img/banner.jpg" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub" />
   <meta property="og:type" content="website" content=": KiSmovie | Xem phim mới Vietsub FullHD | Phim Online FullHD 2K 4K 8K | Phim Mới 2021 Hay Nhất | Thuyết minh tiếng Việt đầy đủ | Phim lẻ phim bộ 2021 FullHD Vietsub"/>
