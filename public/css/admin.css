@@ -794,7 +794,7 @@ ul {
 
 .main__table-text i:before {
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
 }
@@ -1002,7 +1002,7 @@ ul {
 
 .stats i:before {
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
 }
@@ -1076,7 +1076,7 @@ ul {
 
 .dashbox__title h3 i:before {
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
 }
@@ -2357,7 +2357,7 @@ body.popup {
   background-image: -webkit-linear-gradient(0deg,
       rgba(255, 85, 165, 0.12) 0%,
       rgba(255, 88, 96, 0.12) 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
   font-size: 64px;
@@ -2525,7 +2525,7 @@ body.popup {
 
 .reviews__rating i:before {
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
 }
@@ -2642,7 +2642,7 @@ body.popup {
 .sign__group--checkbox input:not(:checked)+label a,
 .sign__group--checkbox input:checked+label a {
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
   opacity: 0.75;
@@ -2744,7 +2744,7 @@ body.popup {
 .sign__text a {
   position: relative;
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
   opacity: 0.8;
@@ -2821,7 +2821,7 @@ body.popup {
 .page-404__title {
   position: relative;
   background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   color: #ff5860;
   line-height: 100%;

@@ -1069,7 +1069,7 @@ a.header__logo .text-red {
     font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 28px;
-    color: black;
+    color: white;
     padding-top: 20px;
     margin: 0;
     padding-left: 20px;
@@ -1078,10 +1078,6 @@ a.header__logo .text-red {
 /* body.dark .home__title {
     color: black
 } */
-
-.darkmode--activated .home__title {
-    color: white;
-}
 
 
 .home__title b {
@@ -1991,16 +1987,13 @@ a.header__logo .text-red {
 
 .front h4 {
     font-size: 20px;
-    color: black;
+    color: white;
 }
 
 /* body.dark .front h4 {
     color: black
 } */
 
-.darkmode--activated .front h4 {
-    color: white;
-}
 
 .back {
     opacity: 0;
@@ -2497,17 +2490,8 @@ a.header__logo .text-red {
     margin-top: 15px;
     font-size: 15px;
     line-height: 25px;
-    color: black;
-    letter-spacing: 0.2px;
-}
-
-/* body.dark .card--details .card__description {
-    color: black;
-} */
-
-
-.darkmode--activated .card--details .card__description {
     color: white;
+    letter-spacing: 0.2px;
 }
 
 .card--details .card__list {
@@ -2616,27 +2600,18 @@ a.header__logo .text-red {
 }
 
 .a__darkmode {
-    color: black;
+    color: white;
 }
 
 /* body.dark .a__darkmode {
     color: black
 } */
 
-.darkmode--activated .a__darkmode {
-    color: white
-}
 
 .p__darkmode {
-    color: black
-}
-
-/* body.dark .p__darkmode {
-    color: black
-} */
-.darkmode--activated .p__darkmode {
     color: white
 }
+
 
 @media (min-width: 576px) {
     .card--list .card__content {
@@ -2818,8 +2793,14 @@ a.header__logo .text-red {
     z-index: 3;
 }
 
+.movietitle__darkmode{
+    color: white;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .details__title {
-    color: black;
+    color: white;
     padding-top: 100px;
     font-weight: 300;
     font-size: 28px;
@@ -2828,18 +2809,6 @@ a.header__logo .text-red {
 
 .details__title b {
     font-weight: 700;
-}
-
-/* body.dark .details__title {
-    color: black
-} */
-
-.darkmode--activated .details__title {
-    color: white
-}
-
-body.dark {
-    color: black
 }
 
 .details__wrap {
@@ -4568,7 +4537,7 @@ ul.parts-movie li.active {
 }
 
 .footer__title {
-    color: #151515;
+    color: white;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.4px;
@@ -4576,40 +4545,19 @@ ul.parts-movie li.active {
     margin-top: 15px;
 }
 
-/* body.dark .footer__title {
-    color: black
-} */
-
-.darkmode--activated .footer__title {
-    color: white
-}
 
 .footer__list {
     margin-bottom: 15px;
-    color: black
-}
-
-/* body.dark .footer__list {
-    color: black
-} */
-
-.darkmode--activated .footer__list {
     color: white
 }
 
+
 .footer__a {
-    color: black;
+    color: white;
     font-size: 16px;
 }
 
-/* body.dark .footer__a {
-    color: black
-} */
 
-
-.darkmode--activated .footer__a {
-    color: blanchedalmond;
-}
 
 .footer__list li {
     margin-bottom: 10px;
@@ -4625,19 +4573,10 @@ ul.parts-movie li.active {
 }
 
 .footer__list a:hover {
-    color: #ff55a5;
+    color: white;
 }
 
 .spane__year {
-    color: black
-}
-
-/* body.dark .spane__year {
-    color: black
-} */
-
-
-.darkmode--activated .spane__year {
     color: white
 }
 
@@ -5983,6 +5922,7 @@ ul.parts-movie li.active {
     padding-top: 600px;
     height: 190px;
 }
+
 .banner__title {
     font-size: 3rem;
     font-weight: 200;
@@ -6011,46 +5951,14 @@ ul.parts-movie li.active {
 }
 
 .span__darkmode {
-    color: black;
+    color: white;
 }
-
-/* 
-body.dark .span__darkmode {
-
-    color: black
-} */
-
-.darkmode--activated .span__darkmode {
-    color: white
-}
-
-
-
-.movietitle__darkmode {
-    color: black;
-}
-
-/* body.dark .movietitle__darkmode {
-    color: black
-} */
-.darkmode--activated .movietitle__darkmode {
-    color: white
-}
-
 
 .iframe__display {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
     padding-top: 120px;
-    background-color: white;
-}
-
-/* body.dark .iframe__display {
-    background-color: white;
-} */
-
-.darkmode--activated .iframe__display {
     background-color: black;
 }
 

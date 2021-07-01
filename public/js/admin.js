@@ -65,8 +65,18 @@ $(document).ready(function () {
 	})
 
 
+	$("#add_phim_bo").submit(function (event) {
+		alert("Phim bộ thêm thành công nhưng vẫn thiếu các link phim");
+	})
+
+
+
 	$("#add_catorygphimle").submit(function (event) {
 		alert("Catory phim lẻ thêm thành công");
+	})
+
+	$("#add_tapphim").submit(function (event) {
+		alert("thêm thành công");
 	})
 
 

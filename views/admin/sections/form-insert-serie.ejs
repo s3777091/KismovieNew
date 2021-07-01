@@ -1,0 +1,172 @@
+<main class="main" id="app-insert">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Thêm Phim Bộ</h2>
+                </div>
+                <span class="text-gradient">Phim Bộ <i class="fas fa-user"></i></span>
+            </div>
+
+            <div class="col-12">
+                <form action="/be-admin/create-movies-series/creates-phim-bo" method="POST" id="add_phim_bo">
+
+                    <div class="col-12 col-md-7 form__content">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="title" class="text-white">Tên phim bộ: </label>
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form__input" name="title" placeholder="Loki" />
+                            </div>
+                            <div class="col-12">
+                                <label for="slug" class="text-light">NGUỒN PHIM Bộ:</label>
+                                <input type="text" class="form__input" name="slug" value="" placeholder="loki-2021">
+                            </div>
+                            <div class="col-12">
+                                <label for="trial" class="text-light">trailer Phim:</label>
+                                <input type="text" class="form__input" name="trial" value=""
+                                    placeholder="https://www.youtube.com/watch?v=U8M_1eyrBtQ">
+                            </div>
+                            <div class="col-12">
+                                <label for="description" class="text-light">Thông tin giới thiệu phim:</label>
+                                <input type="text" class="form__input" name="description" value=""
+                                    placeholder="Nhập Thông tin phim ">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="cloneLink" class="text-light">cloneLink</label>
+                                <input type="text" class="form__input" name="cloneLink" value=""
+                                    placeholder="cloneLink">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="year" class="text-light">năm sản xuất</label>
+                                <input type="text" class="form__input" name="year" value="" placeholder="2021">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="parts" class="text-light">Số tập phim</label>
+                                <input type="text" class="form__input" name="parts" value="" placeholder="8">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="times" class="text-light">Thời lượng Phim</label>
+                                <input type="text" class="form__input" name="times" value="" placeholder="60 phút/tập">
+                            </div>
+
+
+                            <div class="col-12">
+                                <label for="categorySlug" class="text-white">Slug thể loại:</label>
+                                <input type="hidden" name="id" value="">
+                                <input class="form-control" name="categorySlug" list="CategpoprySluglistOptions"
+                                    class="form__input" placeholder="Bấm để tìm kiếm">
+                                <datalist id="CategpoprySluglistOptions">
+                                    <option value="phim-tam-ly">
+                                    <option value="phim-vo-thuat">
+                                    <option value="phim-tai-lieu">
+                                    <option value="phim-vien-tuong">
+                                    <option value="phim-hai-huoc">
+                                    <option value="phim-le">
+                                    <option value="phim-chieu-rap">
+                                    <option value="phim-hanh-dong">
+                                    <option value="phim-hoat-hinh">
+                                    <option value="phim-hinh-su">
+                                    <option value="phim-phieu-luu">
+                                    <option value="phim-chien-tranh">
+                                    <option value="phim-kinh-di">
+                                </datalist>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="category" class="text-light">Thể loại:</label>
+                                <input class="form-control" name="category" list="CategpoprylistOptions"
+                                    class="form__input" placeholder="Bấm để tìm kiếm Thể loại" value="">
+                                <datalist id="CategpoprylistOptions">
+                                    <option value="Phim tâm lý">
+                                    <option value="Phim võ thuật">
+                                    <option value="Phim tài liệu">
+                                    <option value="Phim viễn tưởng">
+                                    <option value="Phim hài hước">
+                                    <option value="Phim lẻ">
+                                    <option value="Phim chiếu rạp">
+                                    <option value="Phim hành động">
+                                    <option value="Phim hoạt hình">
+                                    <option value="Phim hình sự">
+                                    <option value="Phim phiêu lưu">
+                                    <option value="Phim chiến tranh">
+                                    <option value="Phim kinh dị">
+                                </datalist>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="regionSlug" class="text-light">Slug quốc gia:</label>
+                                <input class="form-control" name="regionSlug" list="regionSluglist" class="form__input"
+                                    placeholder="Bấm để tìm kiếm Slug Quốc gia" value="">
+                                <datalist id="regionSluglist">
+                                    <option value="my">
+                                    <option value="phap">
+                                    <option value="han-quoc">
+                                    <option value="nhat-ban">
+                                    <option value="viet-nam">
+                                    <option value="quoc-gia-khac">
+                                    <option value="thai-lan">
+                                </datalist>
+                            </div>
+                            <div class="col-12">
+                                <label for="region" class="text-light">Quốc gia:</label>
+                                <input class="form-control" name="region" list="regionlist" class="form__input"
+                                    placeholder="Bấm để tìm kiếm Quốc gia" value="">
+                                <datalist id="regionlist">
+                                    <option value="Mỹ">
+                                    <option value="Pháp">
+                                    <option value="Hàn Quốc">
+                                    <option value="Nhật Bản">
+                                    <option value="Viêt Nam">
+                                    <option value="Quốc Gia Khác">
+                                    <option value="Thái Lan">
+                                </datalist>
+                            </div>
+
+                            <label class="text-light">Ảnh Trên Phim:</label>
+                            <div class="col-12">
+                                <label for="full" class="text-light">Full</label>
+                                <input type="text" class="form__input" name="full" value=""
+                                    placeholder="https://www.themoviedb.org/t/p/original/59PEKeJt2tvLZw8rLaY3YbB1ted.jpg">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="thumb" class="text-light">thumb</label>
+                                <input type="text" class="form__input" name="thumb" value=""
+                                    placeholder="https://image.tmdb.org/t/p/w220_and_h330_face//59PEKeJt2tvLZw8rLaY3YbB1ted.jpg">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="medium" class="text-light">Medium</label>
+                                <input type="text" class="form__input" name="medium" value=""
+                                    placeholder="https://www.themoviedb.org/t/p/original/59PEKeJt2tvLZw8rLaY3YbB1ted.jpg">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="form__btn">Cập nhật Phim Bộ</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <form action="/be-admin/create-movies-series/creates-part-phim-bo" method="POST" id="add_tapphim">
+                    <h1>SẼ CẬP NHẬT SAU</h1>
+                </form>
+            </div>
+
+
+            <!-- end form -->
+        </div>
+    </div>
+</main>

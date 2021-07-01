@@ -9,7 +9,6 @@ const phim4400 = async () => {
   console.log("========== CLONE DONE ==========");
 };
 
-
 const fullPhim = async () => {
   const cloneFullFim = require("./src/cloneFullFim");
   await cloneFullFim.getListHomePage("https://www.fullphim.net");
@@ -22,7 +21,6 @@ const fullPhim = async () => {
   await cloneFullFim.clonePhimBo(`https://www.fullphim.net/the-loai/phim-bo`);
   console.log("=========== CLONE DONE ==========");
 };
-
 
 const triggerClone = async () => {
   // activeCloneTopPhim();

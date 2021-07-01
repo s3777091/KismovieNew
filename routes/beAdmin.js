@@ -1,7 +1,5 @@
 var express = require("express");
 var router = express.Router();
-
-const MovieSchema = require("../src/db/schema/MovieSchema");
 const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
 const SerielModel = require("../src/db/model/MovieSerie");
@@ -159,6 +157,19 @@ router.post('/create-movies/creates-phim-le', controller.createPhimle);
 
 
 router.post("/create-movies/catory-phim-le", controller.createCatoryPhimLe);
+
+
+router.get("/create-movies-series", checkAdminLogin, async (req, res, next) => {
+  res.render("admin/insert-movies-serie", {
+    title: "Kimovies Admin",
+    active: "create-movies-series"
+  });
+});
+
+router.post("/create-movies-series/creates-phim-bo", controller.createPhimbo);
+
+router.post("/create-movies-series/creates-part-phim-bo", controller.createPartPhimbo);
+
 
 //Page cap nhat thong tin phim
 router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {
