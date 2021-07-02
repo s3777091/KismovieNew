@@ -8,13 +8,7 @@ const MoviePartSerieSchema = new Schema(
     slug: String,
     serieSlug: String,
     cloneLink: String,
-    resources: 
-      [
-        {
-          file: String,
-          type: String,
-        }
-      ],
+    resources: Array,
     createdAt: Date,
     cloneFrom:String,
     times:String,//Thoi luong / tap
