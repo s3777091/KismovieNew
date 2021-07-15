@@ -11507,13 +11507,6 @@ body.dark {
     transform: translateX(24px);
 }
 
-.icon ion-ios-moon {
-    color: #f1c40f;
-}
-
-.icon ion-ios-moon {
-    color: #f39c12;
-}
 
 .display__label {
     display: flex;

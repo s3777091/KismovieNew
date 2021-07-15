@@ -103,26 +103,13 @@
       <div class="row">
         <div class="col-12">
           <div class="header__search-content">
-            <!-- <div class="col-sm-3">
-              <select class="js-example-basic-single" id="searchType">
-                <option value="phim-le">Phim Lẻ</option>
-                <option value="phim-bo">Phim Bộ</option>
-              </select>
-            </div> -->
             <input type="text" v-model="txtSearch" v-on:keyup="autoSearch" v-on:keyup.enter="gotoSearchPage"
               placeholder="Tìm kiếm phim ..." />
             <button type="button" @click="gotoSearchPage">Tìm kiếm</button>
           </div>
-          <div id="result-search" class="px-3 py-2" :class="{active: hasResultSearch}">
-            <ul>
-              <li @click="redirectSearch(movie)" v-for="(movie, index) in resultSearch" key="index">
-                <img :src="movie.movieThumb.thumb" class="rounded-circle w-1" :alt="movie.title" />
-                <p class="text-white m-0">{{ movie.title }}</p>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
+    </div>
     </div>
   </form>
   <!-- end header search -->

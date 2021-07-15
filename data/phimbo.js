@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://doodstream.com/e/g03w3cz5sdx2",
+                            file: "https://dood.la/e/khhzjh6qp4wh",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Loki Part 1 tập 4",
-                slug: "loki-part-1-tap-4",
+                title: "Loki Part 1 tập 6",
+                slug: "loki-part-1-tap-6",
                 serieSlug: "loki-part-1",
-                cloneLink: "fulfim/p/loki-part-1-tap-4",
+                cloneLink: "fulfim/p/loki-part-1-tap-6",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();
