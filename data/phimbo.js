@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://short.ink/8PkuhFjJ_",
+                            file: "//ok.ru/videoembed/2865219045962",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Tình Dục/Đời Sống - Sex/Life Tập 8",
-                slug: "tinh-duc-doi-song-sex-life-2021-tap-8",
-                serieSlug: "tinh-duc-doi-song-sex-life-2021",
-                cloneLink: "fulfim/p/tinh-duc-doi-song-sex-life-2021-tap-8",
+                title: "Mùa hè của hương bạc hà tập 24 End",
+                slug: "mua-he-cua-huong-bac-ha-tap-24",
+                serieSlug: "mua-he-cua-huong-bac-ha",
+                cloneLink: "fulfim/p/mua-he-cua-huong-bac-ha-tap-24",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();

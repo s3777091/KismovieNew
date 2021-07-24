@@ -8,13 +8,13 @@
             <div class="container">
                 <div class="row">
                     <div class="fb-comments col-12 mt-4
-                commentsdark" :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive" data-numposts="5"
-                        data-width="100%"></div>
+                commentsdark" :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive"
+                        data-numposts="5" data-width="100%"></div>
                 </div>
             </div>
         </section>
 
-        
+
         <!-- end sections -->
     </div>
 </div>
@@ -122,7 +122,9 @@
         created: async function () {
             let thumb = '<%-movie.movie_series[0].movieThumb.full%>'
             this.isDailymotion = this.sources.some(source => source[0].file.includes('dood') || source[0]
-                .file.includes('ok.ru') || source[0].file.includes('em.iq.com') || source[0].file.includes('www.youtube.com') || source[0].file.includes('short.ink'));
+                .file.includes('ok.ru') || source[0].file.includes('em.iq.com') || source[0].file
+                .includes('www.youtube.com') || source[0].file.includes('short.ink') ||
+                source[0].file.includes('motphjm.net'));
             if (this.isDailymotion) {
                 $('#iframePlayer').attr('src', this.sources[0][0].file);
                 $('#player').remove();
