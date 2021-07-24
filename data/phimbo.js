@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://www.youtube.com/embed/eBNHUunuSDc",
+                            file: "https://short.ink/8PkuhFjJ_",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Thế Giới Hoàn Mỹ - Perfect World Tập 16",
-                slug: "the-gioi-hoan-my-perfect-world-tap-16",
-                serieSlug: "the-gioi-hoan-my-perfect-world",
-                cloneLink: "fulfim/p/the-gioi-hoan-my-perfect-world-tap-16",
+                title: "Tình Dục/Đời Sống - Sex/Life Tập 8",
+                slug: "tinh-duc-doi-song-sex-life-2021-tap-8",
+                serieSlug: "tinh-duc-doi-song-sex-life-2021",
+                cloneLink: "fulfim/p/tinh-duc-doi-song-sex-life-2021-tap-8",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();

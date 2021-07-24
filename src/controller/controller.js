@@ -6,6 +6,7 @@ var MovieSerieSchema = require('../db/schema/MovieSerieSchema');
 
 var MoviePartSerieSchema = require('../db/schema/MoviePartSerieSchema');
 
+
 // create and save new user
 exports.createPhimle = (req, res) => {
     // validate request
@@ -125,13 +126,17 @@ exports.createCatoryPhimLe = (req, res) => {
         year: req.body.year,
         times: req.body.times,
         quanlity: "FHD 1080",
-        views: req.body.views,
-        downloads: req.body.downloads,
-        shares: req.body.shares,
         movieId: req.body.movieId,
-        likes: req.body.likes
+        views: getRandomInt(10000),
+        downloads: getRandomInt(10000),
+        shares: getRandomInt(10000),
+        likes: getRandomInt(10000)
     })
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+      
     // save user in the database
     CatoryMovies
         .save(CatoryMovies)
