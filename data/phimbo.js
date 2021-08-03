@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "//ok.ru/videoembed/2865219045962",
+                            file: "//ok.ru/videoembed/2786468629111",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Mùa hè của hương bạc hà tập 24 End",
-                slug: "mua-he-cua-huong-bac-ha-tap-24",
-                serieSlug: "mua-he-cua-huong-bac-ha",
-                cloneLink: "fulfim/p/mua-he-cua-huong-bac-ha-tap-24",
+                title: "NÂm Thanh Tội Phạm 4 (Voice 4) - Tập 12",
+                slug: "am-thanh-toi-pham-voice-4-tap-12",
+                serieSlug: "am-thanh-toi-pham-voice-4",
+                cloneLink: "fulfim/p/am-thanh-toi-pham-voice-4-tap-12",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();
