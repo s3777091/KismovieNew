@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "//ok.ru/videoembed/2786468629111",
+                            file: "https://zembed.net/v/VxHDaPLDGy.html",
                             type: "video/mp4",
                         }
                 ]],
-                title: "Âm Thanh Tội Phạm 4 (Voice 4) - Tập 12",
-                slug: "am-thanh-toi-pham-voice-4-tap-12",
-                serieSlug: "am-thanh-toi-pham-voice-4",
-                cloneLink: "fulfim/p/am-thanh-toi-pham-voice-4-tap-12",
+                title: "What if - Tập 4",
+                slug: "what-if-tap-4",
+                serieSlug: "what-if",
+                cloneLink: "fulfim/p/what-if-tap-4",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();
