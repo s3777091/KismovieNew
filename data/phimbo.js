@@ -12,7 +12,7 @@ const connectToMongoDB = async () => {
                             type: "video/mp4",
                         }
                 ]],
-                title: "NÂm Thanh Tội Phạm 4 (Voice 4) - Tập 12",
+                title: "Âm Thanh Tội Phạm 4 (Voice 4) - Tập 12",
                 slug: "am-thanh-toi-pham-voice-4-tap-12",
                 serieSlug: "am-thanh-toi-pham-voice-4",
                 cloneLink: "fulfim/p/am-thanh-toi-pham-voice-4-tap-12",
