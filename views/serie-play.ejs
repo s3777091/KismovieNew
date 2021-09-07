@@ -123,8 +123,7 @@
             let thumb = '<%-movie.movie_series[0].movieThumb.full%>'
             this.isDailymotion = this.sources.some(source => source[0].file.includes('dood') || source[0]
                 .file.includes('ok.ru') || source[0].file.includes('em.iq.com') || source[0].file
-                .includes('www.youtube.com') || source[0].file.includes('short.ink') ||
-                source[0].file.includes('motphjm.net'));
+                .includes('www.youtube.com') || source[0].file.includes('short.ink'));
             if (this.isDailymotion) {
                 $('#iframePlayer').attr('src', this.sources[0][0].file);
                 $('#player').remove();
