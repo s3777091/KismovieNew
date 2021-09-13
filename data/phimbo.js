@@ -8,14 +8,14 @@ const connectToMongoDB = async () => {
             const movie = {
                 resources: [[
                         {
-                            file: "https://zembed.net/v/VxHDaPLDGy.html",
+                            file: "https://hlss.xyz/video/a4df48d0b71376788fee0b92746fd7d5",
                             type: "video/mp4",
                         }
                 ]],
-                title: "What if - Tập 4",
-                slug: "what-if-tap-4",
-                serieSlug: "what-if",
-                cloneLink: "fulfim/p/what-if-tap-4",
+                title: "Plot Love - Tập 1",
+                slug: "plot-love-2021-tap-1",
+                serieSlug: "plot-love-2021",
+                cloneLink: "fulfim/p/plot-love-2021-tap-1",
                 cloneFrom: "fulfim",
             };
             await new MoviePartSerieSchema(movie).save();

@@ -6,20 +6,20 @@ const connectToMongoDB = async () => {
     await mongo().then(async (mongoose) => {
         try {
             const movie = {
-                title: "Di Sản Mộc Tinh (2021)",
-                slug: "di-san-moc-tin-2021",
-                description: "Họ là thế hệ siêu anh hùng đầu tiên. Nhưng khi họ truyền lại sứ mệnh cho con cái, căng thẳng dần leo thang – và những quy tắc cũ không còn được áp dụng.",
+                title: "Plot Love (2021)",
+                slug: "plot-love-2021",
+                description: "Tình Yêu Và Âm Mưu kể về một nhà thiết kế trẻ tài năng và nhiệt huyết Tô Bắc. Tuy nhiên chỉ vì sai sót đáng trách mà cô bị ép phải ra nước ngoài, sau bảy năm dùng thân phận người quản lý người mẫu hàng đầu để trở về nước. Giờ đây Tô Bắc đã thay đổi mọi thứ từ kinh nghiệm làm việc cho đến cách suy nghĩ khiến nhiều người phải nể phục cô. Mục đích thứ hai của Tô Bắc quay trở về quê hương cũng chính là điều tra nguyên nhân mà dì Lan người thân duy nhất của cô nhảy cầu tự sát. Kể từ đây câu chuyện Tình Yêu Và Âm Mưu bắt đầu diễn ra.",
                 category: "Phim phiêu lưu",
                 categorySlug: "phim-phieu-luu",
                 movieThumb: {
-                    full: "https://www.themoviedb.org/t/p/original/4YKkS95v9o9c0tBVA46xIn6M1tx.jpg",
-                    thumb: "https://image.tmdb.org/t/p/w220_and_h330_face//gIPsXY7QoqMsb1w5OkRn9Bm7xVi.jpg",
-                    medium: "https://www.themoviedb.org/t/p/original/gIPsXY7QoqMsb1w5OkRn9Bm7xVi.jpg"
+                    full: "https://i3.wp.com/img.bilutv.cc/film/18047/poster.jpg",
+                    thumb: "https://i3.wp.com/img.bilutv.cc/film/18047/poster.jpg",
+                    medium: "https://i3.wp.com/img.bilutv.cc/film/18047/poster.jpg"
                 },
                 year: "2021",
-                trial: "https://www.youtube.com/watch?v=Pq3HWXfHdXI",
-                parts: "8",
-                times: "60 phút/tập",
+                trial: "https://www.youtube.com/watch?v=1kAtKzOAdZQ",
+                parts: "24",
+                times: "25 phút/tập",
                 region: "Mỹ",
                 regionSlug: "my",
                 createdAt: Date("2021-06-19T03:14:25.706+00:00"),
