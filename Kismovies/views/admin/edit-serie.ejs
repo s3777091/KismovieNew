@@ -1,0 +1,126 @@
+<%- include('./partials/header.ejs') %>
+<!-- sections -->
+<%- include('./sections/form-edit-serie.ejs'); %>
+<!-- end sections -->
+<%- include('./partials/footer.ejs'); %>
+<!-- EDIT MV -->
+<script>
+    let movie = '<%-JSON.stringify(movie)%>'
+    let genres = '<%- JSON.stringify(genres)%>'
+    let regions = '<%- JSON.stringify(regions)%>'
+
+    genres = JSON.parse(genres);
+    movie = JSON.parse(movie);
+    let movieId = movie._id;
+    regions = JSON.parse(regions);
+    let {  region, regionSlug, category, categorySlug, times, quanlity, year } = movie;
+    var appSearch = new Vue({
+        el: "#app-edit",
+        data: {
+            title: movie.title,
+            trial: movie.trial,
+            parts: movie.parts,
+            slug: movie.slug,
+            description: movie.description,
+            year: year,
+            quanlity: quanlity,
+            times: times,
+            category: categorySlug,
+            categoryText: "",
+            genres: genres,
+            regions: regions,
+            region: regionSlug,
+            regionText: "",
+            loading: false,
+            contentLoading: "Đang cập nhật ..."
+        },
+        mounted: function () {
+            $('#country').select2({
+                placeholder: "Chọn quốc gia",
+                allowClear: true,
+                templateSelection: (data) => {
+                    console.log(data);
+                    if (data.id === '') { // adjust for custom placeholder values
+                        return 'Custom styled placeholder text';
+                    }
+                    this.regionText = data.text;
+                    this.region = data.id;
+                    return data.text;
+                }
+            });
+
+            $('#genre').select2({
+                placeholder: "Chọn Thể loại",
+                allowClear: true,
+                templateSelection: (data) => {
+                    console.log(this.category);
+                    console.log(data);
+                    if (data.id === '') { // adjust for custom placeholder values
+                        return 'Custom styled placeholder text';
+                    }
+
+                    this.categoryText = data.text;
+                    this.category = data.id;
+                    return data.text;
+                }
+            });
+        },
+        methods: {
+
+            async editMovie() {
+                this.loading = true;
+                this.contentLoading = "Đang cập nhật ...";
+                try {
+                    let movie = {
+                        _id: movieId,
+                        title: this.title,
+                        description: this.description,
+                        slug: this.slug,
+                        trial: this.trial
+                    };
+                    let movieOption = {
+                        movieId: movieId,
+                        year: this.year,
+                        times: this.times,
+                        categorySlug: this.category,
+                        category: this.categoryText,
+                        regionSlug: this.region,
+                        region: this.regionText,
+                    };
+                    console.log({ movieOption });
+                    let res = await axios.post('/be-admin/api/edit', { movie, movieOption });
+                    this.contentLoading = "Cập nhật thành công !";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000)
+
+                } catch (error) {
+                    console.log(error.message);
+                    this.contentLoading = "Cập nhật không thành công !";
+                    setTimeout(() => {
+                        this.loading = false;
+                    }, 1500)
+                }
+
+            },
+            async onDelete(slug) {
+                this.loading = true;
+                this.contentLoading = "Đang xử lý ...";
+                try {
+                    let res = await axios.post('/be-admin/series/api/delete', {movieId: slug});
+                    this.contentLoading = 'Xoá phim thành công !'
+                    setTimeout(() => {
+                        window.location.href = "/be-admin/series/page/1"
+                    }, 1500)
+                } catch (error) {
+                    this.isLoading = false;
+                    this.contentLoading = 'Xoá phim ko thành công !'
+                    console.log(error.message);
+                }
+            }
+        },
+        created: async function () {
+        },
+    });
+
+</script>

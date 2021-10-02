@@ -1,0 +1,53 @@
+<%- include('./partials/header.ejs') %>
+<!-- sections -->
+<%- include('./sections/form-clone.ejs'); %>
+<!-- end sections -->
+<%- include('./partials/footer.ejs'); %>
+<script>
+    var listMovie = new Vue({
+        el: "#app-clone",
+        data: {
+            movieId: "",
+            cloneFrom:'',
+            linkClone:'',
+            loading: false,
+            contentLoading: 'Đang xử lý ...'
+        },
+        mounted() {
+            $('#cloneFrom').select2({
+                placeholder: "Chọn server clone",
+                // allowClear: true,
+                templateSelection: (data) => {
+                    if (data.id === '') { // adjust for custom placeholder values
+                        return 'Chọn server clone';
+                    }
+                    this.cloneFrom = data.id;
+                    return data.text;
+                }
+            });
+
+        },
+        methods: {
+            async onClone() {
+                this.contentLoading = "Đang clone...!"
+                this.loading = true;
+                let data = {cloneFrom: this.cloneFrom, link: this.linkClone};
+                try {
+                    const resClone = await axios.post('/clone', data);
+                    this.contentLoading = "Clone xong!"
+                    setTimeout(() => {
+                        this.loading = false;
+                    }, 1500)
+                } catch (error) {
+                    this.contentLoading = "Lỗi clone!"
+                    setTimeout(() => {
+                        this.loading = false;
+                    }, 1500)
+                }
+               
+            },
+            setMovieId(id) {
+            }
+        },
+    });
+</script>

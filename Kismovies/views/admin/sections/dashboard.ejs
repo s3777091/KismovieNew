@@ -1,0 +1,123 @@
+<!-- main content -->
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Dashboard</h2>
+                    <a href="/be-admin/clone" class="main__title-link">Clone Phim</a>
+                </div>
+            </div>
+            <!-- end main title -->
+
+            <!-- stats -->
+            <!-- <div class="col-12 col-sm-6 col-xl-3">
+                <div class="stats">
+                    <span>Unique views this month</span>
+                    <p>5 678</p>
+                    <i class="icon ion-ios-stats"></i>
+                </div>
+            </div> -->
+            <!-- end stats -->
+             <!-- stats -->
+             <div class="col-12 col-sm-6 col-xl-3">
+                <div class="stats text-uppercase">
+                    <span>Tổng phim</span>
+                    <p><%-totalMovies %> </p>
+                    <i class="icon ion-ios-film"></i>
+                </div>
+            </div>
+            <!-- end stats -->
+            <!-- stats -->
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="stats text-uppercase">
+                    <span>Phim thêm mới trong tháng</span>
+                    <p><%-totalMoviesInMonth %> </p>
+                    <i class="icon ion-ios-film"></i>
+                </div>
+            </div>
+            <!-- end stats -->
+            <div class="col-12"></div>
+            <!-- dashbox -->
+            <div class="col-12 col-xl-6">
+                <div class="dashbox">
+                    <div class="dashbox__title">
+                        <h3 class="text-capitalize"><i class="icon ion-ios-trophy"></i> Phim xem nhiều</h3>
+                    </div>
+
+                    <div class="dashbox__table-wrap">
+                        <table class="main__table main__table--dash">
+                            <thead>
+                                <tr>
+                                    <th>TITLE</th>
+                                    <th>VIEWS</th>
+                                    <th class="text-uppercase d-flex justify-content-center">Server Clone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% moviesMostViews.forEach((mv, index) => { %>
+                                    <% movies = JSON.parse(JSON.stringify(mv.movies)) %> 
+                                    <tr>
+                                        <td>
+                                            <div class="main__table-text"><a href="/be-admin/edit/<%-movies[0].slug%>"><%- movies[0].title%></a></div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="main__table-text main__table-text--rate d-flex justify-content-center"><%- mv.views%></div>
+                                        </td>
+                                        <td class="text-center text-uppercase"><div class="main__table-text d-flex justify-content-center"><%- movies[0].cloneFrom%></div></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- end dashbox -->
+
+            <!-- dashbox -->
+            <div class="col-12 col-xl-6">
+                <div class="dashbox">
+                    <div class="dashbox__title">
+                        <h3><i class="icon ion-ios-film"></i> Phim mới thêm</h3>
+                    </div>
+
+                    <div class="dashbox__table-wrap">
+                        <table class="main__table main__table--dash">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>TITLE</th>
+                                    <th>CATEGORY</th>
+                                    <th class="text-uppercase d-flex justify-content-center">Server Clone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% moviesLastest.forEach((mv, index) => { %>
+                                    <% movieOptions = JSON.parse(JSON.stringify(mv.movie_options)) %> 
+                                    <tr>
+                                        <td>
+                                            <div class="main__table-text"><%- index + 1%> </div>
+                                        </td>
+                                        <td>
+                                            <div class="main__table-text"><a href="/be-admin/edit/<%-mv.slug%>"><%- mv.title%></a></div>
+                                        </td>
+                                        <td>
+                                            <!-- <div class="main__table-text text-capitalize" style="max-width: 150px; overflow: hidden;"><%- (movieOptions[0]) ? movieOptions[0].category : ''%></div> -->
+                                        </td>
+                                        <td>
+                                            <div class="main__table-text text-capitalize d-flex justify-content-center"><%- mv.cloneFrom %></div>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- end main content -->

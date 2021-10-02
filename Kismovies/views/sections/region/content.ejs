@@ -1,0 +1,56 @@
+<!-- page title -->
+<section class="section section--first section--bg py-4" data-bg="/img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section__wrap">
+                    <!-- section title -->
+                    <h2 class="home__title mb-2">Quốc gia: <span class="text-capitalize"><%-region %> </span></h2>
+                    <!-- end section title -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page title -->
+
+<!-- catalog -->
+
+        <div class="row">
+            <!-- end section title -->
+            <% listMovies.forEach(function(mv){ %>
+            <!-- card -->
+            <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+                <div class="display">
+                    <div class="movies">
+                        <div class="front">
+                            <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
+                            <h4>
+                                <%= mv.title %>
+                            </h4>
+        
+        
+                        </div>
+                        <div class="back">
+                            <div class="btn__container">
+        
+                                <div class="content__card">
+                                    <h4>OverView:</h4>
+                                    <p> <%-
+                                      mv.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+                                      100)+'...'%> </p>
+                                </div>
+        
+                                <div class="btn__imgcontainer">
+                                    <button class="btn__img" ">
+                                            <a href="/phim/<%=mv.slug %>">Xem thêm</a> </button> </div> </div> </div> <div
+                                        class="background"></div>
+                            </div>
+        
+                        </div>
+            </div>
+            <!-- end card -->
+            <% }); %>
+            <%- include('../../partials/paging-default.ejs') %> 
+        </div>
+<!-- end catalog -->

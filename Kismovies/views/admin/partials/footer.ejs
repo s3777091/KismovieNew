@@ -1,0 +1,102 @@
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/jquery.mousewheel.min.js"></script>
+<script src="/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="/js/select2.min.js"></script>
+<script src="/js/admin.js"></script>
+<script> let currentYear = (new Date()).getFullYear(); $('#currentYear').text(currentYear)</script>
+<script>
+    feather.replace();
+    $('[data-toggle="tooltip"]').tooltip()
+</script>
+
+<!-- <script src="/js/main.js"></script> -->
+<script>
+    const PHIM = {PHIM_LE: 'phim-le', PHIM_BO: 'phim-bo'}
+    var listMovie = new Vue({
+        el: "#list-movies",
+        data: {
+            movieId: "",
+            isLoading: false,
+            contentLoading: 'Đang xử lý ...',
+            txtSearch:'',
+            searchType:PHIM.PHIM_LE,
+            resultSearch: [],
+            resultSearchHasValue: false
+        },
+        methods: {
+            linkDetailMovie(movie) {
+                let link = `/be-admin/edit/${movie.slug}`
+                if(this.searchType == PHIM.PHIM_BO) {
+                    link = `/be-admin/series/edit/${movie.slug}`
+                }
+                return link;
+            },
+            async onSearchMovie() {
+                this.resultSearch = [];
+                this.isLoading = true;
+                this.contentLoading = 'Đang tìm kiếm ...'
+                let urlSearch = '/be-admin/api/search/';
+                try {
+                    const resSearch = await axios.post(urlSearch, {searchType: this.searchType, value: this.txtSearch});
+                    this.resultSearch = resSearch.data.list;
+                    if(this.resultSearch.length  > 0) {
+                        this.resultSearchHasValue = true;
+                    }else {
+                        this.resultSearchHasValue = false;
+                    }
+                    this.isLoading = false;
+                }catch(e) {
+                    this.isLoading = false;
+                }
+            },
+            async onDeleteMovie() {
+                $.magnificPopup.close();
+                $('body').addClass('popup')
+                this.isLoading = true;
+                try {
+                    let res = await axios.post('/be-admin/api/delete', {movieId: this.movieId});
+                    this.contentLoading = 'Xoá phim thành công !'
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 1500)
+                } catch (error) {
+                    $('body').removeClass('popup')
+                    this.isLoading = false;
+                    this.contentLoading = 'Xoá phim ko thành công !'
+                    console.log(error.message);
+                }
+
+            },
+            async onDeleteSerieMovie() {
+                $.magnificPopup.close();
+                $('body').addClass('popup')
+                this.isLoading = true;
+                try {
+                    let res = await axios.post('/be-admin/series/api/delete', {movieId: this.movieId});
+                    this.contentLoading = 'Xoá phim thành công !'
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 1500)
+                } catch (error) {
+                    $('body').removeClass('popup')
+                    this.isLoading = false;
+                    this.contentLoading = 'Xoá phim ko thành công !'
+                    console.log(error.message);
+                }
+
+            },
+            setMovieId(id) {
+                return this.movieId = id;
+            }
+        },
+    });
+</script>
+</body>
+
+</html>
