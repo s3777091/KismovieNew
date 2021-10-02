@@ -4,6 +4,8 @@ var router = express.Router();
 const clonePhim4400 = require("../src/clonePhim4400");
 const hostClone = require("../src/config/hostClone");
 
+const checkAdminLogin = require("../src/middleware/checkAdminLogin");
+
 const MovieSerieModel = require("../src/db/model/MovieSerie");
 const MovieModel = require("../src/db/model/Movie");
 const MovieOptionModel = require("../src/db/model/MovieOption");
@@ -94,6 +96,8 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
         currentPage
     } = req.params;
 
+    
+ 
     let itemPerPage = config.itemPerPage;
     const promMenu = MovieModel.getMenu();
     const promTotalMovies = MovieModel.countMovieByCategory(category);
@@ -112,6 +116,14 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
         itemPerPage,
         skipItem
     );
+    if(category == 'phim-18'){
+        res.render("18", {
+            title: "KiSMovie - Thể loại",
+            listMovies: listMovies,
+            movie: null,
+            menu: menu,
+        });
+    } 
     res.render("list", {
         title: "KiSMovie - Thể loại " + category,
         movie: null,
@@ -124,6 +136,11 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
         parentLink: `/the-loai/${category}`,
     });
 });
+
+
+
+
+
 
 //Page quoc gia
 router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {

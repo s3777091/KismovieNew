@@ -2,7 +2,227 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca3dd481-e598-49fe-9665-cdd40550b666" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Kismovies.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloneService.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloneService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/CatoryLe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/findata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insertPhimbo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mongo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/phimbo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/phimle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/updata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bemovie.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bemovie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/beAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/beAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cloneFullFim.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cloneFullFim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clonexemphimhay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/hostClone.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/hostClone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/firebaseDb.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/firebaseDb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5fe2d564b3fa640042a12754-banner-ban-trai-toi-la-ho-ly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5fe2d564b3fa6406d2a127a9-banner-nhu-y-phuong-phi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5fe2d564b3fa640c7ba12edf-banner-quan-trang-than-yeu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5fe2d564b3fa642f3ba126e6-banner-tro-lai-tuoi-18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5fe2d564b3fa64a655a122af-banner-review-nua-la-duong-mat-nua-la-dau-thuong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5ff5db4222c28a3748370c36-ky-nghi-nho-doi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/5ff7206884b1df4ce764e6a3-hoi-uc-khong-quen-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/602ea19d3163b3e0ae970d90-banner-penthouse-cuoc-chien-thuong-luu-phan-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6044d2b47d9cce9de5047530-tham-tu-pho-tau-3-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6046fac6d963f39fe0db4a2f-banner-chi-em-cach-mang.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/604f5b75b0e2f31e2bc4c096-dau-pha-thuong-khung-p4-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6050262b5fbbc216b9eaf2af-banner-cuoc-chien-thuong-luu-phan-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/605f0086374dddc5464c5597-banner-hoc-vien-anh-hung-5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/606933569689aa9478944174-tay-du-ky-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/606f25c8e45c7d5f24c878b2-quai-vat-san-dem-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607082031744574f89867a7f-banner-tinh-yeu-va-am-muu-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60719e486fdce979b28c1459-banner-tieu-xa-dac.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6071bc2b282ab4223375df5c-banner-hon-le-cua-chang-hoc-gia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6072fe001c5107796f60bc91-doi-tuyet-mau-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60741b8e6faf2a22a25e8869-banner-bach-ngoc-tu-vo-ha.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60744e6debadbfa0fff2dd30-su-gia-cua-chua-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6074623985ee991eec22445a-banner-li-ca-hanh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60746e002cec080324184310-banner-bi-mat-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6076e5859908f36a68b56069-mortal-kombat-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6076f74d0fa36d841a8d6d7b-banner-vo-dang-nhat-kiem.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607817bf2ddd716a1134b30f-phim-vach-toi.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60786c5b25d4ae08e4caa9df-banner-ho-toi-dark-hole-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60796b4e9b71c6475b15ad49-banner-ca-tren-troi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607998dc9464884ab61ede1f-banner-nguoc-chieu-sang-noi-loi-yeu-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6079a2b332f1e947b957d297-nguoi-nhan-ban-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607a9e805402557e4d911dd8-ke-vo-danh-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607c4018cc1e809edca26c51-nhan-doi-tinh-yeu-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607c5945a78690ffc62a98a9-xin-chao-ly-hoan-anh-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607d783a4a2ff50e122dde11-banner-ca-the-gioi-deu-khong-bang-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607e554fefbe258e13bf2772-banner-tieu-nu-nghe-thuong.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607e5fc179f7594cd697f4ba-banner-octogenarians-and-the-90s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607e97eb6dbdff04f0c03f3c-banner-tuoi-tre-cua-thang-nam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607eacc6c2036379ec524ec5-banner-bossam-danh-cap-so-phan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/607ec9f4f69d3a5e08900f49-banner-tieu-thu-qua-den-va-tien-sinh-than-lan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60801d3ca051d6095824ba1d-stand-by-me-2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6081486e25c0027ff5adee0b-banner-dep-nhat-la-khi-gap-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608178336062d5212ade02d7-banner-xin-cau-day-lop-truong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60817adef0170d0768c2236c-the-gioi-hoan-my-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6082d61a6b0dc46f98fdaf11-dong-nguoi-tap-nap-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608443d3b4287bc876c86c6e-banner-van-menh-ky-dieu-nha.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608569562757ae65edae5d7c-thanh-am-trong-mat-em-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608661896f3120ff129b50a7-banner-phong-bao-vu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6088256a83390342cf157d81-banner-em-la-niem-kieu-hanh-cua-anh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60893084c4fcebb697edf7a7-banner-ngu-tu-tieu-ngo-tac.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608c14225b1d9a1ee327b612-banner-toi-va-anti-fan-ket-hon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608eb11bdcd43371d094e4a2-banner-hoang-hau-tien-cong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608f77d606ac2b29a52a7325-nhiem-vu-kha-thi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/608ff87dc7c48c32eaa88035-one-piece-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609010432aa409516de0851f-banner-chang-trai-cuong-sach-se-than-yeu-cua-toi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6090c5361e7ad3af348e2f6d-banner-chi-tiem-thieu-nien.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6090cf1c47728e746e32e502-banner-mine-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6090d545aa7f9eb72b63c778-an-quy-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609162d661c92a7cf3592de6-banner-vo-tinh-nhat-duoc-tong-tai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60917077b9a015dca1d001e2-banner-bay-gio-chung-ta-dang-chia-tay.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6092610ffb21a71260ade5f2-banner-ke-huy-diet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6092bc4020c6296eff53ffda-banner-sat-pha-lang-winner-is-king-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60939d111563bd83d552ae11-boruto-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6093b9f92c00e430f106db26-banner-nguy-tao-imitation-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6094d731136ee2540bd67767-banner-ban-cung-phong-cua-toi-la-gumiho.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6094ff1faa2b3f532c1d1e0e-luong-bat-nghi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60951b7ee5acd185ac68550f-banner-di-san-moc-tinh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6096004bc15f330ceb33523d-banner-ngo-logn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60961ebdaee60d682e95848b-banner-co-gai-den-tu-hu-vo-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609687e3136ee2134fae38ae-dau-la-dai-luc-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6096ad56491ef75813494718-banner-minh-chau-ruc-ro-prao-mook.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6097ea0247549031cd045d2a-banner-duoi-lop-vo-boc-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6097f9ded9166f37b1793cd9-22-vs-earth-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6098a37f6062056eee68f14b-banner-duoi-bong-moc-mien.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/6098d013788ae0d48072253e-banner-co-gai-den-tu-hu-vo-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60990e6931a8e09ce21a0c11-banner-ngoc-chieu-lenh-phan-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609a80f148b8d5d1f68f12ff-anh-ay-hoan-hao-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609e37ca509c19809d6aebca-the-flash-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609e7cc00000cb6d746e416b-huong-toi-thien-duong-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/609f3cde4077d931bbbf3e57-co-ban-xinh-dep-cua-toi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a07c4bbbe63ac606b23d33-banner-cuoc-song-gia-dinh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a0e40a5626c800a80b82dd-banner-ao-anh-tinh-yeu-ban-nhat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a0f7dd2b187514e62349f8-banner-bua-yeu-trong-vung-ngo-om.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a3aa28a0af645ba65e7de8-banner-nhan-quy-tay-song-nguyet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a3ddbbf89002878ccb260e-banner-thanh-lac.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a4c5a1c9af524d23323d2d-banner-khuc-bien-tau-anh-trang-moonlight-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a4d731cc022982bc6278ab-banner-co-dien-moi-yeu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a5c8e7623d2255d4f7f861-banner-here-my-plan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a6253686c68c1c864d4439-banner-chang-oi-dung-tha-thinh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a645f3a751e218c14fa599-banner-dam-my-loi-hen-uoc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a7d3a514cc0f5cdee7268d-banner-be-ha-ben-trai-tuong-quan-ben-phai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a88021f4b7012c27451dc1-dan-dien-vien-trong-phim-no-mau-tra-mau.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a8d1169d482699b2d18aa6-vien-dan-do-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60a9115aba638ce7926fef23-banner-toi-va-thoi-nien-thieu-cua-toi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60aa2a4c7052ebc84f12fb9a-banner-nguoi-tinh-xa-la.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60aa6e50e24e29752b1dced8-banner-ke-phan-nghich.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60ab21978926ee34894ee02f-banner-mua-xuan-xanh-tu-xa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60abc643ccb34aa1538cf921-banner-trang-chu-tap-chi-hang-thang.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60acb62be8687a52cfd3115b-hung-than-trang-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60acd42ef44b8d1c13eaf9fc-banner-cung-chi-la-hat-bui.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60adc5359a0d62c8d4894dfe-banner-loki-marvel-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60ae4ac3a5ae367379d0d5e8-banner-cuoc-song-tinh-yeu-di-dom.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60af3454062705aa21759c8e-banner-chi-khi-bay-cao.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60af63715987d33d797f01ee-david-coland-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60af9b043fd8b7ffec630345-ki-si-co-doc-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60afa31c5279c02965a9716b-banner-hay-mau-ket-hon-di.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60afc14966309b155533545b-diem-diem-mat-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b070ecb7cde846125861a8-ky-tich-bien-xanh-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b0e97f1b9ec082fb78fb4a-con-thinh-no-chet-nguoi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b0f6b8477f504bd4740dab-banner-nha-hoan-nay-ta-khong-dung-duoc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b1b549e52f881ac7c5af78-banner-song-the-sung-phi-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b20f8723184f88b0618c55-ke-dua-tin-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b215020d28a0ebd84b51c7-trai-tim-sung-phi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b45a22ecda0848d01f7a49-banner-khanh-khanh-nga-tam.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b47c220b800d1f5dd9bb12-banner-phong-khoi-lac-duong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b4b09d99e098531413cc1c-banner-manh-tham-tra-an.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b4f2ba0d465c001a7aba8f-vuot-qua-bong-toi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b6402cc20ff4f21cfd9c1f-cruella-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b6fa0a6b4f50a823e23979-trieu-hoi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b6fc9609d59a0690cad462-banner-sweet-tooth-netflix-2021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b708b633792a349c56336a-banner-doi-cau-long-thieu-nien.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b7496820618363e4741fd0-vung-dat-cam-lang-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b75772f13d90d602580e97-mien-dat-hua-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b78294d9ebe80ec2e1025c-tay-hanh-ky-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b840fdf7d9546111001b6a-spiral-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b8f6a01f38eb0f355e7662-taking-chance-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b9a2cd3c8eaf3444b8caa5-le-hoi-hoa-trang-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b9abec485a20826726eef3-banner-phim-bay-chim-lac.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60b9cf79760f0fd5a7d17906-banner-phu-thuy-j-nha-ben.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60ba0f4d21ac2244486a94a0-banner-thanh-xuan-tu-tao-vi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60ba2b40fa36626fbc41226e-xtreme-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60baeebd2495e43c63f8110f-banner-sam-sam-den-roi-ban-thai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bafb6cb2a706324d7da73e-chua-va-ngot-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bafd04b709fceb8b208ff9-banner-hoa-no-trang-vua-tron.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bb2e9cf5181a2b7bd6c9ff-vo-gian-phong-bao-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bb3cd3b17e929e395508fa-giac-mo-thanh-su-that-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bb7483b43a3e88f3a9ae19-bang-dang-bao-den-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bb8a8f85565565dcf747d7-sat-canh-cung-nhau-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bc956825df97c0e00d9197-am-duong-my-nhan-quan-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bcb044a6fedb56238ee0c4-ma-xui-quy-khien-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bcdc24035eeb3c061c2dce-f9-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bcf1c3862d32a55b8a6be5-banner-voice-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bd99c9bf37ea144b1bcec9-nu-hoang-khieu-vu-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bf7078def007c68570155f-banner-mot-nua-khac-cua-em-va-anh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60bf7acbdddb9991de6f4325-mo-hoang-bi-tu-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c03d9387172cbcb42b9300-banner-mot-ngay-bien-thanh-em.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c040f0433be13d98cb420d-thuyen-truong-rang-kiem.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c080a0c67eb5571067c800-oi-troi-oi-chuyen-phieu-luu-day-thu-vi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c0c885e7e4b32a2a4f3b19-ga-tay-me-quay-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c0de086a009458d9148f77-khu-rung-bi-an-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c183e66797425c1e86e957-banner-tan-hoc-dung-voi-ve.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c19276c8098777bcb98a2b-banner-thu-ba-trum-men.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c1d431965b6d2f269b9474-anh-hung-xa-dieu-truyen-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c23162aee7c4811b07a844-thuc-tinh-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c2c95af9a96a3c065a7f4f-truong-bach-thai-tue-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c367299c8f95a9ca0332f9-dieu-uoc-than-long-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/60c382327898c6bd461daa37-vi-sao-dua-ban-toi-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/co-gai-manh-me-do-bong-soo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/co-phuong-bat-tu-thuong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/da-quy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/dai-tieu-giang-ho.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/dau-truong-sat-thu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/dieu-tuyet-nhat-cua-chung-ta.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/gia-bo-nhiet-tinh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/gui-thoi-thanh-xuan-ngay-tho-tuoi-dep.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/guilty-of-romance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/my-nhan-tam-ke.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/nguoi-nhen-vu-tru-moi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/nhan-duyen-tien-dinh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/nhan-sinh-neu-nhu-lan-dau-gap-go.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/phap-y-tan-minh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/picture1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/picture1-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/picture1-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/shaolin-p.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/song-the-sung-phi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tam-sinh-tam-the-thap-ly-dao-hoa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tan-dong-song-ly-biet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tan-loc-dinh-ky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tan-tam-quoc-dien-nghia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tham-tu-lung-danh-conan-14-con-tau-bi-danh-cap-tren-bau-troi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/the-gioi-moi-kamen-rider-vuot-qua-z.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/the-mirror.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/thien-long-bat-bo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/tieu-ngao-giang-ho.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/trach-thien-ky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/uoc-mo-63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/vi-sao-dua-anh-toi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/vo-than-trieu-tu-long.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/yeu-em-tu-cai-nhin-dau-tien.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/404.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/404.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/play.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/play.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/category/content.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/category/content.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/home/hot-movie.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/home/hot-movie.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/home/series-movie.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/home/series-movie.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/home/top-movie.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/home/top-movie.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/movie/detail.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/movie/detail.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/region/content.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/region/content.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/search/content.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/search/content.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sections/year/content.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sections/year/content.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/serie-play.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/serie-play.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +240,32 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1633092433842</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633092433842</updated>
+      <workItem from="1633092435522" duration="668000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

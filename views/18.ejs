@@ -1,0 +1,53 @@
+<%- include('./partials/header.ejs') %> <%- include('./partials/menu.ejs') %>
+<section>
+  <div class="row" style="padding-top: 100px">
+    <div class="col-12">
+      <h2 class="home__title mb-2">Phim 18+</h2>
+    </div>
+
+    <% listMovies.forEach(function(mv){ %>
+    <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+      <a href="/phim/<%-mv.slug%>/xem-phim">
+        <div class="reccomendation">
+          <div class="preview">
+            <video
+              class="videoShow"
+              src="<%= mv.trial %>"
+              poster="<%= mv.movieThumb.thumb%>"
+              muted
+              onmouseover="playVid()"
+              onmouseout="pauseVid()"
+              id="videosrc"
+            ></video>
+              <div class="title"><%= mv.title.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
+                40)+'...'%></div>
+          </div>
+        
+
+        </div>
+      </a>
+    </div>
+
+    <% }); %>
+  </div>
+</section>
+
+<script>
+  alert("Pls, Make Sure you are 18 year old");
+</script>
+
+<script>
+  let vid = document.getElementById("videosrc");
+
+
+  function playVid() {
+    vid.play();
+  }
+
+  function pauseVid() {
+    vid.pause();
+  }
+
+</script>
+
+

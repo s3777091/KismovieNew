@@ -19,6 +19,7 @@ router.get("/login", function (req, res, next) {
     title: "Đăng nhập KisMovie Admin"
   });
 });
+
 router.post("/login", function (req, res, next) {
   const {
     username,

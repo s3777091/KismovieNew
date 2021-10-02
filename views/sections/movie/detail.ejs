@@ -1,90 +1,108 @@
 <!-- details -->
 <div class="container">
-    <div class="row">
-        <!-- title -->
-        <div class="col-12">
-            <h1 class="details__title">
-                <%-movie.title%>
-            </h1>
-        </div>
-        <!-- end title -->
-
-        <!-- content -->
-        <div class="col-12 col-xl-6">
-            <img class="rounded mx-auto d-block img-fluid  <%- movie.cloneFrom == 'phim4400' ? 'landscape' : 'portal' %> "
-                src="<%-movie.movieThumb.medium%>" alt="<%- movie.title %>">
-            <div class="card card--details">
-                <div class="row">
-                    <!-- card content -->
-                    <div class="col-12">
-                        <div class="card__content">
-                            <ul class="card__meta">
-                                <% 
-                                     listCatSlug =  movie.movie_options[0].categorySlug.split(',');
-                                     listCat = movie.movie_options[0].category.split(',')
-                                     %>
-                                <li><span class="span__darkmode">Thể loại:</span>
-                                    <% listCatSlug.forEach((cat, index) => { %>
-                                    <% if (cat) { %>
-                                    <a href="/the-loai/<%-cat%>/page/1" class="text-uppercase">
-                                        <%- listCat[index]%>
-                                    </a>
-                                    <% } %>
-                                    <% }) %>
-                                </li>
-                                <li><span class="span__darkmode">Năm phát hành:</span>
-                                    <a href="/nam/<%- movie.movie_options[0].year%>/page/1">
-                                        <%- movie.movie_options[0].year%>
-                                    </a>
-                                </li>
-                                <li><span class="span__darkmode">Thời lượng:</span>
-                                    <%- movie.movie_options[0].times%>
-                                </li>
-                                <li><span class="span__darkmode">Quốc gia:</span>
-                                    <a class="text-uppercase"
-                                        href="/quoc-gia/<%-movie.movie_options[0].regionSlug%>/page/1">
-                                        <%-movie.movie_options[0].region%>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="card__description
-                                            card__description--details">
-                                <%- movie.description %>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end card content -->
-                </div>
-                <div class="row my-3">
-                    <div class="col-12 text-center">
-                        <div class="d-flex justify-content-around align-items-center">
-                            <a class="btn btn-outline-danger" href="/phim/<%-movie.slug%>/xem-phim"> <i
-                                    data-feather="eye" class="pr-1"></i> Xem Phim</a>
-                            <a class="btn btn-outline-danger" target="_blank"
-                                href="https://kimovies.me/phim/<%-movie.slug%>/xem-phim"> <i
-                                    data-feather="download-cloud" class="pr-1"></i> Tải Phim</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end content -->
-
-        <!-- player -->
-        <div class="col-12 col-xl-6">
-            <iframe id="player" type="text/html" class="trial-video" src="" frameborder="0"></iframe>
-            <!-- /VivaClicks -->
-
-            <div class="fb-comments col-12 commentsdark mt-4"
-                :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive" data-numposts="5"
-                data-width="100%">
-            </div>
-        </div>
-
-
-
-
+  <div class="row">
+    <!-- title -->
+    <div class="col-12">
+      <h1 class="details__title"><%-movie.title%></h1>
     </div>
+    <!-- end title -->
+
+    <!-- content -->
+    <div class="col-12 col-xl-6">
+      <img
+        class="
+          rounded
+          mx-auto
+          d-block
+          img-fluid
+          <%-
+          movie.cloneFrom
+          ==
+          'phim4400'
+          ?
+          'landscape'
+          :
+          'portal'
+          %>
+        "
+        src="<%-movie.movieThumb.medium%>"
+        alt="<%- movie.title %>"
+      />
+      <div class="card card--details">
+        <div class="row">
+          <!-- card content -->
+          <div class="col-12">
+            <div class="card__content">
+              <ul class="card__meta">
+                <% listCatSlug = movie.movie_options[0].categorySlug.split(',');
+                listCat = movie.movie_options[0].category.split(',') %>
+                <li>
+                  <span class="span__darkmode">Thể loại:</span>
+                  <% listCatSlug.forEach((cat, index) => { %> <% if (cat) { %>
+                  <a href="/the-loai/<%-cat%>/page/1" class="text-uppercase">
+                    <%- listCat[index]%>
+                  </a>
+                  <% } %> <% }) %>
+                </li>
+                <li>
+                  <span class="span__darkmode">Năm phát hành:</span>
+                  <a href="/nam/<%- movie.movie_options[0].year%>/page/1">
+                    <%- movie.movie_options[0].year%>
+                  </a>
+                </li>
+                <li>
+                  <span class="span__darkmode">Thời lượng:</span>
+                  <%- movie.movie_options[0].times%>
+                </li>
+                <li>
+                  <span class="span__darkmode">Quốc gia:</span>
+                  <a
+                    class="text-uppercase"
+                    href="/quoc-gia/<%-movie.movie_options[0].regionSlug%>/page/1"
+                  >
+                    <%-movie.movie_options[0].region%>
+                  </a>
+                </li>
+              </ul>
+              <div class="card__description card__description--details">
+                <%- movie.description %>
+              </div>
+            </div>
+          </div>
+          <!-- end card content -->
+        </div>
+        <div class="row my-3">
+          <div class="col-12 text-center">
+            <div class="d-flex justify-content-around align-items-center">
+              <a
+                class="btn btn-outline-danger"
+                href="/phim/<%-movie.slug%>/xem-phim"
+              >
+                <i data-feather="eye" class="pr-1"></i> Xem Phim</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6">
+      <iframe
+        id="player"
+        type="text/html"
+        class="trial-video"
+        src=""
+        frameborder="0"
+      ></iframe>
+      <!-- /VivaClicks -->
+
+      <div
+        class="fb-comments col-12 commentsdark mt-4"
+        :data-href="https://www.facebook.com/profile.php?id=100016099751844&sk=archive"
+        data-numposts="5"
+        data-width="100%"
+      ></div>
+    </div>
+  </div>
 </div>
 <!-- end details content -->
 <!-- end details -->

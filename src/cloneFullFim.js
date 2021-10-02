@@ -9,6 +9,7 @@ const hostClone = require("./config/hostClone");
 const { removeVI } = require("jsrmvi");
 const { httpGet } = require("./common");
 const fs = require("fs");
+
 const getListHomePage = async (url) => {
   console.log(`START GET LIST LINK HOME ${url}`);
   let buf = await common.httpGet(url);
@@ -114,6 +115,7 @@ const getInfoPhim = async (linkMV) => {
     .split("?feature")[0];
   //Tao thumb phim
   let urlImgThumb = $('meta[property="twitter:image"]').attr("content");
+
   const movieThumb = await common.cloneImage(urlImgThumb);
   let infoMovie = {
     slug,
@@ -169,7 +171,7 @@ const getDetailMVSingle = async (link, infoMovie, movieOption) => {
 };
 const getFullUrlFullFim = async (url) => {
   if (!url.includes("http")) {
-    url = "https://www.fullphim.net" + url;
+    url = "https://www.ssphim.net" + url;
   }
   return url;
 };
