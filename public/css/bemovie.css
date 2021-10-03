@@ -5987,10 +5987,9 @@ ul.parts-movie li.active {
   }
   
   .reccomendation {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 20px;
     width: 250px;
-    height: 200px;
+    height: 210px;
   }
 
   .preview {
@@ -6002,11 +6001,11 @@ ul.parts-movie li.active {
   .title {
     font-weight: bold;
     font-size: 0.75rem;
-    color: white;
   }
 
   .videoShow{
       width: 250px;
       height: 250px;
+
   }
   

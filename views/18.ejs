@@ -19,8 +19,10 @@
               onmouseout="pauseVid()"
               id="videosrc"
             ></video>
+ 
               <div class="title"><%= mv.title.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,
                 40)+'...'%></div>
+
           </div>
         
 
@@ -47,7 +49,4 @@
   function pauseVid() {
     vid.pause();
   }
-
 </script>
-
-
