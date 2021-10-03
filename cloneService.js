@@ -6,7 +6,6 @@ const phim4400 = async () => {
   await clonePhim4400.getListHomePage(
     `https://xemphimnao.com`
   );
-  console.log("========== CLONE DONE ==========");
 };
 
 
