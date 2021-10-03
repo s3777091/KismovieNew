@@ -1,4 +1,0 @@
-{
-  "DB_CONNECTION_DEV":"mongodb+srv://dathuynh1909:Dathuynh1909@realmcluster.92c3m.mongodb.net/<dbname>?retryWrites=true&w=majority"
-}
-
