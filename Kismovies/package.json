@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clone": "node cloneService.js",
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
+    "dev": "nodemon www",
+    "start": "node app.js",
     "proxy": "nodemon src/proxy.js"
   },
   "author": "Dathuynh",

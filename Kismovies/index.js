@@ -96,5 +96,9 @@ common.initDb();
 common.initRegion();
 common.initCategory();
 common.removeMovieNoThumb();
+
+
+
+
 // common.checkMovieNoTrial();
 module.exports = app;

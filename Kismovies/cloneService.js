@@ -21,7 +21,6 @@ const fullPhim = async () => {
     );
   }
   await cloneFullFim.clonePhimBo(`https://www.fullphim.net/the-loai/phim-bo`);
-  console.log("=========== CLONE DONE ==========");
 };
 
 

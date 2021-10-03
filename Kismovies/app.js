@@ -1,18 +1,11 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
-var app = require("../index");
-var debug = require("debug")("server-ki-movies:server");
+var app = require("./index");
 var http = require("http");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || "3000");
+var port = normalizePort(process.env.PORT || "5000");
 app.set("port", port);
 
 /**
