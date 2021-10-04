@@ -1,7 +1,8 @@
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
-const fs = require("fs");
+
+
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var session = require('express-session')
@@ -17,7 +18,7 @@ var app = express();
 
 const requestIp = require('request-ip');
 const compression = require('compression');
-const dbConfig = require('./src/config/db.json')
+
 var MemoryStore = require('memorystore')(session)
 
 app.set('trust proxy', 1) // trust first proxy

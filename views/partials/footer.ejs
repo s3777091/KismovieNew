@@ -11,9 +11,6 @@
                     <!-- <li><p>I'm Huynh Dac Tan Dat, who create this website by use clone skill in javascript. In this site all movies have been permission from parent website also i aceppt let them put the ads in my website</p></li> -->
                 </ul>
             </div>
-            <!-- end footer list -->
-
-            <!-- footer copyright -->
             <div class="col-12">
                 <div class="footer__copyright">
                     <small class="spane__year">© <span id="currentYear"></span> KiMovies.</small>
@@ -31,29 +28,9 @@
 </footer>
 <!-- end footer -->
 <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            xfbml: true,
-            version: 'v8.0'
-        });
-    };
 
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
 
-<!-- Your Chat Plugin code -->
-<div class="fb-customerchat" attribution=setup_tool page_id="109477367628674" theme_color="#ff55a5"
-    logged_in_greeting="KisMovie, Xin chào!" logged_out_greeting="KisMovie, Xin chào!">
-</div>
+
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

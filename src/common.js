@@ -36,7 +36,6 @@ const httpGet = async (url) => {
       .get(url, (resp) => {
         let chunks = [];
 
-        // A chunk of data has been recieved.
         resp.on("data", (chunk) => {
           chunks.push(chunk);
         });
@@ -53,113 +52,10 @@ const httpGet = async (url) => {
 };
 
 var path = require("path");
-var mtd = require("zeltice-mt-downloader");
-const googleUtils = require("./utils/ggDriverUtils");
+
 const fs = require("fs");
-//Download movie and upload to google driver
-const download = async (fileName, targetUrl, infoMovie) => {
-  console.log(`INIT DOWNLOAD`);
-  console.log({ targetUrl, fileName });
-  var filePath = path.join(__dirname, "/movies/" + fileName);
-  var options = {
-    //To set the total number of download threads
-    count: 4, //(Default: 2)
 
-    method: "GET", //(Default: GET)
-
-    //HTTP port
-    port: 80, //(Default: 80)
-
-    //If no data is received the download times out. It is measured in seconds.
-    timeout: 60, //(Default: 5 seconds)
-
-    //Control the part of file that needs to be downloaded.
-    range: "0-100", //(Default: '0-100')
-
-    //Triggered when the download is started
-    onStart: function (meta) {
-      console.log("Download Started", meta);
-    },
-    //Triggered when the download is completed
-    onEnd: async (err, result) => {
-      if (err) console.error(err);
-      else {
-        console.log("Download Complete");
-        // uploadVideo(filePath, fileName);
-        const folderId = "13TL10JD1d-2HC-_gmd00txNhPQ2UAXGB";
-        const id = await googleUtils.ggDriverUpload(
-          folderId,
-          filePath,
-          fileName,
-          "video/mp4"
-        );
-        infoMovie.movieId = id;
-        await insertMovie(infoMovie);
-        fs.unlinkSync(filePath);
-      }
-    },
-  };
-
-  new mtd(filePath, targetUrl, options).start();
-};
-
-// Clone thumbnail movie
-var imgbbUploader = require("imgbb-uploader");
 const fetch = require("node-fetch");
-const cloneImage = async (urlImage) => {
-  const API_IMG_BB = "a73441ccad25132ef5a4f50ac1af5032";
-  console.log({ urlImage });
-  if (!urlImage) {
-    return "";
-  }
-  urlImage = urlImage.replace("\n", "");
-  let splitNameImg = null;
-  if (urlImage.includes("?")) {
-    splitNameImg = urlImage.split("?")[0].split("/");
-  } else {
-    splitNameImg = urlImage.split("/");
-  }
-  let imgName = splitNameImg[splitNameImg.length - 1];
-  let ext = imgName.split(".");
-  imgName = removeVI(ext[0]);
-  ext = ext[ext.length - 1];
-  imgName = imgName + "." + ext;
-  // const response = await fetch(encodeURIComponent(urlImage));
-  // const buffer = await response.buffer();
-  let localImage = `/images/${imgName}`;
-  const imgTmp = path.join(__dirname, localImage);
-  try {
-    await downloadImage(encodeURI(urlImage), imgTmp);
-    // fs.writeFileSync(imgTmp, buffer);
-  } catch (error) {
-    console.error(error.message);
-    return {
-      full: "/img/placeholder-medium.png",
-      thumb: "/img/placeholder.png",
-      medium: "/img/placeholder-medium.png",
-    };
-  }
-
-  try {
-    let imgUpload = await imgbbUploader(API_IMG_BB, imgTmp);
-    fs.unlinkSync(imgTmp);
-    const { image, thumb, medium } = imgUpload;
-    let thumbUrl = thumb ? thumb.url : image.url;
-    let mediumUrl = medium ? medium.url : image.url;
-    return {
-      full: image.url,
-      thumb: thumbUrl,
-      medium: mediumUrl,
-    };
-  } catch (error) {
-    console.log("Error UPLOAD: ", error.message);
-    return {
-      full: "/img/placeholder-medium.png",
-      thumb: "/img/placeholder.png",
-      medium: "/img/placeholder-medium.png",
-    };
-  }
-};
 const cloneCaption = async (url) => {
   if (!url) {
     return "";
@@ -340,8 +236,6 @@ const getSourcesXuongPhim = async (id) => {
 };
 module.exports = {
   httpGet,
-  download,
-  cloneImage,
   insertMovie,
   insertMovieOption,
   initRegion,

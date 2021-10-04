@@ -1089,7 +1089,7 @@ a.header__logo .text-red {
 }
 
 .home__carousel .card {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .home__nav {
@@ -2261,6 +2261,7 @@ a.header__logo .text-red {
 
 .card {
     margin-bottom: 30px;
+    margin: 20px;
 }
 
 .card__cover {

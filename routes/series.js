@@ -43,6 +43,8 @@ router.get("/phim/:slug", async (req, res) => {
   const promMovie = MovieSerieModel.getDetailSerieMovie(slug);
   const promMenu = MovieModel.getMenu();
 
+  
+
   let [menu, infoMovie] = await Promise.all([promMenu, promMovie]);
   res.render("serie-detail", {
     title: "KiMovies - " + infoMovie.title,
@@ -63,6 +65,7 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
   const listParts = await MovieSerieModel.getListPartBySlugSerie(
     resMV.movie_series[0].slug
   );
+
   res.render("serie-play", {
     title: "KiMovies - " + resMV.title,
     movie: resMV,
