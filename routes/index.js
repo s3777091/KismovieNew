@@ -124,6 +124,7 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
             totalPage: totalPage,
             currentPage: currentPage,
             isShowPaging: itemPerPage < totalMovies,
+            parentLink: `/the-loai/${category}`,
             menu: menu,
         });
     } else {
