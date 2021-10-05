@@ -4,7 +4,6 @@ const { removeVI } = require("jsrmvi");
 const initDb = () => {
   const dbConfig = require("./config/db.json");
   const mongoose = require("mongoose");
-  //CONNECT DB
   mongoose
     .connect(dbConfig.DB_CONNECTION_DEV, {
       useUnifiedTopology: true,

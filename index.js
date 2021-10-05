@@ -40,7 +40,9 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use(requestIp.mw())
 app.use("/", indexRouter);
 app.use("/phim-bo", serieRouter);
@@ -92,14 +94,9 @@ app.use(function(err, req, res, next) {
 const common = require("./src/common");
 common.initDb();
 
-
-
 common.initRegion();
 common.initCategory();
 common.removeMovieNoThumb();
-
-
-
 
 // common.checkMovieNoTrial();
 module.exports = app;

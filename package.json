@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clone": "node cloneService.js",
     "dev": "nodemon app.js",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "proxy": "nodemon src/proxy.js"
   },
   "author": "Dathuynh",

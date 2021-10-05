@@ -121,20 +121,25 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
             title: "KiSMovie - Thể loại",
             listMovies: listMovies,
             movie: null,
+            totalPage: totalPage,
+            currentPage: currentPage,
+            isShowPaging: itemPerPage < totalMovies,
             menu: menu,
         });
-    } 
-    res.render("list", {
-        title: "KiSMovie - Thể loại " + category,
-        movie: null,
-        listMovies: listMovies,
-        menu: menu,
-        category: resCategory.category,
-        totalPage: totalPage,
-        currentPage: currentPage,
-        isShowPaging: itemPerPage < totalMovies,
-        parentLink: `/the-loai/${category}`,
-    });
+    } else {
+        res.render("list", {
+            title: "KiSMovie - Thể loại " + category,
+            movie: null,
+            listMovies: listMovies,
+            menu: menu,
+            category: resCategory.category,
+            totalPage: totalPage,
+            currentPage: currentPage,
+            isShowPaging: itemPerPage < totalMovies,
+            parentLink: `/the-loai/${category}`,
+        });
+    }
+    
 });
 
 
@@ -169,6 +174,10 @@ router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
         itemPerPage,
         skipItem
     );
+
+    if(region == 'phim-nguoi-lon'){
+        res.redirect('/the-loai/phim-18/page/1')
+    }
     res.render("region", {
         title: "KiSMovie - Quốc gia " + resRegion.region,
         movie: null,

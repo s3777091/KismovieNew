@@ -10,11 +10,13 @@
              <!-- card -->
              <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
              <div class="display">
+                <a href="/phim-bo/phim/<%= mv.slug %>">
                  <div class="movies">
                      <div class="front">
                          <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%>" class="thumbnail" loading="lazy" />
                          <h4><%= mv.title %></h4>
                      </div>
+                    </a>
                      <div class="back">
                          <div class="btn__imgcontainer">
                              <button class="btn__img">
