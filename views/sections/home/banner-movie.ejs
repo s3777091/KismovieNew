@@ -8,11 +8,14 @@
     ">
     <div class="banner__contents">
       <div class="banner__showsdetail">
-        <h1 class="banner__title">
-          <%-mv.title%>
-        </h1>
 
+        <div class="banner__title">
+          <h1 class="banner_title_frozen" data-heading="<%-mv.title%>">
+            <%-mv.title%>
+          </h1>
+        </div>
 
+    
         <div class="content_p">
           <p> <%-
     mv.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,

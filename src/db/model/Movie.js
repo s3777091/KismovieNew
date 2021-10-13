@@ -37,6 +37,7 @@ const getTopMovie = async (top) => {
     ])
     .limit(top);
 };
+
 const getTopMoviePaging = async (top, skip) => {
   return await Movies.find()
     .sort([

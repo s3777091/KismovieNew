@@ -6,7 +6,7 @@
         <div class="header__content">
           <!-- header logo -->
           <a href="/" class="header__logo">
-            <span class="text-red text-bold">KIS</span>Movie
+            <span class="text-red text-bold">KIS</span> <span class="neon">Movie</span>
           </a>
           <!-- end header logo -->
 
@@ -35,19 +35,6 @@
             <!-- end dropdown -->
             <li class="header__nav-item">
               <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Năm</a>
-              <ul class="dropdown-menu header__dropdown-menu menu-year" aria-labelledby="dropdownMenuMore">
-                <% menu.years.forEach(year => { %>
-                <li>
-                  <a class="text-capitalize" href="/nam/<%-year %>/page/1">
-                    <%- year %>
-                  </a>
-                </li>
-                <% }) %>
-              </ul>
-            </li>
-            <li class="header__nav-item">
-              <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quốc gia</a>
               <ul class="dropdown-menu header__dropdown-menu menu-region" aria-labelledby="dropdownMenuMore">
                 <% menu.regions.forEach(region => { %>
@@ -59,9 +46,9 @@
                 <% }) %>
               </ul>
             </li>
-            <!-- <li class="header__nav-item">
+            <li class="header__nav-item">
                                 <a class="header__nav-link" href="/phim-bo/page/1">Phim bộ</a>
-                            </li> -->
+                            </li>
             <!-- <li class="header__nav-item">
                                 <a class="header__nav-link" href="/the-loai/pr/page/1">Phim việt</a>
                             </li> -->
@@ -90,7 +77,7 @@
 
           </div>
           <a href="/be-admin/login">
-            <img class="nav__avatar" src="https://i.pinimg.com/originals/d8/70/20/d87020c70b0bf5eec4918874fa7d0f9f.jpg"
+            <img class="nav__avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrloPy3WwT2EnrFLUMj4ZOmwasCML8CHvLvc2yGtcwAc69dhHjVcoUHZ6CCQGRHrL43AE&usqp=CAU"
               alt="" />
           </a>
         </div>

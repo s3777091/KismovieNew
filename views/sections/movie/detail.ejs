@@ -1,103 +1,152 @@
-<!-- details -->
-<div class="container">
-  <div class="row">
-    <!-- title -->
-    <div class="col-12">
-      <h1 class="details__title"><%-movie.title%></h1>
-    </div>
-    <!-- end title -->
 
-    <!-- content -->
-    <div class="col-12 col-xl-6">
-      <img
-        class="
-          rounded
-          mx-auto
-          d-block
-          img-fluid
-          <%-
-          movie.cloneFrom
-          ==
-          'phim4400'
-          ?
-          'landscape'
-          :
-          'portal'
-          %>
-        "
-        src="<%-movie.movieThumb.medium%>"
-        alt="<%- movie.title %>"
-      />
-      <div class="card card--details">
-        <div class="row">
-          <!-- card content -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%-movie.title%></title>
+</head>
+
+<div class="container">
+
+  <div class="row">
+<div class="body-detail">
+
+
+  
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="<%-movie.movieThumb.medium%>" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">Thông tin phim: </span>
+        <div class="blog-slider__title"><%-movie.title%></div>
+        <div class="blog-slider__text">
+          <%-movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,450)+'...'%>
+        </div>
+        <a href="/phim/<%-movie.slug%>/xem-phim" class="blog-slider__button">Xem Phim</a>
+      </div>
+    </div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="<%-movie.movieThumb.full%>" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">Thông tin phim: </span>
+        <div class="blog-slider__title"><%-movie.title%></div>
+        <div class="blog-slider__text">
           <div class="col-12">
             <div class="card__content">
-              <ul class="card__meta">
-                <% listCatSlug = movie.movie_options[0].categorySlug.split(',');
+          <ul>
+
+            <% listCatSlug = movie.movie_options[0].categorySlug.split(',');
                 listCat = movie.movie_options[0].category.split(',') %>
+
                 <li>
-                  <span class="span__darkmode">Thể loại:</span>
+                  <span>Thể loại:</span>
                   <% listCatSlug.forEach((cat, index) => { %> <% if (cat) { %>
                   <a href="/the-loai/<%-cat%>/page/1" class="text-uppercase">
                     <%- listCat[index]%>
                   </a>
                   <% } %> <% }) %>
                 </li>
+
                 <li>
-                  <span class="span__darkmode">Năm phát hành:</span>
+                  <span>Năm phát hành:</span>
                   <a href="/nam/<%- movie.movie_options[0].year%>/page/1">
                     <%- movie.movie_options[0].year%>
                   </a>
                 </li>
                 <li>
-                  <span class="span__darkmode">Thời lượng:</span>
+                  <span>Thời lượng:</span>
                   <%- movie.movie_options[0].times%>
                 </li>
-                <li>
-                  <span class="span__darkmode">Quốc gia:</span>
-                  <a
-                    class="text-uppercase"
-                    href="/quoc-gia/<%-movie.movie_options[0].regionSlug%>/page/1"
-                  >
-                    <%-movie.movie_options[0].region%>
-                  </a>
-                </li>
-              </ul>
-              <div class="card__description card__description--details">
-                <%- movie.description %>
-              </div>
-            </div>
-          </div>
-          <!-- end card content -->
-        </div>
-        <div class="row my-3">
-          <div class="col-12 text-center">
-            <div class="d-flex justify-content-around align-items-center">
-              <a
-                class="btn btn-outline-danger"
-                href="/phim/<%-movie.slug%>/xem-phim"
-              >
-                <i data-feather="eye" class="pr-1"></i> Xem Phim</a
-              >
-            </div>
-          </div>
+          <li>
+            <span>Quốc gia:</span>
+            <a
+              class="text-uppercase"
+              href="/quoc-gia/<%-movie.movie_options[0].regionSlug%>/page/1"
+            >
+              <%-movie.movie_options[0].region%>
+            </a>
+          </li>
+        </ul>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-xl-6">
-      <iframe
+        </div>
+        <a href="/phim/<%-movie.slug%>/xem-phim" class="blog-slider__button">Xem Phim</a>
+      </div>
+    </div>    
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
+
+
+
+</div>
+ 
+</div>
+
+<div class="col-12">
+  <span class="fast-flicker home__title mb-2">Trailer</span>
+  <span class="flicker home__title mb-2">Phim</span>
+  
+</div>
+<iframe
         id="player"
         type="text/html"
         class="trial-video"
         src=""
         frameborder="0"
       ></iframe>
-      <!-- /VivaClicks -->
+
+<section class="section py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <span class="fast-flicker home__title mb-2">Có</span>
+            <span class="flicker home__title mb-2">Thể</span>
+            <span class="fast-flicker home__title mb-2">Bạn</span>
+            <span class="flicker home__title mb-2">Thích</span>
+          </div>
+          <% if (movieRelated.length > 0) { %>
+          <% movieRelated.slice(0,8).map(mv => {
+%>
+          <!-- card -->
+          <div class="col-6 col-sm-4 col-lg-4 col-xl-3">
+              <div class="card">
+                  <div class="card__cover">
+                      <img src="<%=mv.movieThumb.thumb%>" alt="<%-mv.title%> " class="rounded"
+                          loading="lazy" />
+                      <a href="/phim/<%= mv.slug %>" class="card__play">
+                          <i class="icon ion-ios-play"></i>
+                      </a>
+                  </div>
 
 
-    </div>
+                  <div class="card__content">
+                      <h4 class="card__title">
+                          <a href="/phim/<%= mv.slug %>" class="a__darkmode">
+                              <%= mv.title %>
+                          </a>
+                      </h4>
+                  </div>
+              </div>
+
+          </div>
+          <!-- end card -->
+          <% }) %>
+          <% } %>
+      </div>
   </div>
+</section>
+
+
 </div>
-<!-- end details content -->
-<!-- end details -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+<script type="text/javascript" src="/js/detail.js"></script>
+</body>

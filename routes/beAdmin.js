@@ -140,12 +140,6 @@ router.get(
 );
 
 //Page clone phim
-router.get("/clone", checkAdminLogin, async (req, res, next) => {
-  res.render("admin/clone", {
-    title: "Kimovies Admin",
-    active: "clone"
-  });
-});
 
 router.get("/create-movies", checkAdminLogin, async (req, res, next) => {
   res.render("admin/insert-movies", {

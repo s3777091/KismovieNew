@@ -11,8 +11,6 @@ var adminRouter = require("./routes/beAdmin");
 var serieRouter = require("./routes/series");
 var cloneRouter = require("./routes/clone");
 
-// var createRouter = require("./routes/create");
-
 
 var app = express();
 
