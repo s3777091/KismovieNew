@@ -159,6 +159,8 @@
                 });
                 this.updateOption("views");
             },
+
+
             setPlayerTopPhim(sources) {
                 let options = {
                     sources: sources,
@@ -185,6 +187,8 @@
                 player.setup(options);
                 this.updateOption("views");
             },
+
+            
         },
         mounted: async function () {
             let res = await axios.post("/api/resource/", {

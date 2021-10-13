@@ -3,14 +3,14 @@ const PartModel = require("../schema/MoviePartSerieSchema");
 const Category = require("../schema/CategorySchema");
 //Lay danh sach link tap phim bo
 const getPartLinkClones = async () => {
-  let list = await PartModel.find().select("cloneLink");
+  let list = await PartModel.find().select("cloneLink").maxTimeMS(100);
   let res = [];
   list.map((l) => res.push(l.cloneLink));
   return res;
 };
 //Lay danh sach link tap phim bo theo host
 const getPartLinkClonesByCloneFrom = async (cloneFrom) => {
-  let list = await PartModel.find({ cloneFrom: cloneFrom }).select("cloneLink");
+  let list = await PartModel.find({ cloneFrom: cloneFrom }).select("cloneLink").maxTimeMS(100);
   let res = [];
   list.map((l) => res.push(l.cloneLink));
   return res;
@@ -21,7 +21,7 @@ const getTopListSerieMovie = async (limit) => {
     .sort({ createdAt: -1 })
     .populate({ path: "movie_part_series", select: ["slug"] })
     .select(["slug", "title", "movieThumb", "parts"])
-    .limit(limit);
+    .limit(limit).maxTimeMS(100);
 };
 
 //Lay tong danh sach phim bo
@@ -34,7 +34,7 @@ const findListSerieMovies = async (limit, skip) => {
     .populate({ path: "movie_part_series", select: ["slug"] })
     .sort({ createdAt: -1 })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 //Lay thong tin chi tiet phim bo
 const getDetailSerieMovie = async (slug) => {
@@ -42,24 +42,24 @@ const getDetailSerieMovie = async (slug) => {
     path: "movie_part_series",
     select: ["slug", "title"],
     limit: 1,
-  });
+  }).maxTimeMS(100);
 };
 //Lay danh sach tap phim theo slug phim bo
 const getListPartBySlugSerie = async (slug) => {
   return await SerieModel.findOne({ slug: slug }).populate({
     path: "movie_part_series",
-  });
+  }).maxTimeMS(100);
 };
 
 //Lay thong tin tap phim
 const getDetailPartSerieMovie = async (slug) => {
   return await PartModel.findOne({ slug: slug }).populate({
     path: "movie_series",
-  });
+  }).maxTimeMS(100);
 };
 //Lay danh sach link phim bo
 const getSerieLinkClones = async () => {
-  let list = await SerieModel.find().select("cloneLink");
+  let list = await SerieModel.find().select("cloneLink").maxTimeMS(100);
   let res = [];
   list.map((l) => res.push(l.cloneLink));
   return res;
@@ -68,7 +68,7 @@ const getSerieLinkClones = async () => {
 const getSerieLinkClonesByClone = async (cloneFrom) => {
   let list = await SerieModel.find({ cloneFrom: cloneFrom }).select(
     "cloneLink"
-  );
+  ).maxTimeMS(100);
   let res = [];
   list.map((l) => res.push(l.cloneLink));
   return res;
@@ -98,7 +98,7 @@ const findMovieByCategory = async (categorySlug, limit, skip) => {
   })
     .populate({ path: "movie_part_series", select: ["slug"] })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 
 //Lay tong phim theo nam phat hanh
@@ -110,7 +110,7 @@ const findMovieByYear = async (year, limit, skip) => {
   return await SerieModel.find({ year: year })
     .populate({ path: "movie_part_series", select: ["slug"] })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 
 //Tim tong phim theo ten
@@ -123,7 +123,7 @@ const findMovieByName = async (name, limit, skip) => {
   return await SerieModel.find({ title: new RegExp(name, "i") })
     .populate({ path: "movie_part_series", select: ["slug"] })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 
 //Tim kiem phim theo quoc gia
@@ -131,7 +131,7 @@ const findMovieByRegion = async (region, limit, skip) => {
   return await SerieModel.find({ regionSlug: region })
     .populate({ path: "movie_part_series", select: ["slug"] })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 //Lay tong phim theo quoc gia
 const countMovieByRegion = async (region) => {

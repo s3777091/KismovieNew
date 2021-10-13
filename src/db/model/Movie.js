@@ -7,7 +7,7 @@ const Category = require("../schema/CategorySchema");
 
 //Lay danh sach link da clone
 const getListLinkClone = async () => {
-  const list = await Movies.find().select(["cloneLink"]);
+  const list = await Movies.find().select(["cloneLink"]).maxTimeMS(100);
   let links = [];
   if (list && list.length > 0) {
     list.map((l) => links.push(l.cloneLink));
@@ -20,7 +20,7 @@ const getListLinkByCloneFrom = async (cloneFrom) => {
     cloneFrom: cloneFrom
   }).select([
     "cloneLink",
-  ]);
+  ]).maxTimeMS(100);
   let links = [];
   if (list && list.length > 0) {
     list.map((l) => links.push(l.cloneLink));
@@ -35,7 +35,8 @@ const getTopMovie = async (top) => {
     .sort([
       ["createdAt", -1]
     ])
-    .limit(top);
+    .limit(top)
+    .maxTimeMS(100);
 };
 
 const getTopMoviePaging = async (top, skip) => {
@@ -47,7 +48,7 @@ const getTopMoviePaging = async (top, skip) => {
       path: "movie_options"
     })
     .limit(top)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 //Lay danh sach nhieu luot xem
 const getTopViews = async (top) => {
@@ -71,7 +72,7 @@ const getTopViews = async (top) => {
         }
       },
     })
-    .limit(top);
+    .limit(top).maxTimeMS(100);
 };
 
 //Lay top phim bo
@@ -95,7 +96,7 @@ const getTopPhimBo = async (top) => {
     },
   ]).sort({
     createdAt: -1
-  });
+  }).maxTimeMS(100);
 };
 //Tim kiem phim theo slug
 const findMovieBySlug = async (slug) => {
@@ -103,7 +104,7 @@ const findMovieBySlug = async (slug) => {
     slug: slug
   }).populate({
     path: "movie_options",
-  });
+  }).maxTimeMS(100);
 };
 //Tim kiem phim theo ten
 const findMovieByName = async (name, limit, skip) => {
@@ -111,14 +112,14 @@ const findMovieByName = async (name, limit, skip) => {
       title: new RegExp(name, "i")
     })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
 };
 
 //Tim tong phim theo ten
 const countMovieByName = async (name) => {
   return await Movies.countDocuments({
     title: new RegExp(name, "i")
-  });
+  }).maxTimeMS(100);
 };
 
 //Lay danh sach ten phim
@@ -127,7 +128,7 @@ const findListNameMovie = async (name) => {
       title: new RegExp(name, "i")
     })
     .select(["title", "movieThumb", "slug"])
-    .limit(10);
+    .limit(10).maxTimeMS(100);
 };
 //Tim kiem phim theo category
 const findMovieByCategory = async (category, limit, skip) => {
@@ -144,7 +145,7 @@ const findMovieByCategory = async (category, limit, skip) => {
       path: "movies",
     })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -163,7 +164,7 @@ const countMovieByCategory = async (category) => {
     },
   }).populate({
     path: "movies",
-  });
+  }).maxTimeMS(100);
   return mvs;
 };
 
@@ -179,7 +180,7 @@ const findMovieByRegion = async (region, limit, skip) => {
       path: "movies",
     })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -194,7 +195,7 @@ const countMovieByRegion = async (region) => {
     regionSlug: region
   }).populate({
     path: "movies",
-  });
+  }).maxTimeMS(100);
   return mvs;
 };
 //Tim kiem phim theo nam phat hanh
@@ -209,7 +210,7 @@ const findMovieByYear = async (year, limit, skip) => {
       path: "movies",
     })
     .limit(limit)
-    .skip(skip);
+    .skip(skip).maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -224,7 +225,7 @@ const countMovieByYear = async (year) => {
     year: year
   }).populate({
     path: "movies",
-  });
+  }).maxTimeMS(100);
   return mvs;
 };
 //Lay danh sach nam phat hanh phim
@@ -235,7 +236,7 @@ const listYears = async () => {
 const listGenre = async () => {
   return await Category.find().sort({
     categorySlug: 1
-  });
+  }).maxTimeMS(100);
 };
 //cap nhat thong tin phim
 const updateOne = async (condition, params) => {
@@ -299,7 +300,7 @@ const getTopMovieViews = async (limit) => {
     .limit(limit)
     .populate({
       path: "movies",
-    });
+    }).maxTimeMS(100);
   return topMostView;
 };
 //Lay danh sach phim moi them
@@ -311,7 +312,7 @@ const getTopMovieLastest = async (limit) => {
     .populate({
       path: "movie_options",
     })
-    .limit(limit);
+    .limit(limit).maxTimeMS(100);
 };
 //Lay danh sach phim lien quan
 const getListMovieRelated = async (categorySlug, movieId, limit) => {
@@ -330,7 +331,7 @@ const getListMovieRelated = async (categorySlug, movieId, limit) => {
     .limit(limit + 1)
     .populate({
       path: "movies"
-    });
+    }).maxTimeMS(100);
   let result = [];
   list.map((m) => {
     if (m.movies[0]) {

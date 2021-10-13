@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const async = require('async');
+
 const clonePhim4400 = require("../src/clonePhim4400");
 const hostClone = require("../src/config/hostClone");
 const MovieSerieModel = require("../src/db/model/MovieSerie");
@@ -8,11 +10,8 @@ const MovieModel = require("../src/db/model/Movie");
 const MovieOptionModel = require("../src/db/model/MovieOption");
 const RegionModel = require("../src/db/schema/RegionSchema");
 
-
-const {exec} = require('child_process');
 const config = require("../src/config");
 const common = require("../src/common");
-const { stdout } = require("process");
 
 //Page trang chu
 router.get("/", async (req, res, next) => {
@@ -22,17 +21,17 @@ router.get("/", async (req, res, next) => {
     config.itemPerPage,
     0
   );
-  //Phim viet
   const phimhoathinh = MovieModel.findMovieByCategory("phim-hoat-hinh", config.itemPerPage);
-  //Danh sach phim bo
   const seriaMovies = MovieSerieModel.getTopListSerieMovie(config.itemPerPage);
   const menu = MovieModel.getMenu();
+  
   let [resHotMV, resSeriaMV, resHoatHinh, resMenu] = await Promise.all([
     hotMovies,
     seriaMovies,
     phimhoathinh,
     menu,
   ]);
+
   res.render("index", {
     title: "KiSMovies",
     hotMovies: resHotMV,

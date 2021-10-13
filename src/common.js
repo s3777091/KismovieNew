@@ -11,7 +11,7 @@ const initDb = () => {
       useFindAndModify: false,
     })
     .then(() => {
-      console.log("CONNECT DB SUCCESS....");
+      console.log("Kết nối thành công database....");
     })
     .catch((err) => {
       console.log("ERROR: ", err);
@@ -74,22 +74,7 @@ const cloneCaption = async (url) => {
   fs.writeFileSync(captionDir, buffer);
   return captionName;
 };
-const downloadImage = async (url, fileName) => {
-  console.log(url);
-  const writer = fs.createWriteStream(fileName);
-  const response = await axios({
-    url,
-    method: "GET",
-    responseType: "stream",
-    timeout: 20 * 1000,
-  });
-  response.data.pipe(writer);
 
-  return new Promise((resolve, reject) => {
-    writer.on("finish", resolve);
-    writer.on("error", reject);
-  });
-};
 const MovieModel = require("./db/schema/MovieSchema");
 const MovieOptionModel = require("./db/schema/MovieOptionSchema");
 const RegionModel = require("./db/schema/RegionSchema");
