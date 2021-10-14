@@ -3,8 +3,6 @@ const MovieOption = require("../schema/MovieOptionSchema");
 const Region = require("../schema/RegionSchema");
 const Category = require("../schema/CategorySchema");
 
-
-
 //Lay danh sach link da clone
 const getListLinkClone = async () => {
   const list = await Movies.find().select(["cloneLink"]).maxTimeMS(100);
@@ -17,10 +15,10 @@ const getListLinkClone = async () => {
 //Lay danh sach link clone cua trangphim.net
 const getListLinkByCloneFrom = async (cloneFrom) => {
   const list = await Movies.find({
-    cloneFrom: cloneFrom
-  }).select([
-    "cloneLink",
-  ]).maxTimeMS(100);
+    cloneFrom: cloneFrom,
+  })
+    .select(["cloneLink"])
+    .maxTimeMS(100);
   let links = [];
   if (list && list.length > 0) {
     list.map((l) => links.push(l.cloneLink));
@@ -30,33 +28,30 @@ const getListLinkByCloneFrom = async (cloneFrom) => {
 //Lay danh sach phim moi cap nhat
 const getTopMovie = async (top) => {
   return await Movies.find({
-      group: null
-    })
-    .sort([
-      ["createdAt", -1]
-    ])
+    group: null,
+  })
+    .sort([["createdAt", -1]])
     .limit(top)
     .maxTimeMS(100);
 };
 
 const getTopMoviePaging = async (top, skip) => {
   return await Movies.find()
-    .sort([
-      ["createdAt", -1]
-    ])
+    .sort([["createdAt", -1]])
     .populate({
-      path: "movie_options"
+      path: "movie_options",
     })
     .limit(top)
-    .skip(skip).maxTimeMS(100);
+    .skip(skip)
+    .maxTimeMS(100);
 };
 //Lay danh sach nhieu luot xem
 const getTopViews = async (top) => {
   return await Movies.find({
-      group: null
-    })
+    group: null,
+  })
     .sort({
-      createdAt: -1
+      createdAt: -1,
     })
     .populate({
       path: "movie_option",
@@ -64,88 +59,101 @@ const getTopViews = async (top) => {
         shares: 1,
         views: 1,
         likes: 1,
-        downloads: 1
+        downloads: 1,
       },
       options: {
         sort: {
-          views: -1
-        }
+          views: -1,
+        },
       },
     })
-    .limit(top).maxTimeMS(100);
+    .limit(top)
+    .maxTimeMS(100);
 };
 
 //Lay top phim bo
 const getTopPhimBo = async (top) => {
-  return await Movies.aggregate([{
+  return await Movies.aggregate([
+    {
       $match: {
         group: {
-          $ne: null
-        }
-      }
+          $ne: null,
+        },
+      },
     },
     {
       $group: {
         _id: {
-          group: "$group"
+          group: "$group",
         },
         count: {
-          $sum: 1
-        }
-      }
+          $sum: 1,
+        },
+      },
     },
-  ]).sort({
-    createdAt: -1
-  }).maxTimeMS(100);
+  ])
+    .sort({
+      createdAt: -1,
+    })
+    .maxTimeMS(100);
 };
 //Tim kiem phim theo slug
 const findMovieBySlug = async (slug) => {
   return await Movies.findOne({
-    slug: slug
-  }).populate({
-    path: "movie_options",
-  }).maxTimeMS(100);
+    slug: slug,
+  })
+    .populate({
+      path: "movie_options",
+    })
+    .maxTimeMS(100);
 };
 //Tim kiem phim theo ten
 const findMovieByName = async (name, limit, skip) => {
   return await Movies.find({
-      title: new RegExp(name, "i")
-    })
+    title: new RegExp(name, "i"),
+    trial: { $ne: "null" },
+  })
     .limit(limit)
-    .skip(skip).maxTimeMS(100);
+    .skip(skip)
+    .maxTimeMS(100);
 };
 
 //Tim tong phim theo ten
 const countMovieByName = async (name) => {
   return await Movies.countDocuments({
-    title: new RegExp(name, "i")
+    title: new RegExp(name, "i"),
   }).maxTimeMS(100);
 };
 
 //Lay danh sach ten phim
 const findListNameMovie = async (name) => {
   return await Movies.find({
-      title: new RegExp(name, "i")
-    })
+    title: new RegExp(name, "i"),
+    group: {
+      $ne: null,
+    },
+  })
     .select(["title", "movieThumb", "slug"])
-    .limit(10).maxTimeMS(100);
+    .limit(10)
+    .maxTimeMS(100);
 };
 //Tim kiem phim theo category
 const findMovieByCategory = async (category, limit, skip) => {
   let mvs = await MovieOption.find({
-      categorySlug: {
-        $regex: category,
-        $options: "i"
-      },
-    })
+    categorySlug: {
+      $regex: category,
+      $options: "i",
+    },
+  })
     .sort({
-      createdAt: -1
+      createdAt: -1,
     })
     .populate({
       path: "movies",
     })
     .limit(limit)
-    .skip(skip).maxTimeMS(100);
+    .skip(skip)
+    .maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -160,27 +168,30 @@ const countMovieByCategory = async (category) => {
   let mvs = await MovieOption.countDocuments({
     categorySlug: {
       $regex: category,
-      $options: "i"
+      $options: "i",
     },
-  }).populate({
-    path: "movies",
-  }).maxTimeMS(100);
+  })
+    .populate({
+      path: "movies",
+    })
+    .maxTimeMS(100);
   return mvs;
 };
 
 //Tim kiem phim theo quoc gia
 const findMovieByRegion = async (region, limit, skip) => {
   let mvs = await MovieOption.find({
-      regionSlug: region
-    })
+    regionSlug: region,
+  })
     .sort({
-      createdAt: -1
+      createdAt: -1,
     })
     .populate({
       path: "movies",
     })
     .limit(limit)
-    .skip(skip).maxTimeMS(100);
+    .skip(skip)
+    .maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -192,25 +203,26 @@ const findMovieByRegion = async (region, limit, skip) => {
 //Lay tong phim theo quoc gia
 const countMovieByRegion = async (region) => {
   let mvs = await MovieOption.countDocuments({
-    regionSlug: region
-  }).populate({
-    path: "movies",
-  }).maxTimeMS(100);
+    regionSlug: region,
+  })
+    .populate({
+      path: "movies",
+    })
+    .maxTimeMS(100);
   return mvs;
 };
 //Tim kiem phim theo nam phat hanh
 const findMovieByYear = async (year, limit, skip) => {
   let mvs = await MovieOption.find({
-      year: year
-    })
-    .sort([
-      ["createdAt", -1]
-    ])
+    year: year,
+  })
+    .sort([["createdAt", -1]])
     .populate({
       path: "movies",
     })
     .limit(limit)
-    .skip(skip).maxTimeMS(100);
+    .skip(skip)
+    .maxTimeMS(100);
   let result = [];
   mvs.map((m) => {
     if (m.movies[0]) {
@@ -222,10 +234,12 @@ const findMovieByYear = async (year, limit, skip) => {
 //Lay tong phim theo nam phat hanh
 const countMovieByYear = async (year) => {
   let mvs = await MovieOption.countDocuments({
-    year: year
-  }).populate({
-    path: "movies",
-  }).maxTimeMS(100);
+    year: year,
+  })
+    .populate({
+      path: "movies",
+    })
+    .maxTimeMS(100);
   return mvs;
 };
 //Lay danh sach nam phat hanh phim
@@ -234,9 +248,11 @@ const listYears = async () => {
 };
 //Lay danh sach the loai
 const listGenre = async () => {
-  return await Category.find().sort({
-    categorySlug: 1
-  }).maxTimeMS(100);
+  return await Category.find()
+    .sort({
+      categorySlug: 1,
+    })
+    .maxTimeMS(100);
 };
 //cap nhat thong tin phim
 const updateOne = async (condition, params) => {
@@ -254,8 +270,8 @@ const updateOne = async (condition, params) => {
 const listSeriaMovie = async () => {
   return await Movies.find({
     group: {
-      $ne: null
-    }
+      $ne: null,
+    },
   });
 };
 
@@ -287,7 +303,7 @@ const getTotalMoviesInMonth = async () => {
   return await Movies.countDocuments({
     createdAt: {
       $gte: firstDay,
-      $lt: date
+      $lt: date,
     },
   });
 };
@@ -295,43 +311,46 @@ const getTotalMoviesInMonth = async () => {
 const getTopMovieViews = async (limit) => {
   let topMostView = await MovieOption.find()
     .sort({
-      views: -1
+      views: -1,
     })
     .limit(limit)
     .populate({
       path: "movies",
-    }).maxTimeMS(100);
+    })
+    .maxTimeMS(100);
   return topMostView;
 };
 //Lay danh sach phim moi them
 const getTopMovieLastest = async (limit) => {
   return await Movies.find()
     .sort({
-      createdAt: -1
+      createdAt: -1,
     })
     .populate({
       path: "movie_options",
     })
-    .limit(limit).maxTimeMS(100);
+    .limit(limit)
+    .maxTimeMS(100);
 };
 //Lay danh sach phim lien quan
 const getListMovieRelated = async (categorySlug, movieId, limit) => {
   const list = await MovieOption.find({
-      categorySlug: {
-        $regex: categorySlug,
-        $options: "i"
-      },
-      movieId: {
-        $ne: movieId
-      },
-    })
+    categorySlug: {
+      $regex: categorySlug,
+      $options: "i",
+    },
+    movieId: {
+      $ne: movieId,
+    },
+  })
     .sort({
-      createdAt: -1
+      createdAt: -1,
     })
     .limit(limit + 1)
     .populate({
-      path: "movies"
-    }).maxTimeMS(100);
+      path: "movies",
+    })
+    .maxTimeMS(100);
   let result = [];
   list.map((m) => {
     if (m.movies[0]) {
@@ -344,23 +363,23 @@ const getListMovieRelated = async (categorySlug, movieId, limit) => {
 //Xoa phim
 const deleteMovie = async (movieId) => {
   let resDeleteMovie = await Movies.deleteOne({
-    _id: movieId
+    _id: movieId,
   });
   let resDeleteMovieOption = await MovieOption.deleteOne({
-    movieId: movieId
+    movieId: movieId,
   });
   return {
     resDeleteMovie,
-    resDeleteMovieOption
+    resDeleteMovieOption,
   };
 };
 //Xoa phim theo hostClone
 const deleteMovieByCloneFrom = async (cloneFrom) => {
   let resDeleteMovie = await Movies.deleteMany({
-    cloneFrom: cloneFrom
+    cloneFrom: cloneFrom,
   });
   return {
-    resDeleteMovie
+    resDeleteMovie,
   };
 };
 
@@ -368,12 +387,11 @@ const deleteMovieByCloneFrom = async (cloneFrom) => {
 const findMovieNoThumb = async () => {
   let res = await Movies.find({
     movieThumb: {
-      $eq: []
-    }
+      $eq: [],
+    },
   });
   return res;
-}
-
+};
 
 module.exports = {
   findMovieNoThumb,

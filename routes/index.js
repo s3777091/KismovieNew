@@ -1,8 +1,6 @@
 var express = require("express");
 var router = express.Router();
 
-const async = require('async');
-
 const clonePhim4400 = require("../src/clonePhim4400");
 const hostClone = require("../src/config/hostClone");
 const MovieSerieModel = require("../src/db/model/MovieSerie");
@@ -24,8 +22,8 @@ router.get("/", async (req, res, next) => {
   const phimhoathinh = MovieModel.findMovieByCategory("phim-hoat-hinh", config.itemPerPage);
   const seriaMovies = MovieSerieModel.getTopListSerieMovie(config.itemPerPage);
   const menu = MovieModel.getMenu();
-  
-  let [resHotMV, resSeriaMV, resHoatHinh, resMenu] = await Promise.all([
+
+  let [resHotMV, resSeriaMV, reshoathinh, resMenu] = await Promise.all([
     hotMovies,
     seriaMovies,
     phimhoathinh,
@@ -36,7 +34,7 @@ router.get("/", async (req, res, next) => {
     title: "KiSMovies",
     hotMovies: resHotMV,
     seriaMovies: resSeriaMV,
-    hoathinh: resHoatHinh,
+    hoathinh: reshoathinh,
     movie: null,
     menu: resMenu,
   });
