@@ -26,8 +26,6 @@
                                     <i class="icon ion-ios-play"></i>
                                 </a>
                             </div>
-
-
                             <div class="card__content">
                                 <h4 class="card__title">
                                     <a href="/phim/<%= mv.slug %>" class="a__darkmode">
@@ -36,7 +34,6 @@
                                 </h4>
                             </div>
                         </div>
-
                     </div>
                     <!-- end card -->
                     <% }) %>
@@ -74,29 +71,6 @@
             fileMV: "",
         },
         methods: {
-            changeServer(server) {
-                let sourceFile = "";
-                if (cloneFrom == "topphimhd" || cloneFrom == "xuongphim") {
-                    sourceFile = this.sources[server].file;
-                } else {
-                    sourceFile = this.sources[server][0].file;
-                }
-                this.fileMV = "" + sourceFile;
-                this.activeServer = server;
-                if (cloneFrom == "topphimhd") {
-                    return this.setPlayerTopPhim(this.sources[server]);
-                }
-                if (sourceFile.includes("hxfile")) {
-                    $("#player").show();
-                    $("#iframePlayer").attr("src", "").hide();
-                    this.setPlayer(this.sources[server]);
-                } else {
-                    // this.setPlayer(this.sources[0])
-                    $("#player").hide();
-                    let dooFile = this.resources.find((r) => r.includes("dood"));
-                    $("#iframePlayer").attr("src", dooFile).show();
-                }
-            },
             shareFb() {
                 let hostname = window.location.hostname;
                 let port = window.location.port;
@@ -160,34 +134,6 @@
                 this.updateOption("views");
             },
 
-
-            setPlayerTopPhim(sources) {
-                let options = {
-                    sources: sources,
-                    width: "100%",
-                    height: "100%",
-                    image: "<%-movie.movieThumb.full%>",
-                    aspectratio: "16:9",
-                    playbackRateControls: "true",
-                    captions: {
-                        color: "#eeee22",
-                        fontSize: 14,
-                        backgroundOpacity: 0,
-                        edgeStyle: "raised",
-                    },
-                };
-                if (sources.caption) {
-                    options.tracks = [{
-                        file: "/captions/" + sources.caption,
-                        label: "Tiếng Việt",
-                        kind: "captions",
-                        default: true,
-                    }, ];
-                }
-                player.setup(options);
-                this.updateOption("views");
-            },
-
             
         },
         mounted: async function () {
@@ -220,7 +166,6 @@
             if (listResource.length > 0) {
                 let sourceFile = listResource[0][0]["file"];
                 this.fileMV = "" + sourceFile;
-
                 $("#player").hide();
                 let dooFile = this.resources.find(
                     (r) => r.includes("dood") || r.includes("hxfile") || r.includes("kimovies.live") ||
@@ -236,7 +181,6 @@
                     $("#player").show();
                     this.setPlayer(listResource[0]);
                 }
-
                 this.updateOption("views");
             } else {
                 alert("Lối không tải được phim!");

@@ -1,13 +1,5 @@
 var express = require("express");
 var router = express.Router();
-
-
-var assert = require('assert');
-var mongo = require('mongodb');
-
-const MovieSchema = require("../src/db/schema/MovieSchema");
-
-
 const checkAdminLogin = require("../src/middleware/checkAdminLogin");
 const MovieModel = require("../src/db/model/Movie");
 const SerielModel = require("../src/db/model/MovieSerie");
@@ -118,11 +110,6 @@ router.get(
     });
   }
 );
-
-//Page clone phim
-router.get("/clone", checkAdminLogin, async (req, res, next) => {
-  res.render("admin/clone", { title: "Kimovies Admin", active: "clone" });
-});
 
 //Page cap nhat thong tin phim
 router.get("/edit/:slug", checkAdminLogin, async (req, res, next) => {

@@ -2,50 +2,57 @@ var app = require("./index");
 var http = require("http");
 
 const cluster = require("cluster"),
-  os = require("os").cpus().length;
+   os = require('os');
 
 if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
+  const cpus = os.cpus().length;
 
-  for (let i = 0; i < os; i++) {
-    cluster.fork();
-  }
+    console.log(`Taking advantage of ${cpus} CPUs`)
+    for (let i = 0; i < cpus; i++) {
+        cluster.fork();
+    }
+    // set console's directory so we can see output from workers
+    console.dir(cluster.workers, {depth: 0});
 
-  cluster.on("exit", (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
+    // initialize our CLI 
+    process.stdin.on('data', (data) => {
+        initControlCommands(data);
+    })
+
+    cluster.on('exit', (worker, code) => {
+        // Good exit code is 0 :))
+        // exitedAfterDisconnect ensures that it is not killed by master cluster or manually
+        // if we kill it via .kill or .disconnect it will be set to true
+        // \x1b[XXm represents a color, and [0m represent the end of this 
+        //color in the console ( 0m sets it to white again )
+        if (code !== 0 && !worker.exitedAfterDisconnect) {
+            console.log(`\x1b[34mWorker ${worker.process.pid} crashed.\nStarting a new worker...\n\x1b[0m`);
+            const nw = cluster.fork();
+            console.log(`\x1b[32mWorker ${nw.process.pid} will replace him \x1b[0m`);
+        }
+    });
+
+    console.log(`Master PID: ${process.pid}`)
 } else {
   var port = normalizePort(process.env.PORT || "3000");
   app.set("port", port);
 
-  /**
-   * Create HTTP server.zz
-   */
-
   var server = http.createServer(app);
 
-  /**
-   * Listen on provided port, on all network interfaces.
-   */
 
   server.listen(port);
   server.on("error", onError);
   server.on("listening", onListening);
 
-  /**
-   * Normalize a port into a number, string, or false.
-   */
 
   function normalizePort(val) {
     var port = parseInt(val, 10);
 
     if (isNaN(port)) {
-      // named pipe
       return val;
     }
 
     if (port >= 0) {
-      // port number
       return port;
     }
 
@@ -77,10 +84,6 @@ if (cluster.isMaster) {
         throw error;
     }
   }
-
-  /**
-   * Event listener for HTTP server "listening" event.
-   */
 
   function onListening() {
     var addr = server.address();

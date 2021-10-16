@@ -1,22 +1,19 @@
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
 
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var session = require("express-session");
-var indexRouter = require("./routes/index");
-var adminRouter = require("./routes/beAdmin");
-var serieRouter = require("./routes/series");
-var cloneRouter = require("./routes/clone");
-
-var app = express();
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const session = require("express-session");
+const indexRouter = require("./routes/index");
+const adminRouter = require("./routes/beAdmin");
+const serieRouter = require("./routes/series");
+const app = express();
 
 const requestIp = require("request-ip");
 const compression = require("compression");
 
-var MemoryStore = require("memorystore")(session);
+const MemoryStore = require("memorystore")(session);
 
 app.set("trust proxy", 1); // trust first proxy
 app.use(
@@ -47,7 +44,6 @@ app.use("/phim-bo", serieRouter);
 app.use("/be-admin", adminRouter);
 
 // app.use("/create-movies", createRouter);
-app.use("/clone", cloneRouter);
 
 app.get("/events", function (req, res) {
   res.setHeader("Content-Type", "text/event-stream");
@@ -91,12 +87,11 @@ app.use(function (err, req, res, next) {
   res.render("error", { title: "KisMovie - 404", movie: null });
 });
 
-//Khoi tao danh sach quoc gia
 const common = require("./src/common");
-var run_database = common.initDb();
+const run_database = common.initDb();
 
-var region = common.initRegion();
-var catagory = common.initCategory();
+const region = common.initRegion();
+const catagory = common.initCategory();
 
 
 Promise.all([region, catagory, run_database]);

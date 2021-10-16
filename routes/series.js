@@ -1,11 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const hostClone = require("../src/config/hostClone");
+
 const config = require("../src/config");
 const MovieSerieModel = require("../src/db/model/MovieSerie");
 const MovieModel = require("../src/db/model/Movie");
 const RegionModel = require("../src/db/schema/RegionSchema");
-const striptags = require("striptags");
 //Phan trang phim bo
 router.get("/page/:currentPage", async (req, res, next) => {
   const {
@@ -50,7 +49,6 @@ router.get("/phim/:slug", async (req, res) => {
     title: "KiMovies - " + infoMovie.title,
     movie: infoMovie,
     menu: menu,
-    striptags: striptags,
   });
 });
 

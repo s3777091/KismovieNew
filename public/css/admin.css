@@ -1,32 +1,5 @@
-/*----------------------------------------
-[Master Stylesheet]
 
 
-----------------------------------------*/
-/*----------------------------------------
-[Table of contents]
-
-1. Header
-2. Sidebar
-3. Main
-4. Stats
-5. Dashbox
-6. Filter
-7. Paginator
-8. Form
-9. Profile
-10. Comments
-11. Reviews
-12. Sign
-13. Page 404
-14. Modal
-15. select2 customization
-16. mCustomScrollbar customization
-
-----------------------------------------*/
-/*==============================
-	Fonts
-==============================*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Ubuntu:wght@300;400;500;700&display=swap");
 
 /*==============================

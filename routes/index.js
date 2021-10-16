@@ -19,15 +19,18 @@ router.get("/", async (req, res, next) => {
     config.itemPerPage,
     0
   );
+
+  const topMv = MovieModel.getTopMovie(config.itemPerPage);
   const phimhoathinh = MovieModel.findMovieByCategory("phim-hoat-hinh", config.itemPerPage);
   const seriaMovies = MovieSerieModel.getTopListSerieMovie(config.itemPerPage);
   const menu = MovieModel.getMenu();
 
-  let [resHotMV, resSeriaMV, reshoathinh, resMenu] = await Promise.all([
+  let [resHotMV, resSeriaMV, reshoathinh, resMenu, restop] = await Promise.all([
     hotMovies,
     seriaMovies,
     phimhoathinh,
     menu,
+    topMv
   ]);
 
   res.render("index", {
@@ -37,6 +40,7 @@ router.get("/", async (req, res, next) => {
     hoathinh: reshoathinh,
     movie: null,
     menu: resMenu,
+    top: restop
   });
 });
 
@@ -75,9 +79,6 @@ router.get("/phim/:slug/xem-phim", async (req, res, next) => {
     config.itemPerPage
   );
   console.log(resMV.resources);
-
-
-
   res.render("play", {
     title: "kisMovies - " + resMV.title,
     movie: resMV,

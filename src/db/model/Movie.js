@@ -29,6 +29,7 @@ const getListLinkByCloneFrom = async (cloneFrom) => {
 const getTopMovie = async (top) => {
   return await Movies.find({
     group: null,
+    trial: { $ne: "null" },
   })
     .sort([["createdAt", -1]])
     .limit(top)

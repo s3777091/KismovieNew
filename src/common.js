@@ -8,7 +8,6 @@ const initDb = () => {
     .connect(dbConfig.DB_CONNECTION_DEV, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-      useFindAndModify: false,
     })
     .then(() => {
       console.log("Kết nối thành công database....");

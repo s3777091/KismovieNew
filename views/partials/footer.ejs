@@ -1,4 +1,3 @@
-<!-- footer -->
 <footer class="footer">
     <div class="container">
         <div>
@@ -26,14 +25,10 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script src="/js/jquery-3.5.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/jquery.mousewheel.min.js"></script>
-<script src="/js/jquery.mCustomScrollbar.min.js"></script>
-<script src="/js/select2.min.js"></script>
-<script src="/js/plyr.min.js"></script>
-<script src="/js/jquery.morelines.min.js"></script>
+
 <script>
     let year = (new Date()).getFullYear();
     $('#currentYear').text(year)
@@ -114,13 +109,11 @@
                     for (let i = 0; i < result.length; i++) {
                         this.resultSearch.push(result[i]);
                     }
-
                 } catch (error) {
                     console.log(error.message);
                     this.resultSearch = [];
                     this.hasResultSearch = false;
                 }
-
             },
         },
         created: async function () {},

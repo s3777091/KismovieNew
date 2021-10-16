@@ -4,7 +4,6 @@ const common = require("./common");
 const MovieModel = require("./db/model/Movie");
 const hostClone = require("./config/hostClone");
 const config = require("./config");
-// const { getListMovies } = require("./db/firebaseDb");
 const { removeVI } = require("jsrmvi");
 const { httpGet } = require("./common");
 const fs = require("fs");
