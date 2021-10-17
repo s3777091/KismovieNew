@@ -1,17 +1,22 @@
 <!-- details -->
 <section id="section-video">
-    <!-- details background -->
-    <!-- end details background -->
-    <!-- details content -->
     <div class="container">
         <div class="row">
-            <!-- content -->
-            <div class="iframe__display">
-                <!-- player -->
-                <div id="player"></div>
-                <!-- end player -->
-                <iframe id="iframePlayer" allowfullscreen="allowfullscreen" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-            </div>
+
+            <span style="padding-top: 100px;">
+                quảng cáo
+            </span>
+            <div class="container_iframe">
+                <iframe
+                  class="responsive-iframe"
+                  frameborder="0"
+                  scrolling="no"
+                  src="<%- movie.resources[0][0].file %>"
+                  allowfullscreen
+                  title="<%-movie.title%>"
+                ></iframe>
+              </div>
+
             <div class="col-12">
                 <ul class="parts-movie">
                     <% parts.forEach((part, index) => { %>

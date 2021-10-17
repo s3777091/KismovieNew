@@ -114,6 +114,7 @@ const findMovieByName = async (name, limit, skip) => {
     title: new RegExp(name, "i"),
     trial: { $ne: "null" },
   })
+    .populate({ path: "movie_part_series", select: ["slug"] })
     .limit(limit)
     .skip(skip)
     .maxTimeMS(100);

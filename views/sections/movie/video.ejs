@@ -1,48 +1,24 @@
 <!-- details -->
 <section id="section-video">
-    <div class="container">
-        <div class="row">
-            <!-- content -->
-           
-            <div class="iframe__display">
-                <div id="player"></div>
-                <!-- end player -->
-                <iframe id="iframePlayer" allowfullscreen="allowfullscreen" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-            </div>
-            <div class="col-12">
-                <!-- title -->
-                <h3 class="home__title mb-2"><%-movie.title%></h3>
-                <!-- end title -->
-            </div>
+  <div class="container">
+    <div class="row">
+        <span style="padding-top: 100px;">
+            quảng cáo
+        </span>
+      <div class="container_iframe">
+        <iframe
+          class="responsive-iframe"
+          frameborder="0"
+          scrolling="no"
+          src="<%-movie.resources%>"
+          allowfullscreen
+          title="<%-movie.title%>"
+        ></iframe>
+      </div>
 
-            
-            <!-- end content -->
-            <div class="col-12">
-                <div class="option-mv d-flex justify-content-between align-items-center mt-4">
-                    <div id="servers" class="d-flex">
-                        <button type="button" v-for="(server, index) in sources" key="index" class="btn btn-outline-danger btn-sm align-items-center d-flex mr-3 px-3 px-sm-4 py-0" :class="{active: activeServer == index}"
-                            @click="changeServer(index)">
-                            <i data-feather="server" class="pr-2"></i> {{index+1}}
-                        </button>
-                        <a type="" class="btn btn-outline-danger px-3 px-sm-4" :href="fileMV"  target="_blank" download="<%-movie.title%>" @click="updateOption('downloads')">
-                            <i data-feather="download-cloud" class="pr-1"></i>{{downloads.toLocaleString('vi')}} 
-                        </a>
-                    </div>
-                    <div id="views" class="d-flex">
-                        <button class="nb-likes text-white" @click="updateOption('likes')">
-                            <i data-feather="heart" class="pr-2 text-danger"></i> <p class="p__darkmode"> {{likes.toLocaleString('vi')}} <p>
-                        </button>
-                        <button class="nb-views text-white mx-3">
-                            <i data-feather="eye" class="pr-2"></i>  <p class="p__darkmode">{{views.toLocaleString('vi')}}<p>
-                        </button>
-                        <button class="nb-views text-white" id="btn-sharefb" @click="shareFb" data-toggle="tooltip" data-placement="bottom" title="Chia sẻ facebook">
-                            <i data-feather="share-2" class="pr-2 text-primary"></i> <p class="p__darkmode"> {{shares.toLocaleString('vi')}} <p>
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+      <div class="col-12">
+        <h3 class="home__title mb-2"><%-movie.title%></h3>
+      </div>
     </div>
+  </div>
 </section>
-<!-- end details -->

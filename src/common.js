@@ -1,11 +1,13 @@
 const hostClone = require("./config/hostClone");
 const axios = require("axios");
 const { removeVI } = require("jsrmvi");
+
+
 const initDb = () => {
-  const dbConfig = require("./config/db.json");
+  require('dotenv').config()
   const mongoose = require("mongoose");
   mongoose
-    .connect(dbConfig.DB_CONNECTION_DEV, {
+    .connect(process.env.MONGODB, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     })

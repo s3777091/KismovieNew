@@ -6,6 +6,9 @@
   <title><%-movie.title%></title>
 </head>
 
+
+<section class="section py-4">
+
 <div class="container">
 
   <div class="row">
@@ -24,7 +27,7 @@
         <span class="blog-slider__code">Thông tin phim: </span>
         <div class="blog-slider__title"><%-movie.title%></div>
         <div class="blog-slider__text">
-          <%-movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,450)+'...'%>
+          <%-movie.description.replace(/<\/?[^>]+(>|$)/g, "").trim().substr(0,200)+'...'%>
         </div>
         <a href="/phim/<%-movie.slug%>/xem-phim" class="blog-slider__button">Xem Phim</a>
       </div>
@@ -87,21 +90,32 @@
 
 
 </div>
+</section>
  
 </div>
 
-<div class="col-12">
-  <span class="fast-flicker home__title mb-2">Trailer</span>
-  <span class="flicker home__title mb-2">Phim</span>
-  
-</div>
-<iframe
+
+<section class="section py-4">
+  <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <span class="fast-flicker home__title mb-2">Trailer</span>
+          <span class="flicker home__title mb-2">Phim</span>  
+        </div>
+        
+        <iframe
         id="player"
         type="text/html"
         class="trial-video"
         src=""
         frameborder="0"
-      ></iframe>
+></iframe>
+
+      </div>
+  </div>
+  </section>
+
+
 
 <section class="section py-4">
   <div class="container">
