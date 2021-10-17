@@ -23,7 +23,6 @@ app.register(require("point-of-view"), {
 });
 app.register(require("fastify-static"), {
   root: path.join(__dirname, "public"),
-  prefix: "/public/",
 });
 
 app.register(appchinh);
