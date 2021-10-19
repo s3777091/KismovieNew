@@ -1,34 +1,68 @@
+const createError = require("http-errors");
+const express = require("express");
 const path = require("path");
-const fastifyCookie = require("fastify-cookie");
-require('dotenv').config()
-const fastify = require("fastify");
-const app = fastify();
+
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const session = require("express-session");
+const indexRouter = require("./routes/index");
+
+const serieRouter = require("./routes/series");
+const app = express();
+
+const requestIp = require("request-ip");
 const compression = require("compression");
-const phimbo = require("./routes/series");
-const appchinh = require("./routes/index");
 
-const common = require("./src/common");
-const run_database = common.initDb();
-const region = common.initRegion();
-const catagory = common.initCategory();
+const MemoryStore = require("memorystore")(session);
 
-Promise.all([region, catagory, run_database]);
+app.set("trust proxy", 1); // trust first proxy
+app.use(
+  session({
+    secret: "KiMovie-Session",
+    resave: false,
+    store: new MemoryStore({
+      checkPeriod: 86400, // prune expired entries every 24h
+    }),
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
 
-app.register(fastifyCookie);
-app.register(require("point-of-view"), {
-  engine: {
-    ejs: require("ejs"),
-  },
-  root: path.join(__dirname, "views"),
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(requestIp.mw());
+
+app.use("/", indexRouter);
+app.use("/phim-bo", serieRouter);
+
+// app.use("/create-movies", createRouter);
+
+app.get("/events", function (req, res) {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+
+  // send a ping approx every 2 seconds
+  var timer = setInterval(function () {
+    res.write("data: ping\n\n");
+
+    // !!! this is the important part
+    res.flush();
+  }, 2000);
+
+  res.on("close", function () {
+    clearInterval(timer);
+  });
 });
-app.register(require("fastify-static"), {
-  root: path.join(__dirname, "public"),
-});
 
-app.register(appchinh);
-app.register(phimbo);
-
-app.register(
+app.use(
   compression({
     level: 1,
     filter: (req, res) => {
@@ -39,44 +73,27 @@ app.register(
     },
   })
 );
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error", { title: "KisMovie - 404", movie: null });
+});
 
-const start = async () => {
-  try {
-    await app.listen(process.env.PORT);
-  } catch (error) {
-    app.log.error(error);
-    process.exit(1);
-  }
-};
+const common = require("./src/common");
+const run_database = common.initDb();
 
-const cluster = require("cluster"),
-  os = require("os");
+const region = common.initRegion();
+const catagory = common.initCategory();
 
-if (cluster.isMaster) {
-  const cpus = os.cpus().length;
 
-  console.log(`Taking advantage of ${cpus} CPUs`);
-  for (let i = 0; i < cpus; i++) {
-    cluster.fork();
-  }
-  // set console's directory so we can see output from workers
-  console.dir(cluster.workers, { depth: 0 });
+Promise.all([region, catagory, run_database]);
 
-  process.stdin.on("data", (data) => {
-    initControlCommands(data);
-  });
-
-  cluster.on("exit", (worker, code) => {
-    if (code !== 0 && !worker.exitedAfterDisconnect) {
-      console.log(
-        `\x1b[34mWorker ${worker.process.pid} crashed.\nStarting a new worker...\n\x1b[0m`
-      );
-      const nw = cluster.fork();
-      console.log(`\x1b[32mWorker ${nw.process.pid} will replace him \x1b[0m`);
-    }
-  });
-
-  console.log(`Master PID: ${process.pid}`);
-} else {
-  start();
-}
+module.exports = app;

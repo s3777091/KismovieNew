@@ -1,4 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/0dc0a12b-82c4-4075-bfbd-8c848b988296/resourceGroups/kismovie/providers/Microsoft.Web/sites/kismovie",
+    "appService.defaultWebAppToDeploy": "None",
     "appService.deploySubpath": "."
 }

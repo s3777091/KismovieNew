@@ -1,15 +1,4 @@
-﻿/*!
-  Ionicons, v4.3.0
-  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
-  https://twitter.com/benjsperry  https://twitter.com/ionicframework
-  MIT License: https://github.com/driftyco/ionicons
-
-  Android-style icons originally built by Google’s
-  Material Design Icons: https://github.com/google/material-design-icons
-  used under CC BY http://creativecommons.org/licenses/by/4.0/
-  Modified icons to fit ionicon’s grid from original.
-*/
-@font-face {
+﻿@font-face {
   font-family: "Ionicons";
   src: url("../fonts/ioniconse0a5.eot?v=4.3.0");
   src: url("../fonts/ioniconse0a5.eot?v=4.3.0#iefix") format("embedded-opentype"), url("../fonts/ioniconse0a5.woff2?v=4.3.0") format("woff2"), url("../fonts/ioniconse0a5.woff?v=4.3.0") format("woff"), url("../fonts/ioniconse0a5.ttf?v=4.3.0") format("truetype"), url("../fonts/ioniconse0a5.svg?v=4.3.0#Ionicons") format("svg");
