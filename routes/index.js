@@ -1,15 +1,12 @@
 var express = require("express");
 var router = express.Router();
 
-const clonePhim4400 = require("../src/clonePhim4400");
-const hostClone = require("../src/config/hostClone");
 const MovieSerieModel = require("../src/db/model/MovieSerie");
 const MovieModel = require("../src/db/model/Movie");
 const MovieOptionModel = require("../src/db/model/MovieOption");
 const RegionModel = require("../src/db/schema/RegionSchema");
 
 const config = require("../src/config");
-const common = require("../src/common");
 
 //Page trang chu
 router.get("/", async (req, res, next) => {
@@ -20,11 +17,14 @@ router.get("/", async (req, res, next) => {
     0
   );
 
-  const phimhoathinh = MovieModel.findMovieByCategory("phim-hoat-hinh", config.itemPerPage);
+  const phimhoathinh = MovieModel.findMovieByCategory(
+    "phim-hoat-hinh",
+    config.itemPerPage
+  );
   const seriaMovies = MovieSerieModel.getTopListSerieMovie(config.itemPerPage);
   const menu = MovieModel.getMenu();
 
-  let [resHotMV, resSeriaMV, reshoathinh, resMenu ] = await Promise.all([
+  let [resHotMV, resSeriaMV, reshoathinh, resMenu] = await Promise.all([
     hotMovies,
     seriaMovies,
     phimhoathinh,
@@ -68,6 +68,7 @@ router.get("/phim/:slug", async (req, res, next) => {
 router.get("/phim/:slug/xem-phim", async (req, res, next) => {
   const { slug } = req.params;
   const movie = MovieModel.findMovieBySlug(slug);
+
   const menu = MovieModel.getMenu();
   let [resMV, resMenu] = await Promise.all([movie, menu]);
   const movieRelated = await MovieModel.getListMovieRelated(
@@ -110,16 +111,7 @@ router.get("/the-loai/:category/page/:currentPage", async (req, res) => {
   );
 
   if (category == "phim-18") {
-    res.render("18", {
-      title: "KiSMovie - Thể loại",
-      listMovies: listMovies,
-      movie: null,
-      totalPage: totalPage,
-      currentPage: currentPage,
-      isShowPaging: itemPerPage < totalMovies,
-      parentLink: `/the-loai/${category}`,
-      menu: menu,
-    });
+    res.redirect(`/phim-18/page/${currentPage}`);
   } else {
     res.render("list", {
       title: "KiSMovie - Thể loại " + category,
@@ -161,7 +153,7 @@ router.get("/quoc-gia/:region/page/:currentPage", async (req, res) => {
   );
 
   if (region == "phim-nguoi-lon") {
-    res.redirect("/the-loai/phim-18/page/1");
+    res.redirect(`/phim-18/page/${currentPage}`);
   }
   res.render("region", {
     title: "KiSMovie - Quốc gia " + resRegion.region,
@@ -226,63 +218,6 @@ router.get("/api/search/phim-bo/:name", async (req, res) => {
   });
 });
 
-//API Lay source play video cua phim
-router.post("/api/resource/", async (req, res) => {
-  const { slug } = req.body;
-  let movie = await MovieModel.findMovieBySlug(slug);
-  let listResource = [];
-  if (movie.cloneFrom == hostClone.PHIM4400) {
-    //get link
-    let resources = movie.resources;
-    console.log({
-      resources,
-    });
-    //Get resource from fembed
-    let hxfileLink = resources.find((s) => s.includes("hxfile"));
-    let hxfile = null;
-
-    if (hxfileLink) {
-      hxfile = await clonePhim4400.getResourceHxFile(hxfileLink);
-    }
-    let results = [
-      [
-        {
-          file: "1",
-        },
-      ],
-      hxfile,
-    ];
-    try {
-      results.map((res) => {
-        if (res) {
-          listResource.push(res);
-        }
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  } else if (movie.cloneFrom == hostClone.FULFIM) {
-    let resources = movie.resources;
-    let streamSource = resources.find((s) => s[0].file.includes("ok.ru"));
-    if (streamSource) {
-      listResource = resources;
-    }
-  } else if (movie.cloneFrom == hostClone.XUONG_PHIM) {
-    let resources = movie.resources;
-    let id = resources[0].file;
-    console.log({
-      id,
-    });
-    try {
-      listResource = await common.getSourcesXuongPhim(id);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  return res.json({
-    resources: listResource,
-  });
-});
 
 //API Cap nhat thong tin phim
 router.post("/api/movie/update", async (req, res) => {
@@ -295,5 +230,4 @@ router.post("/api/movie/update", async (req, res) => {
     });
   }
 });
-
 module.exports = router;

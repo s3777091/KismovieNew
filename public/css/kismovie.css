@@ -304,8 +304,7 @@ a.header__logo {
 }
 
 a.header__logo .text-red {
-  color: #FF0059;
-  
+  color: #ff0059;
 }
 
 .title__color {
@@ -5972,25 +5971,16 @@ ul.parts-movie li.active {
   height: 250px;
 }
 
-
 .neon {
   color: #fff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #fff,
-    0 0 40px #0ff,
-    0 0 80px #0ff,
-    0 0 90px #0ff,
-    0 0 100px #0ff,
-    0 0 150px #0ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
 }
 
 @font-face {
   font-family: Clip;
   src: url("https://acupoftee.github.io/fonts/Clip.ttf");
 }
-
 
 .sign {
   position: absolute;
@@ -6187,46 +6177,51 @@ ul.parts-movie li.active {
   }
 }
 
-
-.banner_title_frozen{
+.banner_title_frozen {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/6963bbf342d87b3a2150bd8f59682b89.jpg);
-  	-webkit-background-clip: text;
-	background-size: contain;
-	width: 100%;
-	color: transparent;
+  -webkit-background-clip: text;
+  background-size: contain;
+  width: 100%;
+  color: transparent;
   font-size: 7vw;
-	font-weight: 900;
-  font-family: 'frozen', serif;
+  font-weight: 900;
+  font-family: "frozen", serif;
 }
 
-.banner_title_frozen::before{
+.banner_title_frozen::before {
   content: attr(data-heading);
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		background: linear-gradient(45deg, rgba(255,255,255,0) 45%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 55%,rgba(255,255,255,0) 100%);
-		-webkit-background-clip: text;
-		color: transparent;
-		mix-blend-mode: screen;
-		animation: shine 1s infinite;
-		background-size: 200%;
-		text-shadow: 
-			2px 2px 10px rgba(#000, 0.2),
-			-2px 2px 10px rgba(#000, 0.2),
-			-2px -2px 10px rgba(#000, 0.2);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  mix-blend-mode: screen;
+  animation: shine 1s infinite;
+  background-size: 200%;
+  text-shadow: 2px 2px 10px rgba(#000, 0.2), -2px 2px 10px rgba(#000, 0.2),
+    -2px -2px 10px rgba(#000, 0.2);
 }
 
 @keyframes shine {
-	0% {background-position: -100%;}
-	100% {background-position: 100%;}
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
 }
 
-
-
 @font-face {
-	font-family:'frozen'; 
-	src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Ice%20kingdom%20-%20Bold%20-%20Por%20Kustren.woff');
+  font-family: "frozen";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Ice%20kingdom%20-%20Bold%20-%20Por%20Kustren.woff");
 }
 
 * {
@@ -6493,7 +6488,7 @@ ul.parts-movie li.active {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%;  
+  padding-top: 56.25%;
 }
 
 /* Then style the iframe to fit in the container div with full height and width */

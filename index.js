@@ -7,7 +7,9 @@ const logger = require("morgan");
 const session = require("express-session");
 const indexRouter = require("./routes/index");
 
+const phim18tuoi = require("./routes/18");
 const serieRouter = require("./routes/series");
+
 const app = express();
 
 const requestIp = require("request-ip");
@@ -42,6 +44,8 @@ app.use(requestIp.mw());
 
 app.use("/", indexRouter);
 app.use("/phim-bo", serieRouter);
+
+app.use("/phim-18", phim18tuoi);
 
 // app.use("/create-movies", createRouter);
 
@@ -92,7 +96,6 @@ const run_database = common.initDb();
 
 const region = common.initRegion();
 const catagory = common.initCategory();
-
 
 Promise.all([region, catagory, run_database]);
 
